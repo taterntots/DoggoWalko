@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1460790369
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2106719432700895690, guid: 538f2460ae16c314c8c32104da22288d,
     type: 2}
@@ -168,6 +168,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lessLeash: 0
   moreLeash: 0
+  audioSource: {fileID: 0}
+  goodSound: {fileID: 0}
+  badSound: {fileID: 0}
+  goodSoundVolume: 0
+  badSoundVolume: 0
 --- !u!114 &7780683732784468990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,8 +281,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1460790369
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -8076721788481483094, guid: 59d0fec537d35a34e92615a90d53a806,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
