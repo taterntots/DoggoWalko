@@ -21,10 +21,10 @@ public class GameOver : MonoBehaviour
         GameObject.Find("MainCamera").GetComponent<MoveCamera>().cameraSpeed = 0;
         //Stops the obstacle launcher from spawning anything
         GameObject.FindWithTag("ObstacleSpawner").SetActive(false);
-        //Stops the Timer
+        //Stops the Timer (simply hides it. technically it is still counting)
         Timer.timer = false;
         //Destroys all gameObjects tagged as "Bad"
-        Destroy(GameObject.FindWithTag("Bad"));
+        Destroy(GameObject.FindWithTag("Bad")); //Currently does not work
         //Pulls up the Game Over Screen with stats and restart button
         gameOverCanvas.SetActive(true);
 
