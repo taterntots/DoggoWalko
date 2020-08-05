@@ -21,15 +21,8 @@ public class Pause : MonoBehaviour
         //uses the P button to pause and unpause the game
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Time.timeScale = 1;
+            Time.timeScale = 0;
             showPaused();
-        }
-
-        else if (Time.timeScale == 0)
-        {
-            Debug.Log("high");
-            Time.timeScale = 1;
-            hidePaused();
         }
     }
 
@@ -76,7 +69,7 @@ public class Pause : MonoBehaviour
         }
     }
 
-    //loads inputted level (probably unneeded code)
+    //Brings player back to the main menu (or any scene, really. Depends what scene you drop in)
     public void LoadLevel(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
