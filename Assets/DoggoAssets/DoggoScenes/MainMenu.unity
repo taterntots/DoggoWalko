@@ -675,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PressEnter_Text: {fileID: 183721632}
+  textBlink: 1
 --- !u!114 &462426911
 MonoBehaviour:
   m_ObjectHideFlags: 0

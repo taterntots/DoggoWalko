@@ -19,28 +19,31 @@ public class LevelSpawner : MonoBehaviour
     void Start()
     {
         timerRef = GameObject.FindWithTag("GameController").GetComponent<Timer>();
+        // Set our walkingDog bool back to true, otherwise the level spawner won't work when restarting after gameover
+        DoggoBehavior.walkingDog = true;
+        // Calls the function to procedurally generate houses
         StartCoroutine("LevelSpawn");
 
     }
 
     IEnumerator LevelSpawn()
     {
-        //As long as the dog is alive, the level will continue to spawn terrain. Once the dog is dead, spawning should cease
+        // As long as the dog has more positive than negative actions, the level will continue to spawn terrain. Once a gameover has been reached, spawning should cease
         while (DoggoBehavior.walkingDog == true)
         {
-            //the interval of time between building spawns
+            // The interval of time between building spawns
             yield return new WaitForSeconds(spawnTime);
-            //chooses a random building from the building array
+            // Chooses a random building from the building array
             Instantiate(randomBuilding(), new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
             spawnCount++;
-            //repositions six units on the z for the next spawn
+            // Repositions six units on the z for the next spawn
             zScenePos += 6;
         }
     }
 
     void Update()
     {
-        //plops a yellow house (home) after a determined number of randombuilding spawns
+        // Plops a yellow house (home) after a determined number of randombuilding spawns
         if (spawnCount == homeSpawn && spawnHome == false)
         {
             StopCoroutine("LevelSpawn");
@@ -58,7 +61,7 @@ public class LevelSpawner : MonoBehaviour
         }
     }
 
-    //randomizes the building chosen between all prefabs in the array
+    // Randomizes the building chosen between all prefabs in the array
     private GameObject randomBuilding()
     {
         return buildings[Random.Range(0, buildings.GetLength(0))];

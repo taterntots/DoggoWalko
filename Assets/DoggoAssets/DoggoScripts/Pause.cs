@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     private GameObject[] pauseObjects;
+    public GameObject pauseCanvas;
 
     void Start()
     {
         //Needed for the Pause Menu to work
+        pauseCanvas.SetActive(true);
         Time.timeScale = 1;
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
         hidePaused();
@@ -73,5 +75,6 @@ public class Pause : MonoBehaviour
     public void LoadLevel(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
+        Time.timeScale = 1;
     }
 }
