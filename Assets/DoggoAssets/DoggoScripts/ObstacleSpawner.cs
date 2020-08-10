@@ -8,27 +8,28 @@ public class ObstacleSpawner : MonoBehaviour
     //public GameObject spawnObject;
     public GameObject[] spawnObjects;
 
-    public float maxTime = 15;
-    public float minTime = 3;
+    public float maxTime;
+    public float minTime;
 
     //current time
-    private float time;
+    private float timer;
     //The time to spawn the object
     private float spawnTime;
 
     void Start()
     {
+        //At the start of game, sets a random time between our max and min, and resets our timer to zero
         SetRandomTime();
-        time = minTime;
+        timer = 0;
     }
 
     void FixedUpdate()
     {
-        //Counts up
-        time += Time.deltaTime;
+        //Counts up starting from zero
+        timer += Time.deltaTime;
 
         //Check if it's the right time to spawn the object
-        if (time >= spawnTime)
+        if (timer >= spawnTime)
         {
             SpawnObject();
             SetRandomTime();
@@ -38,9 +39,10 @@ public class ObstacleSpawner : MonoBehaviour
     //Spawns the object and resets the time
     void SpawnObject()
     {
-        time = minTime;
         //Instantiate(spawnObject, transform.position, spawnObject.transform.rotation);
         Instantiate(randomObjects(), transform.position, randomObjects().transform.rotation);
+        //Reset our timer back to zero
+        timer = 0;
     }
 
     //Sets the random time between minTime and maxTime

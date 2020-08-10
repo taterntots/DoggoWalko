@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody doggoRb;
     private SpriteRenderer mySpriteRenderer;
     public float doggoSpeed;
-    public float doggoAutoSpeed = 1;
+    public float doggoAutoSpeed = 1.25f;
 
     //public float flipRate;
 
@@ -64,5 +64,6 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             //mySpriteRenderer.flipX = true;
         }
+        
     }
 }

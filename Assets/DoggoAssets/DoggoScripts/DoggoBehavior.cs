@@ -7,6 +7,8 @@ public class DoggoBehavior : MonoBehaviour
     private GameOver gameOverRef;
     private LevelSpawner levelSpawnerRef;
     private MoveCamera moveCameraRef;
+    private PlayerMovement playerMovementRef;
+    private ObstacleSpawner obstacleSpawnerRef;
 
     public static bool walkingDog = true;
 
@@ -33,6 +35,11 @@ public class DoggoBehavior : MonoBehaviour
         levelSpawnerRef = GameObject.FindWithTag("GameController").GetComponent<LevelSpawner>();
         //Grabs reference to the MoveCamera script
         moveCameraRef = GameObject.FindWithTag("MainCamera").GetComponent<MoveCamera>();
+        //Grabs reference to the PlayerMovement script
+        playerMovementRef = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        //Grabs reference to the ObstacleSpawner script
+        obstacleSpawnerRef = GameObject.FindWithTag("ObstacleSpawner").GetComponent<ObstacleSpawner>();
+
         //Keeps the "good" and "bad boi" animations from triggering at game start (essentially hides them)
         WalkerTextOff();
         Debug.Log(levelSpawnerRef.spawnTime);
@@ -89,11 +96,33 @@ public class DoggoBehavior : MonoBehaviour
         {
             gameOverRef.EndGame();
         }
-        //Continues the game when reaching home as a good boi, increasing the walking speed and spawn rate of buildings
+        //Continues the game when reaching home as a good boi, increasing difficulty
         else if (other.gameObject.tag == "Checkpoint" && ScoreHolder.badBoiPoints <= ScoreHolder.goodBoiPoints)
         {
-            levelSpawnerRef.spawnTime--;
-            moveCameraRef.cameraSpeed++;
+            //Max out camera speed at 8
+            if (moveCameraRef.cameraSpeed < 8)
+            {
+                //Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed += 0.5f;
+                //Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed += 0.5f;
+            }
+            //Makes enemies spawn more frequently, maxing out the spawn time between 0.4 and 1 second
+            if (obstacleSpawnerRef.minTime > 0.4f)
+            {
+                obstacleSpawnerRef.minTime -= 0.2f;
+            }
+            if (obstacleSpawnerRef.maxTime > 1.0f)
+            {
+                obstacleSpawnerRef.maxTime -= 0.2f;
+            }
+            if (levelSpawnerRef.spawnTime > 0.5f)
+            {
+                //Makes buildings spawn a bit faster
+                levelSpawnerRef.spawnTime -= 0.5f;
+            }
+            //Destroys the checkpoint so you can't accidentally trigger more than once
+            Destroy(other.gameObject);
         }
     }
 

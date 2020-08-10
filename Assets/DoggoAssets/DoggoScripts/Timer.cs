@@ -11,6 +11,12 @@ public class Timer : MonoBehaviour
 
     public static bool timer = true;
 
+    void Start()
+    {
+        //Makes sure the game always starts with the timer showing after a gameover
+        timer = true;
+    }
+
     void Update()
     {
         if (timer == true)
