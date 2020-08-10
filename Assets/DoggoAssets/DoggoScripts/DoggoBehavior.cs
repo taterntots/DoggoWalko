@@ -5,6 +5,8 @@ using UnityEngine;
 public class DoggoBehavior : MonoBehaviour
 {
     private GameOver gameOverRef;
+    private LevelSpawner levelSpawnerRef;
+    private MoveCamera moveCameraRef;
 
     public static bool walkingDog = true;
 
@@ -27,8 +29,13 @@ public class DoggoBehavior : MonoBehaviour
     {
         //Grabs reference to the GameOver script
         gameOverRef = GameObject.FindWithTag("GameController").GetComponent<GameOver>();
+        //Grabs reference to the LevelSpawner script
+        levelSpawnerRef = GameObject.FindWithTag("GameController").GetComponent<LevelSpawner>();
+        //Grabs reference to the MoveCamera script
+        moveCameraRef = GameObject.FindWithTag("MainCamera").GetComponent<MoveCamera>();
         //Keeps the "good" and "bad boi" animations from triggering at game start (essentially hides them)
         WalkerTextOff();
+        Debug.Log(levelSpawnerRef.spawnTime);
     }
 
   void OnCollisionEnter(Collision other)
@@ -81,6 +88,12 @@ public class DoggoBehavior : MonoBehaviour
         if (other.gameObject.tag == "Checkpoint" && ScoreHolder.badBoiPoints > ScoreHolder.goodBoiPoints)
         {
             gameOverRef.EndGame();
+        }
+        //Continues the game when reaching home as a good boi, increasing the walking speed and spawn rate of buildings
+        else if (other.gameObject.tag == "Checkpoint" && ScoreHolder.badBoiPoints <= ScoreHolder.goodBoiPoints)
+        {
+            levelSpawnerRef.spawnTime--;
+            moveCameraRef.cameraSpeed++;
         }
     }
 
