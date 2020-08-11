@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody doggoRb;
     private SpriteRenderer mySpriteRenderer;
     public float doggoSpeed;
-    public float doggoAutoSpeed = 1.25f;
+    public float doggoAutoSpeed = 1.0f;
 
     //public float flipRate;
 
@@ -39,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
     void ControlDoggo()
     {
         //Moves the doggo at a constant pace alongside the camera (currently breaks leash physics)
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, doggoAutoSpeed);
+        //GetComponent<Rigidbody>().velocity = new Vector3(0, 0, doggoAutoSpeed);
+        transform.Translate(Vector3.forward * doggoAutoSpeed * Time.fixedDeltaTime, Space.Self);
 
         //Controls for moving the dog
         if (Input.GetKey(KeyCode.W))
@@ -64,6 +65,5 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             //mySpriteRenderer.flipX = true;
         }
-        
     }
 }

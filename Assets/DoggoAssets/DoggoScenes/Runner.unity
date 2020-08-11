@@ -3753,7 +3753,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2448076452060867738, guid: 538f2460ae16c314c8c32104da22288d,
+      objectReference: {fileID: -2106719432700895690, guid: 538f2460ae16c314c8c32104da22288d,
         type: 2}
     - target: {fileID: 7780683732784468984, guid: c9d2571d57d65e445892e80e900c8e54,
         type: 3}
@@ -3778,7 +3778,12 @@ PrefabInstance:
     - target: {fileID: 7780683732784468990, guid: c9d2571d57d65e445892e80e900c8e54,
         type: 3}
       propertyPath: doggoAutoSpeed
-      value: 1.25
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780683732784468990, guid: c9d2571d57d65e445892e80e900c8e54,
+        type: 3}
+      propertyPath: jumpForce
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7780683732784468986, guid: c9d2571d57d65e445892e80e900c8e54,
         type: 3}
