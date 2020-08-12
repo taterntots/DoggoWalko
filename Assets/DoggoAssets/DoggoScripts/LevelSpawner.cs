@@ -6,13 +6,16 @@ public class LevelSpawner : MonoBehaviour
 {
     public GameObject[] buildings;
     public GameObject home;
+    public GameObject fireHydrant;
 
     private Timer timerRef;
     private bool spawnHome = false;
     private int spawnCount;
+    private GameObject currentSpawn;
     public int homeSpawn;
 
     public float spawnTime;
+    private float zHydrant;
     private float zScenePos = 28.378f;
 
     // Start is called before the first frame update
@@ -33,10 +36,22 @@ public class LevelSpawner : MonoBehaviour
         {
             // The interval of time between building spawns
             yield return new WaitForSeconds(spawnTime);
+            // Queue up the next random building to be spawned
+            currentSpawn = randomBuilding();
             // Chooses a random building from the building array
-            Instantiate(randomBuilding(), new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
+            Instantiate(currentSpawn, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
+            
+            // If the house being spawned is red
+            if (currentSpawn == buildings[2])
+            {
+                // Drop a fire hydrant randomly on the Z axis by the edge of the sidewalk
+                zHydrant = Random.Range(zScenePos - 2.5f, zScenePos + 2.5f);
+                Instantiate(fireHydrant, new Vector3(-0.864f, 0.908f, zHydrant), transform.rotation);
+            }
+
+            // Increase the count of buildings spawned so we can keep track of when to drop the doggo home later
             spawnCount++;
-            // Repositions six units on the z for the next spawn
+            // Repositions six units on the z for the next building spawn
             zScenePos += 6;
         }
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    //public Vector3 jump;
     public float jumpForce = 2.0f;
     public bool isGrounded;
 
@@ -15,9 +14,11 @@ public class Jump : MonoBehaviour
 
     void Awake()
     {
+        // Assigns the rigidbod component to a variable
         doggoRb = GetComponent<Rigidbody>();
     }
 
+    // Keeps grounded true when on the ground (for jumping)
     void OnCollisionStay(Collision collision)
     {
         isGrounded = true;
@@ -26,17 +27,14 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        //{
-        //doggoRb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        //isGrounded = false;
-        //}
+        // Applies force to our jumps when pressing the spacebar
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpForce;
            
         }
 
+        // Controls fall speed, making our jumps more fluid feeling
         if (doggoRb.velocity.y < 0)
         {
             doggoRb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;

@@ -12,6 +12,7 @@ public class StartGame : MonoBehaviour
     void Start()
     {
         StartCoroutine("flashingText");
+        Timer.timer = true;
     }
 
     // Update is called once per frame

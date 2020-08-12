@@ -13,19 +13,22 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        //Makes sure the game always starts with the timer showing after a gameover
+        // Resets the timer to zero anytime a new game is started
+        currentTime = 0;
+        // Makes sure the game always starts with the timer showing after a gameover
         timer = true;
     }
 
     void Update()
     {
+        // Displays timer on the HUD
         if (timer == true)
         {
             currentTime = currentTime + Time.deltaTime;
             timerText.text = Mathf.Round(currentTime).ToString();
         }
 
-        //currently hides and stops the timer text once the Game Over screen kicks in
+        // Currently hides and stops the timer text once the Game Over screen kicks in
         if (timer == false)
         {
             timerText.gameObject.SetActive(false);

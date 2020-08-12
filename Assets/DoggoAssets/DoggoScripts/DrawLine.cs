@@ -36,7 +36,7 @@ public class DrawLine : MonoBehaviour
             Vector3 pointA = origin.position;
             Vector3 pointB = destination.position;
 
-            //Get the unit vector in the desired direction, multiply by the desired length and add the starting point
+            // Get the unit vector in the desired direction, multiply by the desired length and add the starting point
             Vector3 pointAlongLine = x * Vector3.Normalize(pointB - pointA) + pointA;
 
             lineRenderer.SetPosition(1, pointAlongLine);
