@@ -2306,8 +2306,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287795858
-  m_fontColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5120,7 +5120,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -5567175452551181498, guid: 52db458c580b94944ad016c48a5fb8f9,
+  m_Sprite: {fileID: -2304952541186616705, guid: 52db458c580b94944ad016c48a5fb8f9,
     type: 2}
   m_Type: 0
   m_PreserveAspect: 0
@@ -5368,6 +5368,71 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 963194228}
     m_Modifications:
+    - target: {fileID: 8589505183877263728, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+    - target: {fileID: 8589505183877263728, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1460790369
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589505183877263728, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589505183877263728, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638084995539499395, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Name
+      value: DoggoEatingSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638084995539499395, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638084995539499395, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 26954508106787730, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
       propertyPath: m_Name
@@ -5469,6 +5534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798399227576324646, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Name
+      value: DoggoPeeingSprite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7556049f80c065049be6a174205ac50e, type: 3}

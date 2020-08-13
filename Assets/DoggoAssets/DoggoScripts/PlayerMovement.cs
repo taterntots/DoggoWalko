@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
         // Turns off the spriter renderer for all dog animations (flipped dog, for example)
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -47,14 +48,22 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.position += transform.right * doggoSpeed * Time.deltaTime;
-            GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            // Keeps the doggo sprites in their animation state on collision with enemies
+            if (DoggoBehavior.isAnimating == false)
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
         else if (Input.GetKey(KeyCode.A))
         {
             transform.position -= transform.right * doggoSpeed * Time.deltaTime;
-            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            GetComponent<SpriteRenderer>().enabled = false;
+            // Keeps the doggo sprites in their animation state on collision with enemies
+            if (DoggoBehavior.isAnimating == false)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
     }
 }

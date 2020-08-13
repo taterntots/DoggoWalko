@@ -12,6 +12,7 @@ public class DoggoBehavior : MonoBehaviour
 
     public static bool walkingDog = true;
     public static bool isPeeing = false;
+    public static bool isAnimating = false;
 
     private float animationDelay = 1.0f;
 
@@ -46,11 +47,18 @@ public class DoggoBehavior : MonoBehaviour
 
   void OnCollisionEnter(Collision other)
     {
-        // If the object the dog is colliding with is considered "bad" behavior, then destroy the game object (the dog) this script is attached to.
+        // If the object the dog is colliding with is considered "bad" behavior
         if (other.gameObject.tag == "Bad")
         {
+            // Triggers doggo eating animation coroutine
+            StartCoroutine("DoggoEating");
+
+            // Turns the box collider off to prevent multiple collisions
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
             // Destroy the bad object
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject, animationDelay);
 
             // Plays the a little soundclip
             audioSource.PlayOneShot(badSound, badSoundVolume);
@@ -64,6 +72,7 @@ public class DoggoBehavior : MonoBehaviour
             Invoke("WalkerTextOff", 3f);
         }
 
+        // If the object being collided with is considered "good" behavior
         if (other.gameObject.tag == "Good")
         {
             // Triggers doggo peeing animation coroutine
@@ -130,7 +139,7 @@ public class DoggoBehavior : MonoBehaviour
         GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    // Swaps the dog sprite to the peeing animation
+    // Coroutine that swaps the dog sprite to the peeing animation
     IEnumerator DoggoPeeing()
     {
         // Set isPeeing bool to true
@@ -139,6 +148,7 @@ public class DoggoBehavior : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
 
         // As long as the dog is peeing
         while (isPeeing == true)
@@ -149,7 +159,34 @@ public class DoggoBehavior : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+
             isPeeing = false;
+        }
+    }
+
+    // Coroutine that swaps the dog sprite to the eating animation
+    IEnumerator DoggoEating()
+    {
+        // Set isAnimating bool to true
+        isAnimating = true;
+        // Turn off all sprites other than the eating one
+        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is animating
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time
+            yield return new WaitForSeconds(animationDelay);
+            // Once the time has passed, return the doggo sprite to its original form (done peeing)
+            GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            isAnimating = false;
         }
     }
 }
