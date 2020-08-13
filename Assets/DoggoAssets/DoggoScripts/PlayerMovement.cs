@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody doggoRb;
-    private SpriteRenderer mySpriteRenderer;
 
     public float doggoSpeed;
     public float doggoAutoSpeed = 1.0f;
@@ -15,16 +14,20 @@ public class PlayerMovement : MonoBehaviour
     {
         // Define some components
         doggoRb = GetComponent<Rigidbody>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Turns off the spriter renderer for flipped/left facing doggo
+        // Turns off the spriter renderer for all dog animations (flipped dog, for example)
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        ControlDoggo();
+        // Allows movement of the dog as long as it isn't peeing
+        if (DoggoBehavior.isPeeing == false)
+        {
+            ControlDoggo();
+        }
     }
 
     void ControlDoggo()
@@ -47,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
-        else if (Input.GetKey(KeyCode.A) && mySpriteRenderer != null)
+        else if (Input.GetKey(KeyCode.A))
         {
             transform.position -= transform.right * doggoSpeed * Time.deltaTime;
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;

@@ -11,6 +11,9 @@ public class DoggoBehavior : MonoBehaviour
     private ObstacleSpawner obstacleSpawnerRef;
 
     public static bool walkingDog = true;
+    public static bool isPeeing = false;
+
+    private float animationDelay = 1.0f;
 
     public AudioSource audioSource;
     public AudioClip goodSound;
@@ -63,8 +66,11 @@ public class DoggoBehavior : MonoBehaviour
 
         if (other.gameObject.tag == "Good")
         {
-            // Destroy the good object
-            Destroy(other.gameObject);
+            // Triggers doggo peeing animation coroutine
+            StartCoroutine("DoggoPeeing");
+
+            // Destroy the good object after set period of time
+            Destroy(other.gameObject, animationDelay);
 
             // Plays the a little soundclip
             audioSource.PlayOneShot(goodSound, goodSoundVolume);
@@ -122,5 +128,28 @@ public class DoggoBehavior : MonoBehaviour
     {
         GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
         GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    // Swaps the dog sprite to the peeing animation
+    IEnumerator DoggoPeeing()
+    {
+        // Set isPeeing bool to true
+        isPeeing = true;
+        // Turn off all sprites other than the peeing one
+        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is peeing
+        while (isPeeing == true)
+        {
+            // Wait for a given amount of time
+            yield return new WaitForSeconds(animationDelay);
+            // Once the time has passed, return the doggo sprite to its original form (done peeing)
+            GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            isPeeing = false;
+        }
     }
 }
