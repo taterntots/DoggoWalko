@@ -11,6 +11,7 @@ TagManager:
   - ObstacleSpawner
   - FrownyFace
   - ShowOnPause
+  - Building
   layers:
   - Default
   - TransparentFX
