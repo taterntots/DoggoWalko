@@ -113,6 +113,7 @@ public class DoggoBehavior : MonoBehaviour
                 // Makes the dog walk faster to match the cameraspeed
                 playerMovementRef.doggoAutoSpeed += 0.5f;
             }
+
             // Makes enemies spawn more frequently, maxing out the spawn time between 0.4 and 1 second
             if (obstacleSpawnerRef.minTime > 0.4f)
             {
@@ -127,6 +128,13 @@ public class DoggoBehavior : MonoBehaviour
                 // Makes buildings spawn a bit faster
                 levelSpawnerRef.spawnTime -= 0.5f;
             }
+
+            // Makes Obstacle Spawner move a little faster
+            if (obstacleSpawnerRef.spawnerSpeed < 4.0f)
+            {
+                obstacleSpawnerRef.spawnerSpeed += 0.5f;
+            }
+
             // Destroys the checkpoint so you can't accidentally trigger more than once
             Destroy(other.gameObject);
         }

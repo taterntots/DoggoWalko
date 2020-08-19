@@ -18,7 +18,6 @@ public class LevelSpawner : MonoBehaviour
     private float zHydrant;
     private int startingBuildingCount;
     private float zScenePos = -7.378f;
-    //private float zScenePos = 28.378f;
 
     // Start is called before the first frame update
     void Start()
