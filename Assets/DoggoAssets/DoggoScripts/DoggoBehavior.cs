@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoggoBehavior : MonoBehaviour
 {
+    public GameObject plop;
+
     private GameOver gameOverRef;
     private LevelSpawner levelSpawnerRef;
     private MoveCamera moveCameraRef;
@@ -50,6 +52,16 @@ public class DoggoBehavior : MonoBehaviour
         // If the object the dog is colliding with is considered "bad" behavior
         if (other.gameObject.tag == "Bad")
         {
+            // If it's specifically a plops
+            if (other.gameObject.name == "DoggoPlops(Clone)")
+            {
+                // Trigger the DoggEating Animation
+                StartCoroutine("DoggoEating");
+                // Destroy the plops object after set period of time and make it kinetic so it doesn't fall through the floor
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                Destroy(other.gameObject, animationDelay);
+            }
+
             // Triggers doggo eating animation coroutine
             StartCoroutine("DoggoEating");
 
@@ -86,6 +98,8 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo peeing animation coroutine
                 StartCoroutine("DoggoPlopping");
+                // Drop a plop at the tree (drops from too high atm)
+                //Instantiate(plop, other.gameObject.transform.position - transform.forward * 1, transform.rotation);
             }
 
             // Turns the box collider off to prevent multiple collisions
@@ -189,10 +203,10 @@ public class DoggoBehavior : MonoBehaviour
         }
     }
 
-    // Coroutine that swaps the dog sprite to the peeing animation
+    // Coroutine that swaps the dog sprite to the plopping animation
     IEnumerator DoggoPlopping()
     {
-        // Set isPeeing bool to true
+        // Set isAnimating bool to true
         isAnimating = true;
         // Turn off all sprites other than the plopping one
         GetComponent<SpriteRenderer>().enabled = false;
@@ -212,6 +226,8 @@ public class DoggoBehavior : MonoBehaviour
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+            // Drop a plop behind you
+            Instantiate(plop, transform.position - transform.forward * 0.5f, transform.rotation);
 
             isAnimating = false;
         }
