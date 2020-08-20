@@ -7,6 +7,7 @@ public class LevelSpawner : MonoBehaviour
     public GameObject[] buildings;
     public GameObject home;
     public GameObject fireHydrant;
+    public GameObject tree;
 
     private Timer timerRef;
     private bool spawnHome = false;
@@ -15,7 +16,7 @@ public class LevelSpawner : MonoBehaviour
     public int homeSpawn;
 
     public float spawnTime;
-    private float zHydrant;
+    private float zBuildingObject;
     private int startingBuildingCount;
     private float zScenePos = -7.378f;
 
@@ -98,8 +99,14 @@ public class LevelSpawner : MonoBehaviour
         if (currentSpawn == buildings[2])
         {
             // Drop a fire hydrant randomly on the Z axis by the edge of the sidewalk
-            zHydrant = Random.Range(zScenePos - 2.5f, zScenePos + 2.5f);
-            Instantiate(fireHydrant, new Vector3(-0.864f, 0.908f, zHydrant), transform.rotation);
+            zBuildingObject = Random.Range(zScenePos - 2.5f, zScenePos + 2.5f);
+            Instantiate(fireHydrant, new Vector3(-0.864f, 0.908f, zBuildingObject), transform.rotation);
+        }
+        else if (currentSpawn == buildings[1])
+        {
+            // Drop a tree randomly on the Z axis by the edge of the sidewalk
+            zBuildingObject = Random.Range(zScenePos - 2.5f, zScenePos + 2.5f);
+            Instantiate(tree, new Vector3(-0.943f, 1.825227f, zBuildingObject), transform.rotation);
         }
     }
 }

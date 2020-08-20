@@ -78,6 +78,10 @@ public class DoggoBehavior : MonoBehaviour
             // Triggers doggo peeing animation coroutine
             StartCoroutine("DoggoPeeing");
 
+            // Turns the box collider off to prevent multiple collisions
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
             // Destroy the good object after set period of time
             Destroy(other.gameObject, animationDelay);
 
