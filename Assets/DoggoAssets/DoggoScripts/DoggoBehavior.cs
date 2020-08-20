@@ -226,7 +226,7 @@ public class DoggoBehavior : MonoBehaviour
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-            // Drop a plop behind you
+            // Drop a plop behind you, no matter where in the world space you are
             Instantiate(plop, transform.position - transform.forward * 0.5f, transform.rotation);
 
             isAnimating = false;
