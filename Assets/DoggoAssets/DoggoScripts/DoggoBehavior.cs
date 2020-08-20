@@ -75,8 +75,18 @@ public class DoggoBehavior : MonoBehaviour
         // If the object being collided with is considered "good" behavior
         if (other.gameObject.tag == "Good")
         {
-            // Triggers doggo peeing animation coroutine
-            StartCoroutine("DoggoPeeing");
+            // And if the object being collided with is a fire hydrant
+            if (other.gameObject.name == "FireHydrant(Clone)")
+            {
+                // Triggers doggo peeing animation coroutine
+                StartCoroutine("DoggoPeeing");
+            }
+
+            if (other.gameObject.name == "Tree(Clone)")
+            {
+                // Triggers doggo peeing animation coroutine
+                StartCoroutine("DoggoPlopping");
+            }
 
             // Turns the box collider off to prevent multiple collisions
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -161,6 +171,7 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
 
         // As long as the dog is peeing
         while (isPeeing == true)
@@ -172,8 +183,37 @@ public class DoggoBehavior : MonoBehaviour
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
 
             isPeeing = false;
+        }
+    }
+
+    // Coroutine that swaps the dog sprite to the peeing animation
+    IEnumerator DoggoPlopping()
+    {
+        // Set isPeeing bool to true
+        isAnimating = true;
+        // Turn off all sprites other than the plopping one
+        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is plopping
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time
+            yield return new WaitForSeconds(animationDelay);
+            // Once the time has passed, return the doggo sprite to its original form (done peeing)
+            GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+
+            isAnimating = false;
         }
     }
 
@@ -187,6 +227,7 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
 
         // As long as the dog is animating
         while (isAnimating == true)
@@ -198,6 +239,7 @@ public class DoggoBehavior : MonoBehaviour
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
             isAnimating = false;
         }
     }

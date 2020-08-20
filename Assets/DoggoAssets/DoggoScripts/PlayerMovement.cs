@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
