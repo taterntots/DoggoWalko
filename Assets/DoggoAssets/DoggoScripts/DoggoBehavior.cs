@@ -55,15 +55,15 @@ public class DoggoBehavior : MonoBehaviour
             // If it's specifically a plops
             if (other.gameObject.name == "DoggoPlops(Clone)")
             {
-                // Trigger the DoggEating Animation
-                StartCoroutine("DoggoEating");
+                // Trigger the DoggFighting Animation
+                StartCoroutine("DoggoFighting");
                 // Destroy the plops object after set period of time and make it kinetic so it doesn't fall through the floor
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 Destroy(other.gameObject, animationDelay);
             }
 
-            // Triggers doggo eating animation coroutine
-            StartCoroutine("DoggoEating");
+            // Triggers doggo fighting animation coroutine
+            StartCoroutine("DoggoFighting");
 
             // Turns the box collider off to prevent multiple collisions
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -233,12 +233,12 @@ public class DoggoBehavior : MonoBehaviour
         }
     }
 
-    // Coroutine that swaps the dog sprite to the eating animation
-    IEnumerator DoggoEating()
+    // Coroutine that swaps the dog sprite to the fighting animation
+    IEnumerator DoggoFighting()
     {
         // Set isAnimating bool to true
         isAnimating = true;
-        // Turn off all sprites other than the eating one
+        // Turn off all sprites other than the fighting one
         GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;

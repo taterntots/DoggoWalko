@@ -5620,6 +5620,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8589505183877263728, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5866808428097111800, guid: ccf37205df991bf489343eaa27409a50,
+        type: 2}
+    - target: {fileID: 8589505183877263728, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5638,22 +5649,22 @@ PrefabInstance:
     - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2047299905190090473, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3638084995539499395, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
       propertyPath: m_Name
-      value: DoggoEatingSprite
+      value: DoggoFightingSprite
       objectReference: {fileID: 0}
     - target: {fileID: 3638084995539499395, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
@@ -5664,6 +5675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638084995539499395, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3223937086801245472, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
@@ -5729,7 +5745,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2448076452060867738, guid: 538f2460ae16c314c8c32104da22288d,
+      objectReference: {fileID: -2106719432700895690, guid: 538f2460ae16c314c8c32104da22288d,
         type: 2}
     - target: {fileID: 26954508106787739, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
@@ -5768,6 +5784,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6575143832267648338, guid: 4c81874e2be9852479adde8d154ff8fd,
         type: 3}
+    - target: {fileID: 8546960308966742970, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_File
+      value: 
+      objectReference: {fileID: 11400000, guid: ccf37205df991bf489343eaa27409a50,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7556049f80c065049be6a174205ac50e, type: 3}
 --- !u!4 &7780683733581544443 stripped
