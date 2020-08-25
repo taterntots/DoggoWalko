@@ -62,7 +62,7 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    00000000000000000000000000000000: 0
+    cdb0b19ec9096d441bb1741e2b52fd74: -5318471099514404029
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1566551335, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
-  m_Name: BlueBuildingSide2
+  m_Name: BlueBuildingSide
   m_EditorClassIdentifier: 
   frames:
   - _texture: {fileID: 3365245192592670972}
@@ -303,7 +303,7 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    00000000000000000000000000000000: 0
+    cdb0b19ec9096d441bb1741e2b52fd74: 357414088011323293
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
@@ -513,7 +513,7 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    00000000000000000000000000000000: 0
+    cdb0b19ec9096d441bb1741e2b52fd74: 1168199334698118300
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:

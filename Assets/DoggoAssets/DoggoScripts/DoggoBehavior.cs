@@ -69,8 +69,11 @@ public class DoggoBehavior : MonoBehaviour
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
             other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
 
-            // Destroy the bad object
+            // Destroy the bad object with a delay
             //Destroy(other.gameObject, animationDelay);
+
+            // Destroy the bad object immediately
+            Destroy(other.gameObject);
 
             // Plays the a little soundclip
             audioSource.PlayOneShot(badSound, badSoundVolume);
