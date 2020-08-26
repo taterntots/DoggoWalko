@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942e027d4cd1caa4eaf4adb89d7b364e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curveStrength: 0.033
+  curveStrength: 0
 --- !u!114 &462426909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,6 +1693,12 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9150752416981311423, guid: 3f4ad197a33b5664a9e13e215ae3f325,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2617299974044253920, guid: 07e88e1de6e3c2e4f9ee1f0d54ff9153,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f4ad197a33b5664a9e13e215ae3f325, type: 3}
 --- !u!1 &705507993
@@ -2176,6 +2182,12 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9150752416981311423, guid: 3f4ad197a33b5664a9e13e215ae3f325,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2617299974044253920, guid: 07e88e1de6e3c2e4f9ee1f0d54ff9153,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f4ad197a33b5664a9e13e215ae3f325, type: 3}
 --- !u!1 &885009643
