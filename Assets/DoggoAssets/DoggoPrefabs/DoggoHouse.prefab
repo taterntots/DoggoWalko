@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 495631139010668370}
+  - component: {fileID: 2258985567942254655}
   m_Layer: 0
   m_Name: DoggoHouse
   m_TagString: Untagged
@@ -39,6 +40,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2258985567942254655
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495631139010668373}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18705493, y: 0.24573755, z: 0.36828327}
+  m_Center: {x: 0.40647253, y: 1.9454834, z: 0.31585836}
 --- !u!1 &1135475050812645498
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +166,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8395569197758553738, guid: f35047cf367a9b34fa7f42dd1d156ddf,
+  m_Sprite: {fileID: 7411604927393258547, guid: f35047cf367a9b34fa7f42dd1d156ddf,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -304,7 +318,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6435706867351516904, guid: 7ea6a9822ad4dc444af271b5229e1c40,
+  m_Sprite: {fileID: -8002615079671139507, guid: 7ea6a9822ad4dc444af271b5229e1c40,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -412,7 +426,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2980693130401863649, guid: cf7f47e27909edb4aaf6b13125a3ecbd,
+  m_Sprite: {fileID: 3500924227787748331, guid: cf7f47e27909edb4aaf6b13125a3ecbd,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -640,7 +654,7 @@ SpriteRenderer:
   m_SortingLayerID: 1066084181
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8250527186798088520, guid: ae0b94908a4ad1541a6fe386bad89a91,
+  m_Sprite: {fileID: 8306045392687514282, guid: ae0b94908a4ad1541a6fe386bad89a91,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -917,7 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: 350378df5cdf4b248b88b35a9f4a5288, type: 2}
+  m_File: {fileID: 11400000, guid: c9d78c48f8336ae4b9a3a20eca501d92, type: 2}
   speed: 1
   m_Settings:
     randomizeOnStart: 1

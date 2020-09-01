@@ -323,7 +323,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7282555054731919210, guid: e2fa194f5076db442b5af6ab876585d8,
+  m_Sprite: {fileID: 6574930017831932046, guid: e2fa194f5076db442b5af6ab876585d8,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -884,6 +884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6937812016298812740}
+  - component: {fileID: 686869728926340474}
   m_Layer: 0
   m_Name: OrangeBuilding
   m_TagString: Building
@@ -909,6 +910,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &686869728926340474
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6937812016298812739}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19710374, y: 0.10597849, z: 0.21604252}
+  m_Center: {x: 0.40144813, y: 0.98536325, z: 0.39197874}
 --- !u!1 &7053256538254438286
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +992,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1112109866831677241, guid: 5aaea31cfbbe99f42b6bc5f45f42366a,
+  m_Sprite: {fileID: -9162459180346643561, guid: 5aaea31cfbbe99f42b6bc5f45f42366a,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

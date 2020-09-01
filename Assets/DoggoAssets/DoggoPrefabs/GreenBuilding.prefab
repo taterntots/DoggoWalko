@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 219879988581089719}
+  - component: {fileID: 5980769704442482214}
   m_Layer: 0
   m_Name: GreenBuilding
   m_TagString: Building
@@ -34,6 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5980769704442482214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219879988581089712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3870859, y: 0.32430553, z: 0.580853}
+  m_Center: {x: 0.30645704, y: 2.4187624, z: 0.2095735}
 --- !u!1 &601673116578765324
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +856,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4819797421786067118, guid: 1d0338bd2adfa864db2e65f7d9c98b2d,
+  m_Sprite: {fileID: 9057574255088401209, guid: 1d0338bd2adfa864db2e65f7d9c98b2d,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -127,6 +127,23 @@ public class DoggoBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        // Triggers dog playing in the water animation if stepping on water
+        if (other.gameObject.tag == "Water")
+        {
+            // Starts the animation for dog playing in water
+            StartCoroutine("DoggoFighting");
+            // Destroys the box coliders so you can't trigger more than one (used multiple for shaping)
+            Destroy(other.gameObject);
+            // Plays the a little soundclip
+            audioSource.PlayOneShot(badSound, badSoundVolume);
+            // Increase Bad Boi Points by one
+            ScoreHolder.badBoiPoints++;
+            // Triggers the "bad boi" text bubble upon collision with bad objects and then hides it after a set number of seconds
+            GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
+            Invoke("WalkerTextOff", 3f);
+        }
+
         // Ends the game if you reach your home and have more badboi points than good
         if (other.gameObject.tag == "Checkpoint" && ScoreHolder.badBoiPoints > ScoreHolder.goodBoiPoints)
         {
@@ -182,7 +199,7 @@ public class DoggoBehavior : MonoBehaviour
     IEnumerator DoggoPeeing()
     {
         // Set isPeeing bool to true
-        isPeeing = true;
+        isAnimating = true;
         // Turn off all sprites other than the peeing one
         GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
@@ -191,7 +208,7 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
 
         // As long as the dog is peeing
-        while (isPeeing == true)
+        while (isAnimating == true)
         {
             // Wait for a given amount of time
             yield return new WaitForSeconds(animationDelay);
@@ -202,7 +219,7 @@ public class DoggoBehavior : MonoBehaviour
             gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
 
-            isPeeing = false;
+            isAnimating = false;
         }
     }
 
@@ -223,7 +240,7 @@ public class DoggoBehavior : MonoBehaviour
         {
             // Wait for a given amount of time
             yield return new WaitForSeconds(animationDelay);
-            // Once the time has passed, return the doggo sprite to its original form (done peeing)
+            // Once the time has passed, return the doggo sprite to its original form (done plopping)
             GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;

@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 1222239183490860490}
   - component: {fileID: 3484078863555792044}
   m_Layer: 0
-  m_Name: Sidewalk
+  m_Name: PuddleSidewalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: 9209cb8ca8dd9644489ea736d479ffbb, type: 2}
+  m_File: {fileID: 11400000, guid: 220697f51f57ad8429d1a6d7fb77ffd2, type: 2}
   speed: 1
   m_Settings:
     randomizeOnStart: 1
@@ -577,6 +577,92 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.2212899, y: 4.3114467, z: 0.22968465}
   m_Center: {x: 0.0020463679, y: -0.15572387, z: -0.0148423165}
+--- !u!1 &4515982794455667139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2875360657300250442}
+  - component: {fileID: 5892327845862540110}
+  - component: {fileID: 4658620992196354753}
+  - component: {fileID: 6698187926899067120}
+  - component: {fileID: 6100053640295212294}
+  m_Layer: 0
+  m_Name: PuddleCollider
+  m_TagString: Water
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2875360657300250442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515982794455667139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.45, y: -3.48, z: 0.876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5738452927546014054}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5892327845862540110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515982794455667139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4056072, y: 1, z: 0.5695405}
+  m_Center: {x: 0.7028036, y: 0, z: 0.017637491}
+--- !u!65 &4658620992196354753
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515982794455667139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6554193, y: 1, z: 0.5818944}
+  m_Center: {x: 3.799005, y: 0, z: -0.58932376}
+--- !u!65 &6698187926899067120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515982794455667139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.81155944, y: 1, z: 0.45258045}
+  m_Center: {x: 2.6179318, y: 0, z: -0.31146145}
+--- !u!65 &6100053640295212294
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515982794455667139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.45202065, y: 1, z: 0.5662508}
+  m_Center: {x: 1.9764252, y: 0, z: -0.050489426}
 --- !u!1 &5738452927546014049
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +672,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5738452927546014054}
+  - component: {fileID: 4704517909408357423}
   m_Layer: 0
   m_Name: BlueBuilding
   m_TagString: Building
@@ -608,9 +695,23 @@ Transform:
   - {fileID: 1222239183490860491}
   - {fileID: 1222239182382006465}
   - {fileID: 6520957567076688696}
+  - {fileID: 2875360657300250442}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4704517909408357423
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738452927546014049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.45222926, y: 0.38348532, z: 0}
+  m_Center: {x: 0.27388537, y: 2.4824772, z: 0.5}
 --- !u!1 &6024727144795681774
 GameObject:
   m_ObjectHideFlags: 0

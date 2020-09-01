@@ -18,7 +18,7 @@ public class LevelSpawner : MonoBehaviour
     public float spawnTime;
     private float zBuildingObject;
     private int startingBuildingCount;
-    private float zScenePos = -7.378f;
+    private float zScenePos = -1.378f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class LevelSpawner : MonoBehaviour
 
     IEnumerator LevelSpawn()
     {
-        while (startingBuildingCount <= 6)
+        while (startingBuildingCount <= 5)
         {
             // Queue up the next random building to be spawned
             currentSpawn = randomBuilding();

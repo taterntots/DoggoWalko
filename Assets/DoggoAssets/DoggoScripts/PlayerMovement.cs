@@ -25,11 +25,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Allows movement of the dog as long as it isn't peeing
-        if (DoggoBehavior.isPeeing == false)
-        {
-            ControlDoggo();
-        }
+        // Allows for movement of the doggo
+        ControlDoggo();
     }
 
     void ControlDoggo()

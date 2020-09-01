@@ -12,6 +12,7 @@ TagManager:
   - FrownyFace
   - ShowOnPause
   - Building
+  - Water
   layers:
   - Default
   - TransparentFX
