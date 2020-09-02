@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoggoBehavior : MonoBehaviour
 {
+    [Range(-3, 3)] public static int walkerAttitude = 3;
+
     public GameObject plop;
 
     private GameOver gameOverRef;
@@ -13,7 +15,6 @@ public class DoggoBehavior : MonoBehaviour
     private ObstacleSpawner obstacleSpawnerRef;
 
     public static bool walkingDog = true;
-    public static bool isPeeing = false;
     public static bool isAnimating = false;
 
     private float animationDelay = 1.0f;
@@ -80,6 +81,12 @@ public class DoggoBehavior : MonoBehaviour
 
             // Increase Bad Boi Points by one
             ScoreHolder.badBoiPoints++;
+            // Lower the walker's attitude only if it's greater than -3 (health, essentially)
+            if (walkerAttitude > -3)
+            {
+                walkerAttitude--;
+                Debug.Log(walkerAttitude);
+            }
 
             // Triggers the "bad boi" text bubble upon collision with bad objects and then hides it after a set number of seconds
             GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = true;
@@ -117,6 +124,12 @@ public class DoggoBehavior : MonoBehaviour
 
             // Increase Good Boi Points by one
             ScoreHolder.goodBoiPoints++;
+            // Raises the walker's attitude only if it's less than than 3 (health, essentially)
+            if (walkerAttitude < 3)
+            {
+                walkerAttitude++;
+                Debug.Log(walkerAttitude);
+            }
 
             // Triggers the "good boi" text bubble upon collision with good objects and then hides it after a set number of seconds
             GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = true;
@@ -138,6 +151,12 @@ public class DoggoBehavior : MonoBehaviour
             audioSource.PlayOneShot(badSound, badSoundVolume);
             // Increase Bad Boi Points by one
             ScoreHolder.badBoiPoints++;
+            // Lower the walker's attitude only if it's greater than -3 (health, essentially)
+            if (walkerAttitude > -3)
+            {
+                walkerAttitude--;
+                Debug.Log(walkerAttitude);
+            }
             // Triggers the "bad boi" text bubble upon collision with bad objects and then hides it after a set number of seconds
             GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
@@ -145,13 +164,13 @@ public class DoggoBehavior : MonoBehaviour
         }
 
         // Ends the game if you reach your home and have more badboi points than good
-        if (other.gameObject.tag == "Checkpoint" && ScoreHolder.badBoiPoints > ScoreHolder.goodBoiPoints)
+        if (other.gameObject.tag == "Checkpoint" && walkerAttitude < 0)
         {
             gameOverRef.EndGame();
         }
 
         // Continues the game when reaching home as a good boi, increasing difficulty
-        else if (other.gameObject.tag == "Checkpoint" && ScoreHolder.badBoiPoints <= ScoreHolder.goodBoiPoints)
+        else if (other.gameObject.tag == "Checkpoint" && walkerAttitude >= 0)
         {
             // Max out camera speed at 8
             if (moveCameraRef.cameraSpeed < 8)

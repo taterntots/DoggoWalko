@@ -20,7 +20,7 @@ public class DogWalker : MonoBehaviour
 
     void AngryWalker()
     {
-        if (ScoreHolder.badBoiPoints > ScoreHolder.goodBoiPoints)
+        if (DoggoBehavior.walkerAttitude < 0)
         {
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
@@ -30,7 +30,7 @@ public class DogWalker : MonoBehaviour
 
     void NeutralWalker()
     { 
-        if (ScoreHolder.badBoiPoints == ScoreHolder.goodBoiPoints)
+        if (DoggoBehavior.walkerAttitude == 0)
         {
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
@@ -40,7 +40,7 @@ public class DogWalker : MonoBehaviour
 
     void HappyWalker()
     {
-        if (ScoreHolder.badBoiPoints < ScoreHolder.goodBoiPoints)
+        if (DoggoBehavior.walkerAttitude > 0)
         {
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;

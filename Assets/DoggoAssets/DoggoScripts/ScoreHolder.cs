@@ -7,7 +7,7 @@ using TMPro;
 public class ScoreHolder : MonoBehaviour
 {
     public static int badBoiPoints = 0;
-    public static int goodBoiPoints = 3;
+    public static int goodBoiPoints = 0;
     public static float timeTotal;
 
     public TextMeshProUGUI badBoiText;

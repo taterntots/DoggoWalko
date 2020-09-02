@@ -10,17 +10,17 @@ public class Pause : MonoBehaviour
 
     void Start()
     {
-        //Needed for the Pause Menu to work
+        // Needed for the Pause Menu to work
         pauseCanvas.SetActive(true);
         Time.timeScale = 1;
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
         hidePaused();
     }
 
-    //Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
-        //uses the P button to pause and unpause the game
+        // Uses the P button to pause and unpause the game
         if (Input.GetKeyDown(KeyCode.P))
         {
             Time.timeScale = 0;
@@ -28,16 +28,17 @@ public class Pause : MonoBehaviour
         }
     }
 
-    //Reloads the level upon hitting the restart button and resets good/badboi points and Timer back to zero
+    // Reloads the level upon hitting the restart button and resets good/badboi points, walker attitude, and Timer back to zero
     public void RestartGame(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
         ScoreHolder.badBoiPoints = 0;
-        ScoreHolder.goodBoiPoints = 3;
+        ScoreHolder.goodBoiPoints = 0;
+        DoggoBehavior.walkerAttitude = 3;
         Timer.currentTime = 0;
     }
 
-    //Controls the pausing of the scene
+    // Controls the pausing of the scene
     public void pauseControl()
     {
         if (Time.timeScale == 1)
@@ -53,7 +54,7 @@ public class Pause : MonoBehaviour
         }
     }
 
-    //Shows objects with ShowOnPause tag
+    // Shows objects with ShowOnPause tag
     public void showPaused()
     {
         foreach (GameObject g in pauseObjects)
@@ -62,7 +63,7 @@ public class Pause : MonoBehaviour
         }
     }
 
-    //Hides objects with ShowOnPause tag
+    // Hides objects with ShowOnPause tag
     public void hidePaused()
     {
         foreach (GameObject g in pauseObjects)
@@ -71,7 +72,7 @@ public class Pause : MonoBehaviour
         }
     }
 
-    //Brings player back to the main menu (or any scene, really. Depends what scene you drop in)
+    // Brings player back to the main menu (or any scene, really. Depends what scene you drop in)
     public void LoadLevel(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);

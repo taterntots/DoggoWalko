@@ -13,6 +13,7 @@ public class StartGame : MonoBehaviour
     {
         StartCoroutine("flashingText");
         Timer.timer = true;
+        DoggoBehavior.walkerAttitude = 3;
     }
 
     // Update is called once per frame
