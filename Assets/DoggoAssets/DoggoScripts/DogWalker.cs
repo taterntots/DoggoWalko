@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DogWalker : MonoBehaviour
 {
@@ -22,9 +23,9 @@ public class DogWalker : MonoBehaviour
     {
         if (DoggoBehavior.walkerAttitude < 0)
         {
-            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.GetChild(0).GetComponent<Image>().enabled = false;
+            gameObject.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            gameObject.transform.GetChild(2).GetComponent<Image>().enabled = true;
         }
     }
 
@@ -32,9 +33,9 @@ public class DogWalker : MonoBehaviour
     { 
         if (DoggoBehavior.walkerAttitude == 0)
         {
-            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(0).GetComponent<Image>().enabled = false;
+            gameObject.transform.GetChild(1).GetComponent<Image>().enabled = true;
+            gameObject.transform.GetChild(2).GetComponent<Image>().enabled = false;
         }
     }
 
@@ -42,9 +43,9 @@ public class DogWalker : MonoBehaviour
     {
         if (DoggoBehavior.walkerAttitude > 0)
         {
-            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(0).GetComponent<Image>().enabled = true;
+            gameObject.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            gameObject.transform.GetChild(2).GetComponent<Image>().enabled = false;
         }
     }
 }
