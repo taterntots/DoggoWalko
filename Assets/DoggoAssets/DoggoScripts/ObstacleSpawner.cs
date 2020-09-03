@@ -69,7 +69,7 @@ public class ObstacleSpawner : MonoBehaviour
         spawnTime = Random.Range(minTime, maxTime);
     }
 
-    // Randomizes the obstacle chosen between all prefabs in the array
+    // Randomizes the enemy chosen between all prefabs in the array
     private GameObject randomObjects()
     {
         return spawnObjects[Random.Range(0, spawnObjects.GetLength(0))];

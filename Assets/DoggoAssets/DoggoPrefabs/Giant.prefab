@@ -137,10 +137,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.48992947
+  m_Radius: 0.8663299
   m_Height: 1.7402434
   m_Direction: 0
-  m_Center: {x: 0.033168793, y: -1.2273406, z: 0}
+  m_Center: {x: 0.033168808, y: -0.8509399, z: 0}
 --- !u!114 &5867785563585104056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +156,8 @@ MonoBehaviour:
   frequency: 1.6
   magnitude: 1.6
   speed: 1.8
+  jump: 0
+  zigzag: 1
 --- !u!65 &7380298736775650658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -165,7 +167,7 @@ BoxCollider:
   m_GameObject: {fileID: 5054639419080701516}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.7846763, y: 3.327, z: 0.20000002}
   m_Center: {x: 0.028393865, y: 0.33650085, z: 0}

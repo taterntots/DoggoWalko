@@ -8,15 +8,32 @@ public class EnemyMovement : MonoBehaviour
     public float magnitude = 1.0f; // Size of sine movement, its the amplitude of the side curve
     public float speed = 1.0f; // Speed of the ememy/object
 
+    public bool jump;
+    public bool zigzag;
+
+    private float minFreq = 1.0f;
+    private float maxFreq = 2.0f;
+
     Vector3 axis;
     Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Intialization for zigzag parameters
-        axis = transform.right;
+        // Initialization for determining enemy movement (jump or zigzag)
+        if (jump == true)
+        {
+            axis = transform.up;
+        }
+        else if (zigzag == true) {
+            axis = transform.right;
+        }
+
+        // Initializes speed of enemy
         pos = new Vector3(0, 0, -speed);
+
+        // Initializes a random frequency for the enemy
+        SetRandomFrequency();
     }
 
     // Update is called once per frame
@@ -27,5 +44,21 @@ public class EnemyMovement : MonoBehaviour
 
         // Should make enemies look at the camera, but just turns them upside down and immobile
         //transform.LookAt(Camera.main.transform.position, -Vector3.up);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Ignores collisions with other enemies or good objects (like trees and hydrants)
+        if (collision.gameObject.tag == "Good" || collision.gameObject.tag == "Bad")
+        {
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
+        }
+    }
+
+    // Sets the random frequency between minTime and maxTime (used in obstaclespawner)
+    public void SetRandomFrequency()
+    {
+        frequency = Random.Range(minFreq, maxFreq);
     }
 }
