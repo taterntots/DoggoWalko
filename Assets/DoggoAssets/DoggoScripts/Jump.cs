@@ -18,18 +18,24 @@ public class Jump : MonoBehaviour
         doggoRb = GetComponent<Rigidbody>();
     }
 
-    // Keeps grounded true when on the ground (for jumping)
+    // Keeps grounded true when on the ground / sidewalk (for jumping)
     void OnCollisionStay(Collision collision)
     {
-        isGrounded = true;
+
+        if (collision.gameObject.tag == ("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 
+  
     // Update is called once per frame
     void FixedUpdate()
     {
         // Applies force to our jumps when pressing the spacebar
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            isGrounded = false; // Important to be considered grounded when touching walls
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpForce;
            
         }

@@ -13,6 +13,8 @@ TagManager:
   - ShowOnPause
   - Building
   - Water
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX
