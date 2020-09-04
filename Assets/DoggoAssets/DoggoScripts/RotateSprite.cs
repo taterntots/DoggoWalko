@@ -13,7 +13,7 @@ public class RotateSprite : MonoBehaviour
        
     }
 
-    // Possible solution that doesn't work great
+    // Possible solution that doesn't work greata
     IEnumerator RotateMe(Vector3 byAngles, float inTime)
     {
         var fromAngle = transform.rotation;

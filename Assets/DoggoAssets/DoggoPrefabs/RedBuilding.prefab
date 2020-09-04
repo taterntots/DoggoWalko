@@ -189,7 +189,7 @@ SpriteRenderer:
   m_SortingLayerID: 1066084181
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3432980568058540435, guid: 07e88e1de6e3c2e4f9ee1f0d54ff9153,
+  m_Sprite: {fileID: 6448640904030920675, guid: 07e88e1de6e3c2e4f9ee1f0d54ff9153,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -235,7 +235,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494466205227215146}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1007,7 +1007,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6859689690469647983}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
