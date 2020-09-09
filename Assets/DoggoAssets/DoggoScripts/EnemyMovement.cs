@@ -7,10 +7,12 @@ public class EnemyMovement : MonoBehaviour
     public float frequency = 1.0f; // Speed of sine movement
     public float magnitude = 1.0f; // Size of sine movement, its the amplitude of the side curve
     public float speed = 1.0f; // Speed of the ememy/object
+    public float twirlSpeed = 8; // Speed of the object's rotation
 
     public bool floating;
     public bool zigzag;
     public bool jumping;
+    public bool twirling;
 
     private float minFreq = 1.0f;
     private float maxFreq = 2.0f;
@@ -24,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
         // Initialization for determining enemy movement (floating or zigzag)
         if (floating == true)
         {
-            //axis = transform.up;
+            axis = transform.up;
         }
         else if (zigzag == true)
         {
@@ -54,6 +56,13 @@ public class EnemyMovement : MonoBehaviour
 
             // Should make enemies look at the camera, but just turns them upside down and immobile
             //transform.LookAt(Camera.main.transform.position, -Vector3.up);
+        }
+
+        // If the enemy/obstacle has twirling toggled on
+        if (twirling)
+        {
+            // Rotates the object a certain amount of degrees per second around y-axis
+            transform.Rotate(0, twirlSpeed, 0 * Time.deltaTime);
         }
     }
 
