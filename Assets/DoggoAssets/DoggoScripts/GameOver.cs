@@ -27,6 +27,9 @@ public class GameOver : MonoBehaviour
         DestroyAllEnemies("Bad");
         // Pulls up the Game Over Screen with stats and restart button
         gameOverCanvas.SetActive(true);
+        // Destroy the doggo so the player can't move anymore
+        Destroy(GameObject.FindWithTag("Player"));
+
     }
 
     // Function that destroys all enemies, passing the tag/type you want destroyed as the argument

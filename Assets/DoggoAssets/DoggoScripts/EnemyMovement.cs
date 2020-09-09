@@ -8,8 +8,9 @@ public class EnemyMovement : MonoBehaviour
     public float magnitude = 1.0f; // Size of sine movement, its the amplitude of the side curve
     public float speed = 1.0f; // Speed of the ememy/object
 
-    public bool jump;
+    public bool floating;
     public bool zigzag;
+    public bool jumping;
 
     private float minFreq = 1.0f;
     private float maxFreq = 2.0f;
@@ -20,12 +21,13 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialization for determining enemy movement (jump or zigzag)
-        if (jump == true)
+        // Initialization for determining enemy movement (floating or zigzag)
+        if (floating == true)
         {
-            axis = transform.up;
+            //axis = transform.up;
         }
-        else if (zigzag == true) {
+        else if (zigzag == true)
+        {
             axis = transform.right;
         }
 
@@ -39,11 +41,20 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Moves the enemy towards the player. Allows for zigzagging using the frequency and magnitute variables
-        GetComponent<Rigidbody>().velocity = pos + axis * Mathf.Sin(Time.time * frequency) * magnitude; // y = A sin(B(x)) , here A is Amplitude, and axis * magnitude is acting as amplitude. Amplitude means the depth of the sin curve
+        // If the enemy/obstacle has jumping toggled on
+        if (jumping)
+        {
+            // Moves the object at a constant speed (different than other objects because gravity gets wonky otherwise)
+            transform.Translate(Vector3.back * speed * Time.fixedDeltaTime, Space.Self);
+        }
+        else
+        {
+            // Moves the enemy towards the player. Allows for zigzagging using the frequency and magnitute variables
+            GetComponent<Rigidbody>().velocity = pos + axis * Mathf.Sin(Time.time * frequency) * magnitude; // y = A sin(B(x)) , here A is Amplitude, and axis * magnitude is acting as amplitude. Amplitude means the depth of the sin curve
 
-        // Should make enemies look at the camera, but just turns them upside down and immobile
-        //transform.LookAt(Camera.main.transform.position, -Vector3.up);
+            // Should make enemies look at the camera, but just turns them upside down and immobile
+            //transform.LookAt(Camera.main.transform.position, -Vector3.up);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -116,8 +116,13 @@ public class DoggoBehavior : MonoBehaviour
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
+            if (other.gameObject.name == "TennisBall(Clone)")
+            {
+                Destroy(other.gameObject);
+            }
+
             // Destroy the good object after set period of time
-            Destroy(other.gameObject, animationDelay);
+            //Destroy(other.gameObject, animationDelay);
 
             // Plays the a little soundclip
             audioSource.PlayOneShot(goodSound, goodSoundVolume);
