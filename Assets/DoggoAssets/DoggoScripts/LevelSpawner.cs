@@ -6,14 +6,18 @@ public class LevelSpawner : MonoBehaviour
 {
     public GameObject[] buildings;
     public GameObject home;
+    public GameObject crossWalk;
     public GameObject fireHydrant;
     public GameObject tree;
+    private GameObject currentSpawn;
 
     private Timer timerRef;
     private bool spawnHome = false;
-    private int spawnCount;
-    private GameObject currentSpawn;
+    private int homeSpawnCount = 6;
+    private bool spawnCrossWalk = false;
+    private int crossWalkCount = 6;
     public int homeSpawn;
+    public int crossWalkSpawn;
 
     public float spawnTime;
     private float zBuildingObject;
@@ -34,11 +38,12 @@ public class LevelSpawner : MonoBehaviour
 
     IEnumerator LevelSpawn()
     {
+        // Quickly spawns the first six buildings on game bootup
         while (startingBuildingCount <= 5)
         {
-            // Queue up the next random building to be spawned
+            // Queue up the next random building to be spawned, as well as random side buildings for crosswalks
             currentSpawn = randomBuilding();
-            // Chooses a random building from the building array
+            // Chooses a random building from the building array, as well as side buildings
             Instantiate(currentSpawn, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
             // Runs a function that decides what object to drop depending on building color
             DropObject();
@@ -53,14 +58,16 @@ public class LevelSpawner : MonoBehaviour
         {
             // The interval of time between building spawns
             yield return new WaitForSeconds(spawnTime);
-            // Queue up the next random building to be spawned
+            // Queue up the next random building to be spawned, as well as side buildings
             currentSpawn = randomBuilding();
-            // Chooses a random building from the building array
+            // Chooses a random building from the building array, as well as side buildings
             Instantiate(currentSpawn, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
             // Runs a function that decides what object to drop depending on building color
             DropObject();
             // Increase the count of buildings spawned so we can keep track of when to drop the doggo home later
-            spawnCount++;
+            homeSpawnCount++;
+            // Increase the count of buildings spawned so we can keep track of when to drop the crosswalk later
+            crossWalkCount++;
             // Repositions six units on the z for the next building spawn
             zScenePos += 6;
         }
@@ -69,13 +76,13 @@ public class LevelSpawner : MonoBehaviour
     void Update()
     {
         // Plops a yellow house (home) after a determined number of randombuilding spawns
-        if (spawnCount == homeSpawn && spawnHome == false)
+        if (homeSpawnCount >= homeSpawn && spawnHome == false)
         {
             StopCoroutine("LevelSpawn");
             Instantiate(home, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
             zScenePos += 6;
             print("no place like home");
-            spawnCount = 0;
+            homeSpawnCount = 0;
             spawnHome = true;
         }
 
@@ -83,6 +90,24 @@ public class LevelSpawner : MonoBehaviour
         {
             StartCoroutine("LevelSpawn");
             spawnHome = false;
+        }
+
+        // Plops a CrossWalk after a determined number of randombuilding spawns
+        if (crossWalkCount >= crossWalkSpawn && spawnCrossWalk == false)
+        {
+            StopCoroutine("LevelSpawn");
+            Instantiate(crossWalk, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
+
+            zScenePos += 18;
+            print("watch out for cars!");
+            crossWalkCount = 0;
+            spawnCrossWalk = true;
+        }
+
+        if (spawnCrossWalk == true)
+        {
+            StartCoroutine("LevelSpawn");
+            spawnCrossWalk = false;
         }
     }
 
