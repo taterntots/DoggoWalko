@@ -322,8 +322,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27.320911, y: 19.053541, z: 1}
-  m_Center: {x: 1.7361984, y: -1.2655393, z: -0.000000058814496}
+  m_Size: {x: 52.722256, y: 19.053541, z: 1}
+  m_Center: {x: -10.964472, y: -1.2655394, z: 0.00000031969498}
 --- !u!114 &21682470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +922,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373532116}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8d9f27bf3b7f849499c85e0419fb7a8a, type: 3}
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942e027d4cd1caa4eaf4adb89d7b364e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curveStrength: 0.033
+  curveStrength: 0
 --- !u!114 &462426909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,6 +1745,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8653306912154448618, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8598833722572724923, guid: 122b32859e2b3bb4ab57006319bc9c85,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1dea7a5fe2bfa4d8131a5365b84701, type: 3}
 --- !u!1 &684065978
@@ -3818,6 +3824,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9057574255088401209, guid: 1d0338bd2adfa864db2e65f7d9c98b2d,
         type: 2}
+    - target: {fileID: 8653306912154448618, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8598833722572724923, guid: 122b32859e2b3bb4ab57006319bc9c85,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1dea7a5fe2bfa4d8131a5365b84701, type: 3}
 --- !u!1 &1581919018
@@ -3875,8 +3887,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27.320911, y: 36.895275, z: 1}
-  m_Center: {x: 1.7361983, y: -10.1864, z: 0.00000052728194}
+  m_Size: {x: 58.863754, y: 63.455044, z: 1}
+  m_Center: {x: -4.0229254, y: -13.186716, z: 0.000009544414}
 --- !u!1 &1673077640
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,6 +6101,48 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3609241252801301187, guid: 525e395e3f282d647934712738c31334,
+        type: 2}
+    - target: {fileID: 4181505469112244367, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3154835617628219788, guid: b19fd61a8871eb345bb59f31ac00acac,
+        type: 2}
+    - target: {fileID: 5305301070826351808, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8598833722572724923, guid: 122b32859e2b3bb4ab57006319bc9c85,
+        type: 2}
+    - target: {fileID: 1067369232384180834, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 9057574255088401209, guid: 1d0338bd2adfa864db2e65f7d9c98b2d,
+        type: 2}
+    - target: {fileID: 3479624564292524749, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1978652680672242439, guid: b5e94737a333ffd4a91936bb615fa055,
+        type: 2}
+    - target: {fileID: 4023686004116622366, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3464156631698332372, guid: 5eb5d432b8ae55e4194c84e9b52e0ac5,
+        type: 2}
+    - target: {fileID: 8864167171462778790, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3154835617628219788, guid: b19fd61a8871eb345bb59f31ac00acac,
+        type: 2}
+    - target: {fileID: 8231065207008436783, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4308264067532046370, guid: 6757783c0964a7247acc13075470c7b7,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ca7e4fd5b70c1a44af269a47897ccd5, type: 3}

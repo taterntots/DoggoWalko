@@ -15,6 +15,7 @@ TagManager:
   - Water
   - Wall
   - Ground
+  - StreetCollider
   layers:
   - Default
   - TransparentFX

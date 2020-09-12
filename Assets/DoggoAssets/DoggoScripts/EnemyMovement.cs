@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     public bool zigzag;
     public bool jumping;
     public bool twirling;
+    public bool moveLeft;
+    public bool moveRight;
 
     private float minFreq = 1.0f;
     private float maxFreq = 2.0f;
@@ -49,6 +51,16 @@ public class EnemyMovement : MonoBehaviour
             // Moves the object at a constant speed (different than other objects because gravity gets wonky otherwise)
             transform.Translate(Vector3.back * speed * Time.fixedDeltaTime, Space.Self);
         }
+        else if (moveLeft)
+        {
+            // Moves the car at a constant speed left (different than other objects because gravity gets wonky otherwise)
+            transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.Self);
+        }
+        else if (moveRight)
+        {
+            // Moves the car at a constant speed right (different than other objects because gravity gets wonky otherwise)
+            transform.Translate(Vector3.right * speed * Time.fixedDeltaTime, Space.Self);
+        }
         else
         {
             // Moves the enemy towards the player. Allows for zigzagging using the frequency and magnitute variables
@@ -70,6 +82,11 @@ public class EnemyMovement : MonoBehaviour
     {
         // Ignores collisions with other enemies or good objects (like trees and hydrants)
         if (collision.gameObject.tag == "Good" || collision.gameObject.tag == "Bad")
+        {
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
+        }
+        if (collision.gameObject.tag == "StreetCollider")
         {
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());

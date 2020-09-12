@@ -34,7 +34,7 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // If it's an obstacle or enemy, auto jump the moment the object touches the ground
+        // If it's an obstacle (like the ball) or enemy, auto jump the moment the object touches the ground
         if (isObstacle && isGrounded)
         {
             isGrounded = false; // Important to be considered grounded when touching walls

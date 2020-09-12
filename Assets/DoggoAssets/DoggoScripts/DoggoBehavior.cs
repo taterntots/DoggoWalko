@@ -191,20 +191,21 @@ public class DoggoBehavior : MonoBehaviour
             {
                 obstacleSpawnerRef.minTime -= 0.2f;
             }
-            if (obstacleSpawnerRef.maxTime > 1.0f)
+            if (obstacleSpawnerRef.maxTime > 0.4f)
             {
-                obstacleSpawnerRef.maxTime -= 0.2f;
-            }
-            if (levelSpawnerRef.spawnTime > 0.5f)
-            {
-                // Makes buildings spawn a bit faster
-                levelSpawnerRef.spawnTime -= 0.5f;
+                obstacleSpawnerRef.maxTime -= 0.4f;
             }
 
             // Makes Obstacle Spawner move a little faster
             if (obstacleSpawnerRef.spawnerSpeed < 4.0f)
             {
                 obstacleSpawnerRef.spawnerSpeed += 0.5f;
+            }
+
+            // Makes buildings spawn a bit faster
+            if (levelSpawnerRef.spawnTime > 1.0f)
+            {
+                levelSpawnerRef.spawnTime -= 0.5f;
             }
 
             // Destroys the checkpoint so you can't accidentally trigger more than once
