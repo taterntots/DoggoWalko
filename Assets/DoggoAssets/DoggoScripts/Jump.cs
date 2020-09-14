@@ -33,7 +33,11 @@ public class Jump : MonoBehaviour
   
     // Update is called once per frame
     void FixedUpdate()
+
     {
+        // Runs jumping animation funtion when not grounded
+        DoggoJumping();
+
         // If it's an obstacle (like the ball) or enemy, auto jump the moment the object touches the ground
         if (isObstacle && isGrounded)
         {
@@ -56,6 +60,42 @@ public class Jump : MonoBehaviour
         {
             Rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             isGrounded = false;
+        }
+    }
+
+    void DoggoJumping()
+    {
+        if (isGrounded == false)
+        {
+            // Turn off all sprites other than the jumping one
+            gameObject.transform.Find("DoggoJumpParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoJumpParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            //GameObject.Find("DoggoSpriteParent").SetActive(false);
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+
+            //GameObject.Find("DoggoJumpParent").SetActive(true);
+        }
+        else if (isGrounded == true)
+        {
+            // When the doggo is grounded, return the doggo sprite to its original form (done jumping)
+            gameObject.transform.Find("DoggoJumpParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoJumpParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            //GameObject.Find("DoggoSpriteParent").SetActive(true);
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+
+            //GameObject.Find("DoggoJumpParent").SetActive(false);
         }
     }
 }

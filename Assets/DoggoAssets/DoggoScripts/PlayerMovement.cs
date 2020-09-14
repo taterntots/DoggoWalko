@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
         // Turns off the spriter renderer for all dog animations (flipped dog, for example)
         gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
@@ -39,42 +41,37 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward * doggoSpeed * Time.deltaTime;
+
+            // Swaps to DoggoBack Sprite when moving upwards
+            if (DoggoBehavior.isAnimating == false)
+            {
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
         else if (Input.GetKey(KeyCode.S))
         {
             transform.position -= transform.forward * doggoSpeed * Time.deltaTime;
+
+            // Swaps to DoggoFront Sprite when moving backwards
+            if (DoggoBehavior.isAnimating == false)
+            {
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
       
         if (Input.GetKey(KeyCode.D))
         {
             transform.position += transform.right * doggoSpeed * Time.deltaTime;
-            // Keeps the doggo sprites in their animation state on collision with enemies
-            if (DoggoBehavior.isAnimating == false)
-            {
-                //GetComponent<SpriteRenderer>().enabled = true;
-                //gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-            }
         }
         else if (Input.GetKey(KeyCode.A))
         {
             transform.position -= transform.right * doggoSpeed * Time.deltaTime;
-            // Keeps the doggo sprites in their animation state on collision with enemies
-            if (DoggoBehavior.isAnimating == false)
-            {
-                //GetComponent<SpriteRenderer>().enabled = false;
-                //gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            }
-        }
-
-        // Diagonal movement sprites
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
-        {
-            if (DoggoBehavior.isAnimating == false)
-            {
-                //GetComponent<SpriteRenderer>().enabled = false;
-                //gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-                //gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
-            }
         }
     }
 }
