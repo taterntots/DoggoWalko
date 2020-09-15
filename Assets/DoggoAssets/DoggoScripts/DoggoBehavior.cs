@@ -228,6 +228,8 @@ public class DoggoBehavior : MonoBehaviour
         // Turn off all sprites other than the peeing one
         gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
@@ -240,6 +242,8 @@ public class DoggoBehavior : MonoBehaviour
             // Once the time has passed, return the doggo sprite to its original form (done peeing)
             gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
@@ -256,6 +260,8 @@ public class DoggoBehavior : MonoBehaviour
         // Turn off all sprites other than the plopping one
         gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
@@ -268,6 +274,8 @@ public class DoggoBehavior : MonoBehaviour
             // Once the time has passed, return the doggo sprite to its original form (done plopping)
             gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
@@ -286,6 +294,8 @@ public class DoggoBehavior : MonoBehaviour
         // Turn off all sprites other than the fighting one
         gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
@@ -295,9 +305,11 @@ public class DoggoBehavior : MonoBehaviour
         {
             // Wait for a given amount of time
             yield return new WaitForSeconds(animationDelay);
-            // Once the time has passed, return the doggo sprite to its original form (done peeing)
+            // Once the time has passed, return the doggo sprite to its original form (done fighting)
             gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;

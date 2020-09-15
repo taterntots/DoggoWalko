@@ -40,8 +40,8 @@ public class RotateSprite2 : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Determines the degrees of rotation based on key pressed (only triggers when doggo isn't animating with an object
-        if (DoggoBehavior.isAnimating == false)
+        // Determines the degrees of rotation based on key pressed (triggers weven when animating with an object)
+        if (DoggoBehavior.isAnimating == false || DoggoBehavior.isAnimating == true)
         {
             if (Input.GetKey(KeyCode.D))
             {

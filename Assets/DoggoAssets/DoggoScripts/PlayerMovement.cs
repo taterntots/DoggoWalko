@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -45,10 +47,10 @@ public class PlayerMovement : MonoBehaviour
             // Swaps to DoggoBack Sprite when moving upwards
             if (DoggoBehavior.isAnimating == false)
             {
-                gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-                gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-                gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
-                gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
             }
         }
         else if (Input.GetKey(KeyCode.S))
@@ -58,10 +60,10 @@ public class PlayerMovement : MonoBehaviour
             // Swaps to DoggoFront Sprite when moving backwards
             if (DoggoBehavior.isAnimating == false)
             {
-                gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-                gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-                gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-                gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
             }
         }
       
