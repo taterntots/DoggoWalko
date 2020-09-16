@@ -336,6 +336,175 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321887909e3e3fa45b667b68d1246bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &113308191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 113308192}
+  - component: {fileID: 113308194}
+  - component: {fileID: 113308193}
+  m_Layer: 9
+  m_Name: DoggoPeeingSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &113308192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113308191}
+  m_LocalRotation: {x: 0.0000000037252903, y: -1, z: 0.000000014901161, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 656477312}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -13, y: 32, z: -5}
+--- !u!114 &113308193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113308191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: 1b1c347d456d93d4f859ac3cf34d4ad8, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &113308194
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113308191}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 3419838636840839474, guid: 1b1c347d456d93d4f859ac3cf34d4ad8,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &118540328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 118540329}
+  - component: {fileID: 118540331}
+  - component: {fileID: 118540330}
+  m_Layer: 9
+  m_Name: DoggoSplashParent
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &118540329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118540328}
+  m_LocalRotation: {x: 0.18180652, y: -0.98333436, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 568397628}
+  - {fileID: 198997951}
+  m_Father: {fileID: 7780683733581544443}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: -20.95}
+--- !u!114 &118540330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118540328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpTime: 0.3
+--- !u!114 &118540331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118540328}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a215ab9cf27554d9f81c62c88f6d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 900
+  isSpriteFlipped: 0
 --- !u!1001 &145155855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -526,6 +695,115 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a84bf2f13c23eba41b09252d9f51e068, type: 3}
+--- !u!1 &198997950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198997951}
+  - component: {fileID: 198997953}
+  - component: {fileID: 198997952}
+  m_Layer: 9
+  m_Name: DoggoSplashFlipSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &198997951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198997950}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.00000014901161, z: 0.000000026077032,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 118540329}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &198997952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198997950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: f3c9d2d1c5dbbbd48bc2deaff1162b13, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &198997953
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198997950}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -8329806773203679049, guid: f3c9d2d1c5dbbbd48bc2deaff1162b13,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &205256027
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +1073,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1e9e26fa2c9ae4ba27f2000a1ce4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &285518633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 285518634}
+  - component: {fileID: 285518636}
+  - component: {fileID: 285518635}
+  m_Layer: 9
+  m_Name: DoggoFightingSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &285518634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285518633}
+  m_LocalRotation: {x: 0.0000000037252903, y: -1, z: 0.000000014901161, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 449535869}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -13, y: 32, z: -5}
+--- !u!114 &285518635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285518633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: ccf37205df991bf489343eaa27409a50, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &285518636
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285518633}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -4167074005986575924, guid: ccf37205df991bf489343eaa27409a50,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &304905879
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +1316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: eec8641234ba06549a4e19e121b25277, type: 2}
+  m_File: {fileID: 11400000, guid: 7f667e75efceb6d41bc901bd12eb9456, type: 2}
   speed: 1
   m_Settings:
     randomizeOnStart: 0
@@ -981,7 +1367,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1480458047736472311, guid: eec8641234ba06549a4e19e121b25277,
+  m_Sprite: {fileID: 1513550334883813064, guid: 7f667e75efceb6d41bc901bd12eb9456,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1120,6 +1506,67 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &399608139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 399608140}
+  - component: {fileID: 399608142}
+  - component: {fileID: 399608141}
+  m_Layer: 9
+  m_Name: DoggoFetchParent
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &399608140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399608139}
+  m_LocalRotation: {x: -0.000000007450581, y: -1, z: -0.000000022351742, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1787722958}
+  - {fileID: 1639017413}
+  m_Father: {fileID: 7780683733581544443}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &399608141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399608139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpTime: 0.3
+--- !u!114 &399608142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399608139}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a215ab9cf27554d9f81c62c88f6d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 900
+  isSpriteFlipped: 0
 --- !u!1 &409382923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,6 +1775,67 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.077635, y: 2.9686482, z: 0.9365473}
   m_Center: {x: -0.24498558, y: 0.98432386, z: 0.03172637}
+--- !u!1 &449535868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449535869}
+  - component: {fileID: 449535871}
+  - component: {fileID: 449535870}
+  m_Layer: 9
+  m_Name: DoggoFightingParent
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449535869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449535868}
+  m_LocalRotation: {x: -0.000000007450581, y: -1, z: -0.000000022351742, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 285518634}
+  - {fileID: 1142665803}
+  m_Father: {fileID: 7780683733581544443}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &449535870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449535868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpTime: 0.3
+--- !u!114 &449535871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449535868}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a215ab9cf27554d9f81c62c88f6d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 900
+  isSpriteFlipped: 0
 --- !u!1 &462426905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,7 +2200,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546245352}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1723,6 +2231,114 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2151138825009408431, guid: b332bc233be9f2441949f7d5bf4f041d,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &568397627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568397628}
+  - component: {fileID: 568397630}
+  - component: {fileID: 568397629}
+  m_Layer: 9
+  m_Name: DoggoSplashSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568397628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568397627}
+  m_LocalRotation: {x: 0.0000000037252903, y: -1, z: 0.000000014901161, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 118540329}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -13, y: 32, z: -5}
+--- !u!114 &568397629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568397627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: bedae7bff3a469d47a09aac77629dcbf, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &568397630
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568397627}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -3472648820947230931, guid: bedae7bff3a469d47a09aac77629dcbf,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1896,6 +2512,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f4ad197a33b5664a9e13e215ae3f325, type: 3}
+--- !u!1 &656477311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656477312}
+  - component: {fileID: 656477314}
+  - component: {fileID: 656477313}
+  m_Layer: 9
+  m_Name: DoggoPeeingParent
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &656477312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656477311}
+  m_LocalRotation: {x: -0.000000007450581, y: -1, z: -0.000000022351742, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 113308192}
+  - {fileID: 1897482746}
+  m_Father: {fileID: 7780683733581544443}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &656477313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656477311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpTime: 0.3
+--- !u!114 &656477314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656477311}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a215ab9cf27554d9f81c62c88f6d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 900
+  isSpriteFlipped: 0
 --- !u!1001 &668525365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2074,6 +2751,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684065978}
   m_CullTransparentMesh: 0
+--- !u!1 &704637458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704637459}
+  - component: {fileID: 704637461}
+  - component: {fileID: 704637460}
+  m_Layer: 9
+  m_Name: DoggoBusinessSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &704637459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704637458}
+  m_LocalRotation: {x: 0.0000000037252903, y: -1, z: 0.000000014901161, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1153584356}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -13, y: 32, z: -5}
+--- !u!114 &704637460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704637458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: 94ccecd9eb6fcb948b22ef9083b2c746, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &704637461
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704637458}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 8492609020357641199, guid: 94ccecd9eb6fcb948b22ef9083b2c746,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3352,6 +4137,176 @@ MonoBehaviour:
     wrapMode: 1
     startFrame: 0
     useUnscaledTime: 1
+--- !u!1 &1142665802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142665803}
+  - component: {fileID: 1142665805}
+  - component: {fileID: 1142665804}
+  m_Layer: 9
+  m_Name: DoggoFightingFlipSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1142665803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142665802}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.00000014901161, z: 0.000000026077032,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 449535869}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1142665804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142665802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: a31465f0dc2e2cc4fa93ec927a244596, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &1142665805
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142665802}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1523910559477262715, guid: a31465f0dc2e2cc4fa93ec927a244596,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &1153584355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153584356}
+  - component: {fileID: 1153584358}
+  - component: {fileID: 1153584357}
+  m_Layer: 9
+  m_Name: DoggoBusinessParent
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1153584356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153584355}
+  m_LocalRotation: {x: -0.000000007450581, y: -1, z: -0.000000022351742, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 704637459}
+  - {fileID: 1233947528}
+  m_Father: {fileID: 7780683733581544443}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &1153584357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153584355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpTime: 0.3
+--- !u!114 &1153584358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153584355}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a215ab9cf27554d9f81c62c88f6d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 900
+  isSpriteFlipped: 0
 --- !u!1 &1173867029
 GameObject:
   m_ObjectHideFlags: 0
@@ -3413,6 +4368,115 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 900
   isSpriteFlipped: 0
+--- !u!1 &1233947527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233947528}
+  - component: {fileID: 1233947530}
+  - component: {fileID: 1233947529}
+  m_Layer: 9
+  m_Name: DoggoBusinessFlipSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233947528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233947527}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.00000014901161, z: 0.000000026077032,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1153584356}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1233947529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233947527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: 9b73253e650adde429715b6e5e8573bc, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &1233947530
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233947527}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -8452649699795833607, guid: 9b73253e650adde429715b6e5e8573bc,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1268928382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,7 +5243,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444276900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4278,6 +5342,115 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 58.863754, y: 63.455044, z: 1}
   m_Center: {x: -4.0229254, y: -13.186716, z: 0.000009544414}
+--- !u!1 &1639017412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1639017413}
+  - component: {fileID: 1639017415}
+  - component: {fileID: 1639017414}
+  m_Layer: 9
+  m_Name: DoggoFetchFlipSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1639017413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639017412}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.00000014901161, z: 0.000000026077032,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 399608140}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1639017414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639017412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: f3c9d2d1c5dbbbd48bc2deaff1162b13, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &1639017415
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639017412}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -8329806773203679049, guid: f3c9d2d1c5dbbbd48bc2deaff1162b13,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1659834625
 GameObject:
   m_ObjectHideFlags: 0
@@ -4374,7 +5547,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6959855644825423889, guid: 28fb65448c987b748b8d26534d527ec4,
+  m_Sprite: {fileID: -8035495634499943224, guid: 28fb65448c987b748b8d26534d527ec4,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4521,6 +5694,114 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1787722957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1787722958}
+  - component: {fileID: 1787722960}
+  - component: {fileID: 1787722959}
+  m_Layer: 9
+  m_Name: DoggoFetchSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1787722958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787722957}
+  m_LocalRotation: {x: 0.0000000037252903, y: -1, z: 0.000000014901161, w: -0.00000008940697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 399608140}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -13, y: 32, z: -5}
+--- !u!114 &1787722959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787722957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: bedae7bff3a469d47a09aac77629dcbf, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &1787722960
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787722957}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -3472648820947230931, guid: bedae7bff3a469d47a09aac77629dcbf,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1800294139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4836,6 +6117,115 @@ MonoBehaviour:
     wrapMode: 1
     startFrame: 0
     useUnscaledTime: 0
+--- !u!1 &1897482745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897482746}
+  - component: {fileID: 1897482748}
+  - component: {fileID: 1897482747}
+  m_Layer: 9
+  m_Name: DoggoPeeingFlipSprite
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1897482746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897482745}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.00000014901161, z: 0.000000026077032,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 656477312}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1897482747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897482745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: efa59a57b0dc03d4ebc3aea0219b5e2a, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 0
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!212 &1897482748
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897482745}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1460790369
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 6540346525154723998, guid: efa59a57b0dc03d4ebc3aea0219b5e2a,
+    type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!114 &1903533925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4854,7 +6244,7 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   isObstacle: 0
   isPlayer: 1
-  animationDelay: 0.45
+  animationDelay: 0.5
 --- !u!82 &1903533926
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5048,7 +6438,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9112031651535406152, guid: a1e92b47ffac0fb469f8a5aa019893ec,
+  m_Sprite: {fileID: -5308170846580280573, guid: a1e92b47ffac0fb469f8a5aa019893ec,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5336,7 +6726,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7780683733581544443}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2044704559
 GameObject:
@@ -5913,21 +7303,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131421451}
   m_CullTransparentMesh: 0
---- !u!4 &780606612600052502
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3890419899385725511}
-  m_LocalRotation: {x: 0.000000014901161, y: -0.00000008940697, z: -0.0000000037252903,
-    w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7780683733581544443}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &887172091010554664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5977,33 +7352,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1019183878870073241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3890419899385725511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_States: []
-  m_File: {fileID: 0}
-  speed: 1
-  m_Settings:
-    randomizeOnStart: 1
-    playOnStart: 1
-    overrideFileSettings: 0
-    customPlaybackMode: 1
-    customFramesPerSecond: 8
-    customBorder: {x: 0, y: 0, z: 0, w: 0}
-    customPixelsPerUnit: 100
-    customFilterMode: 2
-    wrapMode: 1
-    startFrame: 0
-    useUnscaledTime: 0
 --- !u!23 &1160980818020021829
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6055,129 +7403,6 @@ Transform:
   m_Father: {fileID: 3875513855655372709}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2001354307609065882
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8292772819883919152}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1460790369
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!212 &2058502568965054737
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474024921831451106}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1460790369
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &2105907010524810203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474024921831451106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_States: []
-  m_File: {fileID: 11400000, guid: ccf37205df991bf489343eaa27409a50, type: 2}
-  speed: 1
-  m_Settings:
-    randomizeOnStart: 1
-    playOnStart: 1
-    overrideFileSettings: 0
-    customPlaybackMode: 1
-    customFramesPerSecond: 8
-    customBorder: {x: 0, y: 0, z: 0, w: 0}
-    customPixelsPerUnit: 100
-    customFilterMode: 2
-    wrapMode: 1
-    startFrame: 0
-    useUnscaledTime: 0
 --- !u!4 &2112069104002064058
 Transform:
   m_ObjectHideFlags: 0
@@ -6311,33 +7536,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3348701925700145446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8292772819883919152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_States: []
-  m_File: {fileID: 11400000, guid: fe9e389c43a1aee4f9a44033f0e8ac45, type: 2}
-  speed: 1
-  m_Settings:
-    randomizeOnStart: 1
-    playOnStart: 1
-    overrideFileSettings: 0
-    customPlaybackMode: 1
-    customFramesPerSecond: 8
-    customBorder: {x: 0, y: 0, z: 0, w: 0}
-    customPixelsPerUnit: 100
-    customFilterMode: 2
-    wrapMode: 1
-    startFrame: 0
-    useUnscaledTime: 0
 --- !u!114 &3439107270184317834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6417,24 +7615,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3890419899385725511
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 780606612600052502}
-  - component: {fileID: 5123110562350998849}
-  - component: {fileID: 1019183878870073241}
-  m_Layer: 9
-  m_Name: DoggoPeeingSprite
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1001 &4140016661375844758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6666,25 +7846,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35176882
-  m_Height: 3.0602884
+  m_Radius: 0.63776076
+  m_Height: 2.9242408
   m_Direction: 0
-  m_Center: {x: 0.123571336, y: -0.8902582, z: -0.014185894}
---- !u!4 &4624187179312072162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8292772819883919152}
-  m_LocalRotation: {x: 0.000000014901161, y: -0.00000008940697, z: -0.0000000037252903,
-    w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7780683733581544443}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.10314671, y: -0.81147003, z: -0.014185896}
 --- !u!212 &4698871571156282824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6761,54 +7926,6 @@ MonoBehaviour:
     wrapMode: 1
     startFrame: 0
     useUnscaledTime: 0
---- !u!212 &5123110562350998849
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3890419899385725511}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 7f6b626a9f0dc5345af8f372a1db8e62, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1460790369
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &5997700313968016862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6836,24 +7953,6 @@ MonoBehaviour:
     wrapMode: 1
     startFrame: 0
     useUnscaledTime: 0
---- !u!1 &6474024921831451106
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8632327568823846536}
-  - component: {fileID: 2058502568965054737}
-  - component: {fileID: 2105907010524810203}
-  m_Layer: 9
-  m_Name: DoggoFightingSprite
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!4 &6580157852777564160
 Transform:
   m_ObjectHideFlags: 0
@@ -7313,10 +8412,12 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.29999998, z: 0.3}
   m_Children:
   - {fileID: 1430542840}
-  - {fileID: 8632327568823846536}
-  - {fileID: 780606612600052502}
-  - {fileID: 4624187179312072162}
+  - {fileID: 449535869}
+  - {fileID: 656477312}
+  - {fileID: 1153584356}
   - {fileID: 1173867030}
+  - {fileID: 118540329}
+  - {fileID: 399608140}
   - {fileID: 2040546166}
   m_Father: {fileID: 963194228}
   m_RootOrder: 6
@@ -7390,7 +8491,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7363423007912818107, guid: a7fb993197aec9c418dff56162e379cb,
+  m_Sprite: {fileID: -535180779338606289, guid: a7fb993197aec9c418dff56162e379cb,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7461,39 +8562,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &8292772819883919152
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4624187179312072162}
-  - component: {fileID: 2001354307609065882}
-  - component: {fileID: 3348701925700145446}
-  m_Layer: 9
-  m_Name: DoggoPloppingSprite
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &8632327568823846536
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474024921831451106}
-  m_LocalRotation: {x: 0.000000029802322, y: -0.00000014901161, z: -0.000000011175871,
-    w: 1}
-  m_LocalPosition: {x: 0, y: 0.5599993, z: 0}
-  m_LocalScale: {x: 1.4999992, y: 1.4999993, z: 1.4999993}
-  m_Children: []
-  m_Father: {fileID: 7780683733581544443}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8653559394684266316
 GameObject:
   m_ObjectHideFlags: 0

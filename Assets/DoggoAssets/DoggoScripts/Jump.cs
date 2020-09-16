@@ -12,7 +12,7 @@ public class Jump : MonoBehaviour
 
     public bool isObstacle;
     public bool isPlayer;
-    public float animationDelay = 0.45f;
+    public float animationDelay = 0.5f;
 
     Rigidbody Rb;
 
@@ -46,7 +46,7 @@ public class Jump : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpForce;
         }
         // Applies force to player jumps when pressing the spacebar
-        if (isPlayer && Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isPlayer && Input.GetKeyDown(KeyCode.Space) && isGrounded && DoggoBehavior.noJump == false)
         {
             isGrounded = false; // Important to be considered grounded when touching walls
             StartCoroutine("DoggoJumping2"); // Starts animation for jumping
@@ -109,17 +109,33 @@ public class Jump : MonoBehaviour
         // As long as the dog is animating
         while (DoggoBehavior.isAnimating == true)
         {
+            
+            
             // Wait for a given amount of time
             yield return new WaitForSeconds(animationDelay);
-            // Once the time has passed, return the doggo sprite to its original form (done jumping)
-            GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
-            GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-            GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
-            GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
 
-            DoggoBehavior.isAnimating = false;
+            // If the doggo collides with a good or bad thing while in the air, turn off all sprites other than collision animation
+            if (DoggoBehavior.isColliding == true)
+            {
+                GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                // Once the time has passed, return the doggo sprite to its original form (done jumping)
+                GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+
+                DoggoBehavior.isAnimating = false;
+            }
         }
     }
 }

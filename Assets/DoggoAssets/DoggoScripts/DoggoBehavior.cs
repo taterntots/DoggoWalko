@@ -16,6 +16,8 @@ public class DoggoBehavior : MonoBehaviour
 
     public static bool walkingDog = true;
     public static bool isAnimating = false;
+    public static bool noJump = false;
+    public static bool isColliding = false;
 
     private float animationDelay = 1.0f;
 
@@ -25,10 +27,6 @@ public class DoggoBehavior : MonoBehaviour
 
     [Range(0.0f, 1.0f)] public float goodSoundVolume;
     [Range(0.0f, 1.0f)] public float badSoundVolume;
-
-    //[System.NonSerialized] public int goodBoiPoints = 0;
-    //[System.NonSerialized] public int badBoiPoints = 0;
-
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +60,12 @@ public class DoggoBehavior : MonoBehaviour
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 Destroy(other.gameObject, animationDelay);
             }
+
+            // Stops doggo from being able to jump while animation triggers
+            noJump = true;
+            // Turns off jump sprites (if collided while jumping)
+            gameObject.transform.Find("DoggoJumpParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.Find("DoggoJumpParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
 
             // Triggers doggo fighting animation coroutine
             StartCoroutine("DoggoFighting");
@@ -97,6 +101,9 @@ public class DoggoBehavior : MonoBehaviour
         // If the object being collided with is considered "good" behavior
         if (other.gameObject.tag == "Good")
         {
+            // Stops doggo from being able to jump while animation triggers
+            noJump = true;
+
             // And if the object being collided with is a fire hydrant
             if (other.gameObject.name == "FireHydrant(Clone)")
             {
@@ -107,7 +114,7 @@ public class DoggoBehavior : MonoBehaviour
             if (other.gameObject.name == "Tree(Clone)")
             {
                 // Triggers doggo peeing animation coroutine
-                StartCoroutine("DoggoPlopping");
+                StartCoroutine("DoggoBusiness");
                 // Drop a plop at the tree (drops from too high atm)
                 //Instantiate(plop, other.gameObject.transform.position - transform.forward * 1, transform.rotation);
             }
@@ -118,6 +125,8 @@ public class DoggoBehavior : MonoBehaviour
 
             if (other.gameObject.name == "TennisBall(Clone)")
             {
+                // Triggers doggo fetching animation coroutine
+                StartCoroutine("DoggoFetching");
                 Destroy(other.gameObject);
             }
 
@@ -148,8 +157,10 @@ public class DoggoBehavior : MonoBehaviour
         // Triggers dog playing in the water animation if stepping on water
         if (other.gameObject.tag == "Water")
         {
+            // Stops doggo from being able to jump while animation triggers
+            noJump = true;
             // Starts the animation for dog playing in water
-            StartCoroutine("DoggoFighting");
+            StartCoroutine("DoggoSplashing");
             // Destroys the box coliders so you can't trigger more than one (used multiple for shaping)
             Destroy(other.gameObject);
             // Plays the a little soundclip
@@ -219,102 +230,176 @@ public class DoggoBehavior : MonoBehaviour
         GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
         GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = false;
     }
-
-    // Coroutine that swaps the dog sprite to the peeing animation
-    IEnumerator DoggoPeeing()
-    {
-        // Set isPeeing bool to true
-        isAnimating = true;
-        // Turn off all sprites other than the peeing one
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-
-        // As long as the dog is peeing
-        while (isAnimating == true)
-        {
-            // Wait for a given amount of time
-            yield return new WaitForSeconds(animationDelay);
-            // Once the time has passed, return the doggo sprite to its original form (done peeing)
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-
-            isAnimating = false;
-        }
-    }
-
-    // Coroutine that swaps the dog sprite to the plopping animation
-    IEnumerator DoggoPlopping()
-    {
-        // Set isAnimating bool to true
-        isAnimating = true;
-        // Turn off all sprites other than the plopping one
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
-
-        // As long as the dog is plopping
-        while (isAnimating == true)
-        {
-            // Wait for a given amount of time
-            yield return new WaitForSeconds(animationDelay);
-            // Once the time has passed, return the doggo sprite to its original form (done plopping)
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-            // Drop a plop behind you, no matter where in the world space you are
-            Instantiate(plop, transform.position - transform.forward * 0.5f, transform.rotation);
-
-            isAnimating = false;
-        }
-    }
-
+    
     // Coroutine that swaps the dog sprite to the fighting animation
     IEnumerator DoggoFighting()
     {
         // Set isAnimating bool to true
         isAnimating = true;
-        // Turn off all sprites other than the fighting one
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+        // Set isColliding bool to true
+        isColliding = true;
+        // Turn off all sprites
+        TurnOffDoggoSprites();
+        // Turn on Fighting Sprite
+        gameObject.transform.Find("DoggoFightingParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoFightingParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
 
         // As long as the dog is animating
         while (isAnimating == true)
         {
             // Wait for a given amount of time
             yield return new WaitForSeconds(animationDelay);
-            // Once the time has passed, return the doggo sprite to its original form (done fighting)
+            // Turn off all sprites
+            TurnOffDoggoSprites();
+            // Return Doggo to nuetral standing
             gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
 
+            noJump = false;
+            isColliding = false;
             isAnimating = false;
         }
+    }
+
+    // Coroutine that swaps the dog sprite to the peeing animation
+    IEnumerator DoggoPeeing()
+    {
+        // Set isPeeing bool to true
+        isAnimating = true;
+        // Set isColliding bool to true
+        isColliding = true;
+        // Turn off all sprites
+        TurnOffDoggoSprites();
+        // Turn on Peeing Sprite
+        gameObject.transform.Find("DoggoPeeingParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoPeeingParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is peeing
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time before changing doggo sprite
+            yield return new WaitForSeconds(animationDelay);
+            // Turn off all sprites
+            TurnOffDoggoSprites();
+            // Return Doggo to nuetral standing
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+            noJump = false;
+            isColliding = false;
+            isAnimating = false;
+        }
+    }
+
+    // Coroutine that swaps the dog sprite to the business animation
+    IEnumerator DoggoBusiness()
+    {
+        // Set isAnimating bool to true
+        isAnimating = true;
+        // Set isColliding bool to true
+        isColliding = true;
+        // Turn off all sprites
+        TurnOffDoggoSprites();
+        // Turn on Business Sprite
+        gameObject.transform.Find("DoggoBusinessParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoBusinessParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is doing his biz
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time
+            yield return new WaitForSeconds(animationDelay);
+            // Turn off all sprites
+            TurnOffDoggoSprites();
+            // Return Doggo to nuetral standing
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            // Drop a plop behind you, no matter where in the world space you are
+            Instantiate(plop, transform.position - transform.forward * 0.5f, transform.rotation);
+
+            noJump = false;
+            isColliding = false;
+            isAnimating = false;
+        }
+    }
+
+    // Coroutine that swaps the dog sprite to the splashing animation
+    IEnumerator DoggoSplashing()
+    {
+        // Set isAnimating bool to true
+        isAnimating = true;
+        // Set isColliding bool to true
+        isColliding = true;
+        // Turn off all sprites
+        TurnOffDoggoSprites();
+        // Turn on Splashing Sprite
+        gameObject.transform.Find("DoggoSplashParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoSplashParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is animating
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time
+            yield return new WaitForSeconds(animationDelay);
+            // Turn off all sprites
+            TurnOffDoggoSprites();
+            // Return Doggo to nuetral standing
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+            noJump = false;
+            isColliding = false;
+            isAnimating = false;
+        }
+    }
+
+    // Coroutine that swaps the dog sprite to the fetching animation
+    IEnumerator DoggoFetching()
+    {
+        // Set isAnimating bool to true
+        isAnimating = true;
+        // Set isColliding bool to true
+        isColliding = true;
+        // Turn off all sprites
+        TurnOffDoggoSprites();
+        // Turn on Splashing Sprite
+        gameObject.transform.Find("DoggoFetchParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoFetchParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is animating
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time
+            yield return new WaitForSeconds(animationDelay);
+            // Turn off all sprites
+            TurnOffDoggoSprites();
+            // Return Doggo to nuetral standing
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+            noJump = false;
+            isColliding = false;
+            isAnimating = false;
+        }
+    }
+
+    void TurnOffDoggoSprites()
+    {
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoFightingParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoFightingParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoPeeingParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoPeeingParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoBusinessParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoBusinessParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoJumpParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoJumpParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSplashParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSplashParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoFetchParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoFetchParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
     }
 }

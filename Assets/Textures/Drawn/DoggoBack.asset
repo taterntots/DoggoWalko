@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!28 &-2812235746345860849
+--- !u!28 &-8151416716931312738
 Texture2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,32 +40,7 @@ Texture2D:
     offset: 0
     size: 0
     path: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1566551335, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
-  m_Name: DoggoBack
-  m_EditorClassIdentifier: 
-  frames:
-  - _texture: {fileID: -2812235746345860849}
-    _sprite: {fileID: 6959855644825423889}
-    m_Length: 1
-  playbackMode: 1
-  framesPerSecond: 8
-  spriteBorder: {x: 400, y: 0, z: 400, w: 0}
-  filterMode: 2
-  patternMode: 0
-  darkCheckerboard: 0
-  spriteSheetAssetGUID: 
-  sounds: []
-  version: 2032
---- !u!213 &6959855644825423889
+--- !u!213 &-8035495634499943224
 Sprite:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +67,7 @@ Sprite:
   m_SpriteAtlas: {fileID: 0}
   m_RD:
     serializedVersion: 3
-    texture: {fileID: -2812235746345860849}
+    texture: {fileID: -8151416716931312738}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -183,7 +158,7 @@ Sprite:
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 3
-    texture: {fileID: -2812235746345860849}
+    texture: {fileID: -8151416716931312738}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -275,3 +250,28 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1566551335, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: DoggoBack
+  m_EditorClassIdentifier: 
+  frames:
+  - _texture: {fileID: -8151416716931312738}
+    _sprite: {fileID: -8035495634499943224}
+    m_Length: 1
+  playbackMode: 1
+  framesPerSecond: 8
+  spriteBorder: {x: 400, y: 0, z: 400, w: 0}
+  filterMode: 2
+  patternMode: 0
+  darkCheckerboard: 0
+  spriteSheetAssetGUID: 
+  sounds: []
+  version: 2032
