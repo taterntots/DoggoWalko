@@ -124,14 +124,15 @@ public class LevelSpawner : MonoBehaviour
         if (currentSpawn == buildings[2])
         {
             // Drop a fire hydrant randomly on the Z axis by the edge of the sidewalk
-            zBuildingObject = Random.Range(zScenePos - 2.5f, zScenePos + 2.5f);
-            Instantiate(fireHydrant, new Vector3(-0.864f, 0.908f, zBuildingObject), transform.rotation);
+            zBuildingObject = Random.Range(zScenePos - 1.5f, zScenePos + 1.5f);
+            Instantiate(fireHydrant, new Vector3(-0.864f, 0.858f, zBuildingObject), transform.rotation);
         }
+        // If the house being spawned is green
         else if (currentSpawn == buildings[1])
         {
             // Drop a tree randomly on the Z axis by the edge of the sidewalk
-            zBuildingObject = Random.Range(zScenePos - 2.5f, zScenePos + 2.5f);
-            Instantiate(tree, new Vector3(-0.943f, 1.825227f, zBuildingObject), transform.rotation);
+            zBuildingObject = Random.Range(zScenePos - 1.5f, zScenePos + 1.5f);
+            Instantiate(tree, new Vector3(-1.35f, 1.07f, zBuildingObject), transform.rotation);
         }
     }
 }

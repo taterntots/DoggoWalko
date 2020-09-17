@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(Vector3.forward * doggoAutoSpeed * Time.fixedDeltaTime, Space.Self);
 
         // Controls for moving the dog
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             transform.position += transform.forward * doggoSpeed * Time.deltaTime;
 
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
                 GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
             }
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             transform.position -= transform.forward * doggoSpeed * Time.deltaTime;
 
@@ -74,11 +74,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
       
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += transform.right * doggoSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position -= transform.right * doggoSpeed * Time.deltaTime;
         }

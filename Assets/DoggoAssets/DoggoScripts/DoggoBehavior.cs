@@ -122,6 +122,8 @@ public class DoggoBehavior : MonoBehaviour
             // Turns the box collider off to prevent multiple collisions
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            // Destroy object after a delay (when offscreen)
+            Destroy(other.gameObject, 8);
 
             if (other.gameObject.name == "TennisBall(Clone)")
             {

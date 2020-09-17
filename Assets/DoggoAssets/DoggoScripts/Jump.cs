@@ -33,8 +33,7 @@ public class Jump : MonoBehaviour
 
   
     // Update is called once per frame
-    void FixedUpdate()
-
+    void Update()
     {
         // Runs jumping animation function when not grounded
         //DoggoJumping();
@@ -45,8 +44,8 @@ public class Jump : MonoBehaviour
             isGrounded = false; // Important to be considered grounded when touching walls
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpForce;
         }
-        // Applies force to player jumps when pressing the spacebar
-        if (isPlayer && Input.GetKeyDown(KeyCode.Space) && isGrounded && DoggoBehavior.noJump == false)
+        // Applies force to player jumps when pressing the spacebar or J Key
+        if (isPlayer && (Input.GetKey(KeyCode.J) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
         {
             isGrounded = false; // Important to be considered grounded when touching walls
             StartCoroutine("DoggoJumping2"); // Starts animation for jumping

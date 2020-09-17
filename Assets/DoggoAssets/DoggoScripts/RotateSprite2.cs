@@ -43,11 +43,11 @@ public class RotateSprite2 : MonoBehaviour
         // Determines the degrees of rotation based on key pressed (triggers weven when animating with an object)
         if (DoggoBehavior.isAnimating == false || DoggoBehavior.isAnimating == true)
         {
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 PlayerRotator(-180);
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 PlayerRotator(0);
             }
