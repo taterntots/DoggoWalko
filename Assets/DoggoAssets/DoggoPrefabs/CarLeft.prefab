@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4799097146505592670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.0249064, y: 1.1, z: 2.9506361}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4972734117869515243, guid: 332a3d2069f0fd148bdaa563f5b605f0,
+  m_Sprite: {fileID: 6379913221272327087, guid: 714b1df72c50c9e4f918f4afa15d3e1e,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: 332a3d2069f0fd148bdaa563f5b605f0, type: 2}
+  m_File: {fileID: 11400000, guid: 714b1df72c50c9e4f918f4afa15d3e1e, type: 2}
   speed: 0.7
   m_Settings:
     randomizeOnStart: 1
@@ -121,10 +121,10 @@ BoxCollider:
   m_GameObject: {fileID: 4799097146505592670}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7182581, y: 3.3252487, z: 0.20000006}
-  m_Center: {x: -0.010742147, y: 0.06465107, z: 0}
+  m_Size: {x: 3.6123252, y: 1.2902257, z: 0.20000006}
+  m_Center: {x: -0.01568357, y: -0.39758193, z: 0}
 --- !u!54 &4799097146505592666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,8 +172,8 @@ CapsuleCollider:
   m_GameObject: {fileID: 4799097146505592670}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.0331918
-  m_Height: 2.6697793
+  m_Enabled: 0
+  m_Radius: 0.47143337
+  m_Height: 3.5887384
   m_Direction: 0
-  m_Center: {x: -0.0034668047, y: -0.9668082, z: 0}
+  m_Center: {x: -0.023886362, y: -0.3136738, z: 0}
