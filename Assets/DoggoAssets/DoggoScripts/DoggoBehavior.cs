@@ -12,7 +12,8 @@ public class DoggoBehavior : MonoBehaviour
     private LevelSpawner levelSpawnerRef;
     private MoveCamera moveCameraRef;
     private PlayerMovement playerMovementRef;
-    private ObstacleSpawner obstacleSpawnerRef;
+    private ObstacleSpawner obstacleSpawnerEnemyRef;
+    private ObstacleSpawner obstacleSpawnerTennisBallRef;
 
     public static bool walkingDog = true;
     public static bool isAnimating = false;
@@ -39,8 +40,10 @@ public class DoggoBehavior : MonoBehaviour
         moveCameraRef = GameObject.FindWithTag("MainCamera").GetComponent<MoveCamera>();
         // Grabs reference to the PlayerMovement script
         playerMovementRef = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
-        // Grabs reference to the ObstacleSpawner script
-        obstacleSpawnerRef = GameObject.FindWithTag("ObstacleSpawner").GetComponent<ObstacleSpawner>();
+        // Grabs reference to the ObstacleSpawnerEnemy script component
+        obstacleSpawnerEnemyRef = GameObject.FindWithTag("ObstacleSpawnerEnemy").GetComponent<ObstacleSpawner>();
+        // Grabs reference to the ObstacleSpawnerTennisBall script component
+        obstacleSpawnerTennisBallRef = GameObject.FindWithTag("ObstacleSpawnerTennisBall").GetComponent<ObstacleSpawner>();
 
         // Keeps the "good" and "bad boi" animations from triggering at game start (essentially hides them)
         WalkerTextOff();
@@ -125,7 +128,7 @@ public class DoggoBehavior : MonoBehaviour
             // Destroy object after a delay (when offscreen)
             Destroy(other.gameObject, 8);
 
-            if (other.gameObject.name == "TennisBall(Clone)")
+            if (other.gameObject.name == "TennisBallLow(Clone)" || other.gameObject.name == "TennisBallHigh(Clone)")
             {
                 // Triggers doggo fetching animation coroutine
                 StartCoroutine("DoggoFetching");
@@ -200,19 +203,19 @@ public class DoggoBehavior : MonoBehaviour
             }
 
             // Makes enemies spawn more frequently, maxing out the spawn time between 0.4 and 1 second
-            if (obstacleSpawnerRef.minTime > 0.4f)
+            if (obstacleSpawnerEnemyRef.minTime > 0.4f)
             {
-                obstacleSpawnerRef.minTime -= 0.2f;
+                obstacleSpawnerEnemyRef.minTime -= 0.2f;
             }
-            if (obstacleSpawnerRef.maxTime > 0.4f)
+            if (obstacleSpawnerEnemyRef.maxTime > 0.4f)
             {
-                obstacleSpawnerRef.maxTime -= 0.4f;
+                obstacleSpawnerEnemyRef.maxTime -= 0.4f;
             }
 
             // Makes Obstacle Spawner move a little faster
-            if (obstacleSpawnerRef.spawnerSpeed < 4.0f)
+            if (obstacleSpawnerEnemyRef.spawnerSpeed < 4.0f)
             {
-                obstacleSpawnerRef.spawnerSpeed += 0.5f;
+                obstacleSpawnerEnemyRef.spawnerSpeed += 0.5f;
             }
 
             // Makes buildings spawn a bit faster

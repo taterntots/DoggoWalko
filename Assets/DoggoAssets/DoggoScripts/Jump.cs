@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    public float jumpForce = 2.0f;
+    public float jumpForce;
     public bool isGrounded;
 
     public float fallMultiplier = 2.5f;

@@ -8,7 +8,6 @@ TagManager:
   - Bad
   - Good
   - Checkpoint
-  - ObstacleSpawner
   - FrownyFace
   - ShowOnPause
   - Building
@@ -16,6 +15,8 @@ TagManager:
   - Wall
   - Ground
   - StreetCollider
+  - ObstacleSpawnerEnemy
+  - ObstacleSpawnerTennisBall
   layers:
   - Default
   - TransparentFX

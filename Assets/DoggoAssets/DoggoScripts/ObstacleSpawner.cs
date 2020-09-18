@@ -31,7 +31,7 @@ public class ObstacleSpawner : MonoBehaviour
     void OnGUI()
     {
         // Create a Label in Game view for the Slider
-        GUI.Label(new Rect(0, 25, 40, 60), "Speed");
+        //GUI.Label(new Rect(0, 25, 40, 60), "Speed");
         // Create a horizontal Slider to control the speed of the Animator. Drag the slider to 1 for normal speed.
         //spawnerSpeed = GUI.HorizontalSlider(new Rect(45, 25, 200, 60), spawnerSpeed, 1.0F, 4.0F);
         // Make the speed of the Animator match the Slider value
@@ -63,7 +63,7 @@ public class ObstacleSpawner : MonoBehaviour
         timer = 0;
     }
 
-    // Sets the random time between minTime and maxTime
+    // Sets the random time between minTime and maxTime. Also sets random jumpforce for tennis balls
     void SetRandomTime()
     {
         spawnTime = Random.Range(minTime, maxTime);

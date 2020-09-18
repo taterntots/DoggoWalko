@@ -19,8 +19,9 @@ public class GameOver : MonoBehaviour
         DoggoBehavior.walkingDog = false;
         // Stops the camera from moving
         GameObject.Find("MainCamera").GetComponent<MoveCamera>().cameraSpeed = 0;
-        // Stops the obstacle launcher from spawning anything
-        GameObject.FindWithTag("ObstacleSpawner").SetActive(false);
+        // Stops the obstacle launchers from spawning anything
+        GameObject.FindWithTag("ObstacleSpawnerEnemy").SetActive(false);
+        GameObject.FindWithTag("ObstacleSpawnerTennisBall").SetActive(false);
         // Stops the Timer (simply hides it. technically it is still counting)
         Timer.timer = false;
         // Destroys all gameObjects tagged as "Bad"
