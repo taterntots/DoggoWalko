@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 6575143832267648430}
   - component: {fileID: 6575143832267648337}
   - component: {fileID: 6575143832267648336}
-  - component: {fileID: -7274609159653339957}
   - component: {fileID: 8456719761319803961}
   m_Layer: 0
   m_Name: DoggoPlops
-  m_TagString: Bad
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5440612534893261345, guid: fe9e389c43a1aee4f9a44033f0e8ac45,
+  m_Sprite: {fileID: 8305956488775589160, guid: fe9e389c43a1aee4f9a44033f0e8ac45,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -127,20 +126,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &-7274609159653339957
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6575143832267648338}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.0599399
-  m_Height: 2.1198797
-  m_Direction: 1
-  m_Center: {x: -0.22715963, y: -0.1787956, z: 0}
 --- !u!65 &8456719761319803961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152,5 +137,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9078333, y: 2.1691942, z: 0.2}
-  m_Center: {x: -0.25915802, y: -0.15685558, z: 0}
+  m_Size: {x: 1.347053, y: 1.2909766, z: 0.2}
+  m_Center: {x: 0.021232156, y: -0.6898436, z: 0}

@@ -19,6 +19,7 @@ public class DoggoBehavior : MonoBehaviour
     public static bool isAnimating = false;
     public static bool noJump = false;
     public static bool isColliding = false;
+    public static bool isTakingDamage = false;
 
     private float animationDelay = 1.0f;
 
@@ -49,21 +50,20 @@ public class DoggoBehavior : MonoBehaviour
         WalkerTextOff();
     }
 
-  void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         // If the object the dog is colliding with is considered "bad" behavior
-        if (other.gameObject.tag == "Bad")
+        if (other.gameObject.tag == "Bad" && isTakingDamage == false)
         {
-            // If it's specifically a plops
+            // If it's specifically a plops (currently commented out code that causes damage to player)
             if (other.gameObject.name == "DoggoPlops(Clone)")
             {
                 // Trigger the DoggFighting Animation
-                StartCoroutine("DoggoFighting");
+                //StartCoroutine("DoggoFighting");
                 // Destroy the plops object after set period of time and make it kinetic so it doesn't fall through the floor
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 Destroy(other.gameObject, animationDelay);
             }
-
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
             // Turns off jump sprites (if collided while jumping)
@@ -99,6 +99,13 @@ public class DoggoBehavior : MonoBehaviour
             GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
             Invoke("WalkerTextOff", 3f);
+        }
+
+        // Otherwise, ignores collisions with other enemies, water, or good objects (like trees or hydrants) while fighting
+        else if (isTakingDamage == true && (other.gameObject.tag == "Good" || other.gameObject.tag == "Bad" || other.gameObject.tag == "Water"))
+        {
+            Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
+            Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
         // If the object being collided with is considered "good" behavior
@@ -160,7 +167,7 @@ public class DoggoBehavior : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // Triggers dog playing in the water animation if stepping on water
-        if (other.gameObject.tag == "Water")
+        if (other.gameObject.tag == "Water" && isTakingDamage == false)
         {
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
@@ -182,6 +189,12 @@ public class DoggoBehavior : MonoBehaviour
             GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
             Invoke("WalkerTextOff", 3f);
+        }
+        // Otherwise, ignores collisions with other enemies, water, or good objects (like trees or hydrants) while fighting
+        else if (isTakingDamage == true && (other.gameObject.tag == "Good" || other.gameObject.tag == "Bad" || other.gameObject.tag == "Water"))
+        {
+            Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
+            Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
         // Ends the game if you reach your home and have more badboi points than good
@@ -243,8 +256,11 @@ public class DoggoBehavior : MonoBehaviour
         isAnimating = true;
         // Set isColliding bool to true
         isColliding = true;
+        // Set isTakingDamage bool to true to prevent more than one enemy giving damage while taking a hit
+        isTakingDamage = true;
         // Turn off all sprites
         TurnOffDoggoSprites();
+
         // Turn on Fighting Sprite
         gameObject.transform.Find("DoggoFightingParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.Find("DoggoFightingParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
@@ -262,6 +278,7 @@ public class DoggoBehavior : MonoBehaviour
 
             noJump = false;
             isColliding = false;
+            isTakingDamage = false;
             isAnimating = false;
         }
     }
@@ -336,6 +353,8 @@ public class DoggoBehavior : MonoBehaviour
         // Set isColliding bool to true
         isColliding = true;
         // Turn off all sprites
+        // Set isTaking Damage bool to true to prevent more than one enemy giving damage while taking a hit
+        isTakingDamage = true;
         TurnOffDoggoSprites();
         // Turn on Splashing Sprite
         gameObject.transform.Find("DoggoSplashParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
@@ -354,6 +373,7 @@ public class DoggoBehavior : MonoBehaviour
 
             noJump = false;
             isColliding = false;
+            isTakingDamage = false;
             isAnimating = false;
         }
     }
