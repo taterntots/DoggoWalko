@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4110061976867607235, guid: 0a4b482addcaec94487e633430260f51,
+  m_Sprite: {fileID: -6670332992869954297, guid: b4c092fb3ed5838418389de6735f5fc3,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: 0a4b482addcaec94487e633430260f51, type: 2}
+  m_File: {fileID: 11400000, guid: b4c092fb3ed5838418389de6735f5fc3, type: 2}
   speed: 0.7
   m_Settings:
     randomizeOnStart: 1
@@ -123,8 +123,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.6123252, y: 1.2902257, z: 0.20000006}
-  m_Center: {x: -0.01568357, y: -0.39758193, z: 0}
+  m_Size: {x: 3.6123252, y: 1.0402057, z: 0.20000006}
+  m_Center: {x: -0.01568357, y: -0.27257192, z: 0}
 --- !u!54 &1578933406898294347
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frequency: 0
   magnitude: 0
-  speed: 2
+  speed: 3
   twirlSpeed: 8
   floating: 0
   zigzag: 0

@@ -53,7 +53,7 @@ public class DoggoBehavior : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         // If the object the dog is colliding with is considered "bad" behavior
-        if (other.gameObject.tag == "Bad" && isTakingDamage == false)
+        if (other.gameObject.tag == "Bad" && isTakingDamage == false && Invincibility.isSuper == false)
         {
             // If it's specifically a plops (currently commented out code that causes damage to player)
             if (other.gameObject.name == "DoggoPlops(Clone)")
@@ -102,14 +102,14 @@ public class DoggoBehavior : MonoBehaviour
         }
 
         // Otherwise, ignores collisions with other enemies, water, or good objects (like trees or hydrants) while fighting
-        else if (isTakingDamage == true && (other.gameObject.tag == "Good" || other.gameObject.tag == "Bad" || other.gameObject.tag == "Water"))
+        else if (isTakingDamage == true && Invincibility.isSuper == false && (other.gameObject.tag == "Good" || other.gameObject.tag == "Bad" || other.gameObject.tag == "Water"))
         {
             Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
             Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
         // If the object being collided with is considered "good" behavior
-        if (other.gameObject.tag == "Good")
+        if (other.gameObject.tag == "Good" && Invincibility.isSuper == false)
         {
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
@@ -134,14 +134,7 @@ public class DoggoBehavior : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             // Destroy object after a delay (when offscreen)
             Destroy(other.gameObject, 8);
-
-            if (other.gameObject.name == "TennisBallLow(Clone)" || other.gameObject.name == "TennisBallHigh(Clone)")
-            {
-                // Triggers doggo fetching animation coroutine
-                StartCoroutine("DoggoFetching");
-                Destroy(other.gameObject);
-            }
-
+            
             // Destroy the good object after set period of time
             //Destroy(other.gameObject, animationDelay);
 
@@ -167,7 +160,7 @@ public class DoggoBehavior : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // Triggers dog playing in the water animation if stepping on water
-        if (other.gameObject.tag == "Water" && isTakingDamage == false)
+        if (other.gameObject.tag == "Water" && isTakingDamage == false && Invincibility.isSuper == false)
         {
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
@@ -379,7 +372,7 @@ public class DoggoBehavior : MonoBehaviour
     }
 
     // Coroutine that swaps the dog sprite to the fetching animation
-    IEnumerator DoggoFetching()
+    public IEnumerator DoggoFetching()
     {
         // Set isAnimating bool to true
         isAnimating = true;
@@ -408,7 +401,7 @@ public class DoggoBehavior : MonoBehaviour
         }
     }
 
-    void TurnOffDoggoSprites()
+    public void TurnOffDoggoSprites()
     {
         gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
@@ -426,5 +419,7 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.Find("DoggoSplashParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoFetchParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoFetchParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
     }
 }

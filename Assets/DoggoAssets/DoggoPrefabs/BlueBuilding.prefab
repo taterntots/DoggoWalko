@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 1222239183490860489}
   - component: {fileID: 1222239183490860490}
   - component: {fileID: 3484078863555792044}
+  - component: {fileID: 279843235818633122}
   m_Layer: 0
   m_Name: PuddleSidewalk
   m_TagString: Ground
@@ -548,6 +549,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &279843235818633122
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222239183490860495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: -0.00000011920929}
 --- !u!1 &1222239183915014496
 GameObject:
   m_ObjectHideFlags: 0
