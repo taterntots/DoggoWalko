@@ -25,22 +25,15 @@ public class GameOver : MonoBehaviour
         // Stops the Timer (simply hides it. technically it is still counting)
         Timer.timer = false;
         // Destroys all gameObjects tagged as "Bad"
-        DestroyAllEnemies("Bad");
+        DestroyTheThing.DestroyAll("Bad");
+        // Destroys all stray Tennis Balls
+        DestroyTheThing.DestroyAllParents("TennisBall");
         // Pulls up the Game Over Screen with stats and restart button
         gameOverCanvas.SetActive(true);
         // Destroy the doggo so the player can't move anymore
         Destroy(GameObject.FindWithTag("Player"));
+        // Hide the Dog Walker from the background
+        GameObject.Find("DogWalkerParent").SetActive(false);
 
-    }
-
-    // Function that destroys all enemies, passing the tag/type you want destroyed as the argument
-    void DestroyAllEnemies(string tag)
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(tag);
-
-        for(int i=0; i<enemies.Length; i++)
-        {
-            GameObject.Destroy(enemies[i]);
-        }
     }
 }

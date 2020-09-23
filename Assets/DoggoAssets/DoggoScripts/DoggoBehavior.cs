@@ -92,7 +92,6 @@ public class DoggoBehavior : MonoBehaviour
             if (walkerAttitude > -3)
             {
                 walkerAttitude--;
-                Debug.Log(walkerAttitude);
             }
 
             // Triggers the "bad boi" text bubble upon collision with bad objects and then hides it after a set number of seconds
@@ -144,7 +143,6 @@ public class DoggoBehavior : MonoBehaviour
             if (walkerAttitude < 3)
             {
                 walkerAttitude++;
-                Debug.Log(walkerAttitude);
             }
 
             // Triggers the "good boi" text bubble upon collision with good objects and then hides it after a set number of seconds
@@ -173,7 +171,6 @@ public class DoggoBehavior : MonoBehaviour
             if (walkerAttitude > -3)
             {
                 walkerAttitude--;
-                Debug.Log(walkerAttitude);
             }
             // Triggers the "bad boi" text bubble upon collision with bad objects and then hides it after a set number of seconds
             GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = true;
