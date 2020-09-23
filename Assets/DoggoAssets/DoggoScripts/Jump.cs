@@ -15,11 +15,13 @@ public class Jump : MonoBehaviour
     public float animationDelay = 0.5f;
 
     Rigidbody Rb;
+    private DoggoBehavior doggoBehaviorRef;
 
     void Awake()
     {
-        // Assigns the rigidbod component to a variable
+        // Assigns some components and references to variables
         Rb = GetComponent<Rigidbody>();
+        doggoBehaviorRef = GameObject.FindWithTag("Player").GetComponent<DoggoBehavior>();
     }
 
     // Keeps grounded true when on the ground / sidewalk (for jumping)
@@ -35,9 +37,6 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Runs jumping animation function when not grounded
-        //DoggoJumping();
-
         // If it's an obstacle (like the ball) or enemy, auto jump the moment the object touches the ground
         if (isObstacle && isGrounded)
         {
@@ -48,7 +47,7 @@ public class Jump : MonoBehaviour
         if (isPlayer && (Input.GetKey(KeyCode.J) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
         {
             isGrounded = false; // Important to be considered grounded when touching walls
-            StartCoroutine("DoggoJumping2"); // Starts animation for jumping
+            StartCoroutine("DoggoJumping"); // Starts animation for jumping
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpForce;
         }
 
@@ -65,75 +64,79 @@ public class Jump : MonoBehaviour
         }
     }
 
-    // Function not working properly. For some reason, it eventually bugs out with detecting the ground incorrectly
-    void DoggoJumping()
-    {
-        if (isGrounded == false && DoggoBehavior.isAnimating == true)
-        {
-            // Turn off all sprites other than the jumping one
-            GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
-            GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-            GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
-            GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-
-            DoggoBehavior.isAnimating = false;
-        }
-
-        if (isGrounded == true)
-        {
-            GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
-            GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;;
-            GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
-            GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
-            GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-        }
-    }
-
     // Coroutine that swaps the dog sprite to the fighting animation
-    IEnumerator DoggoJumping2()
+    IEnumerator DoggoJumping()
     {
         // Set isAnimating bool to true
         DoggoBehavior.isAnimating = true;
-        // Turn off all sprites other than the jumping ones
-        GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = true;
-        GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
-        GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
-        GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-        GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
-        GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+        // Turn off all sprites
+        doggoBehaviorRef.TurnOffDoggoSprites();
+        //
+        if (Invincibility.isSuper == true)
+        {
+            GameObject.Find("DoggoSuperJumpSprite").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("DoggoSuperJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+        }
        
         // As long as the dog is animating
         while (DoggoBehavior.isAnimating == true)
         {
-            
-            
             // Wait for a given amount of time
             yield return new WaitForSeconds(animationDelay);
-
-            // If the doggo collides with a good or bad thing while in the air, turn off all sprites other than collision animation
-            if (DoggoBehavior.isColliding == true)
+            // If the doggo is in super mode
+            if (Invincibility.isSuper == true)
             {
-                GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                if (DoggoBehavior.isColliding == true)
+                {
+                    GameObject.Find("DoggoSuperJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    // Once the time has passed, return the doggo sprite to its original super form (done jumping)
+                    GameObject.Find("DoggoSuperJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoSuperFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoSuperBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+
+                    DoggoBehavior.isAnimating = false;
+                }
             }
             else
             {
-                // Once the time has passed, return the doggo sprite to its original form (done jumping)
-                GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = true;
-                GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
-                GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                // If the doggo collides with a good or bad thing while in the air, turn off all sprites other than collision animation
+                if (DoggoBehavior.isColliding == true)
+                {
+                    GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    // Once the time has passed, return the doggo sprite to its original form (done jumping)
+                    GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
 
-                DoggoBehavior.isAnimating = false;
+                    DoggoBehavior.isAnimating = false;
+                }
             }
         }
     }

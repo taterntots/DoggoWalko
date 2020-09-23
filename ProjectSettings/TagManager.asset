@@ -17,6 +17,7 @@ TagManager:
   - StreetCollider
   - ObstacleSpawnerEnemy
   - ObstacleSpawnerTennisBall
+  - TennisBall
   layers:
   - Default
   - TransparentFX

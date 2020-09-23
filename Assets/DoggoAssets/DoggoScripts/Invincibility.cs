@@ -12,12 +12,13 @@ public class Invincibility : MonoBehaviour
     public static bool isSuper = false;
 
     private DoggoBehavior doggoBehaviorRef;
+    private ObstacleSpawner tennisObstacleSpawnerRef;
 
     // Start is called before the first frame update
     void Start()
     {
         doggoBehaviorRef = GameObject.FindWithTag("Player").GetComponent<DoggoBehavior>();
-        Debug.Log("ballcount:" + ballCount);
+        tennisObstacleSpawnerRef = GameObject.FindWithTag("ObstacleSpawnerTennisBall").GetComponent<ObstacleSpawner>();
     }
 
     // Update is called once per frame
@@ -33,7 +34,6 @@ public class Invincibility : MonoBehaviour
         {
             // Increase the ball count
             ballCount += 1;
-            Debug.Log("ballcount:" + ballCount);
             // Destroy the ball
             Destroy(other.gameObject);
 
@@ -60,6 +60,9 @@ public class Invincibility : MonoBehaviour
         // When super is activated, hand collisions in the following ways
         if (isSuper == true)
         {
+            // Destroy all spawned Tennis Balls
+            DestroyTheThing.DestroyAllParents("TennisBall");
+
             // If the collision is with a bad object
             if (other.gameObject.tag == "Bad")
             {
@@ -74,18 +77,18 @@ public class Invincibility : MonoBehaviour
                 Destroy(other.gameObject, 4);
 
                 // Apply force to the rigidbody to send them flying in different directions
-                other.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 250);
+                other.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 200);
                 leftOrRight = Random.Range(1, 3);
-                Debug.Log(leftOrRight);
                 if (leftOrRight == 1 || leftOrRight == 2)
                 {
-                    other.gameObject.GetComponent<Rigidbody>().AddForce(transform.right * -100);
+                    other.gameObject.GetComponent<Rigidbody>().AddForce(transform.right * -60);
                 }
                 else
                 {
-                    other.gameObject.GetComponent<Rigidbody>().AddForce(transform.right * 100);
+                    other.gameObject.GetComponent<Rigidbody>().AddForce(transform.right * 60);
                 }
             }
+            
         }
     }
 
@@ -96,12 +99,30 @@ public class Invincibility : MonoBehaviour
         DoggoBehavior.isAnimating = true;
         // Set isColliding bool to true
         DoggoBehavior.isColliding = true;
+        // Make sure the doggo can jump (as long as they aren't animating with good objects)
+        DoggoBehavior.noJump = false;
+        // Turn off the spawner for tennis balls
+        tennisObstacleSpawnerRef.isSpawning = false;
         // Turn off all sprites
         doggoBehaviorRef.TurnOffDoggoSprites();
-        // Turn on Invincibility Sprites
-        gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        // Turn on Fetch Invincibility Sprites briefly
+        gameObject.transform.Find("DoggoSuperParent").GetChild(10).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(11).GetComponent<SpriteRenderer>().enabled = true;
+        
+        while (DoggoBehavior.isAnimating == true)
+        {
+            // Wait for a given amount of time before swapping sprites away from fetching
+            yield return new WaitForSeconds(DoggoBehavior.animationDelay);
+            // Turn off all sprites
+            doggoBehaviorRef.TurnOffDoggoSprites();
+            // Turn on Invincibility Sprites
+            gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
 
+            DoggoBehavior.isColliding = false;
+            DoggoBehavior.isAnimating = false;
+        }
+        
         // As long as the doggo is supered up
         while (isSuper == true)
         {
@@ -112,15 +133,11 @@ public class Invincibility : MonoBehaviour
             // Return Doggo to nuetral standing
             gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-
             // Reset the ball count
             ballCount = 0;
-
             // Reset a bunch of bools to turn doggo back to normal
             isSuper = false;
-            DoggoBehavior.noJump = false;
-            DoggoBehavior.isColliding = false;
-            DoggoBehavior.isAnimating = false;
+            tennisObstacleSpawnerRef.isSpawning = true;
         }
     }
 }

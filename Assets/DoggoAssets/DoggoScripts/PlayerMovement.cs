@@ -45,10 +45,30 @@ public class PlayerMovement : MonoBehaviour
             // Swaps to DoggoBack Sprite when moving upwards
             if (DoggoBehavior.isAnimating == false)
             {
-                GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = true;
-                GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+                if (Invincibility.isSuper == true)
+                {
+                    GameObject.Find("DoggoSuperSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperBackSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoSuperBackFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+
+                    GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+
+                    GameObject.Find("DoggoSuperSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                }
             }
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
@@ -58,10 +78,20 @@ public class PlayerMovement : MonoBehaviour
             // Swaps to DoggoFront Sprite when moving backwards
             if (DoggoBehavior.isAnimating == false)
             {
-                GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = true;
-                GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
-                GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
-                GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                if (Invincibility.isSuper == true)
+                {
+                    GameObject.Find("DoggoSuperSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoSuperFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoSuperBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoSuperBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    GameObject.Find("DoggoSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.Find("DoggoBackSprite").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("DoggoBackFlipSprite").GetComponent<SpriteRenderer>().enabled = false;
+                }
             }
         }
       

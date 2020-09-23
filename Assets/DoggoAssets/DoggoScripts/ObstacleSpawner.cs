@@ -14,6 +14,7 @@ public class ObstacleSpawner : MonoBehaviour
     private float timer;
     // The time to spawn the object
     private float spawnTime;
+    public bool isSpawning = true;
 
     // Allows for adjustment to spawner speed
     Animator spawnerMovement;
@@ -43,8 +44,8 @@ public class ObstacleSpawner : MonoBehaviour
         // Counts up starting from zero
         timer += Time.deltaTime;
 
-        // Check if it's the right time to spawn the object
-        if (timer >= spawnTime)
+        // Check if it's the right time to spawn the object, only if the spawner is activated
+        if (timer >= spawnTime && isSpawning == true)
         {
             // Changes the position of the spawner randomly along the x axis of the sidewalk
             // transform.position = new Vector3(Random.Range(-0.58f, -3.76f), 1.095f);

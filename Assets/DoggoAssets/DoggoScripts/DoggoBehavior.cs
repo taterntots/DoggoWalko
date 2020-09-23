@@ -21,7 +21,7 @@ public class DoggoBehavior : MonoBehaviour
     public static bool isColliding = false;
     public static bool isTakingDamage = false;
 
-    private float animationDelay = 1.0f;
+    public static float animationDelay = 1.0f;
 
     public AudioSource audioSource;
     public AudioClip goodSound;
@@ -109,7 +109,7 @@ public class DoggoBehavior : MonoBehaviour
         }
 
         // If the object being collided with is considered "good" behavior
-        if (other.gameObject.tag == "Good" && Invincibility.isSuper == false)
+        if (other.gameObject.tag == "Good")
         {
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
@@ -134,9 +134,6 @@ public class DoggoBehavior : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             // Destroy object after a delay (when offscreen)
             Destroy(other.gameObject, 8);
-            
-            // Destroy the good object after set period of time
-            //Destroy(other.gameObject, animationDelay);
 
             // Plays the a little soundclip
             audioSource.PlayOneShot(goodSound, goodSoundVolume);
@@ -286,8 +283,16 @@ public class DoggoBehavior : MonoBehaviour
         // Turn off all sprites
         TurnOffDoggoSprites();
         // Turn on Peeing Sprite
-        gameObject.transform.Find("DoggoPeeingParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.Find("DoggoPeeingParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        if (Invincibility.isSuper == true)
+        {
+            gameObject.transform.Find("DoggoSuperParent").GetChild(4).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSuperParent").GetChild(5).GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            gameObject.transform.Find("DoggoPeeingParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoPeeingParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        }
 
         // As long as the dog is peeing
         while (isAnimating == true)
@@ -296,9 +301,17 @@ public class DoggoBehavior : MonoBehaviour
             yield return new WaitForSeconds(animationDelay);
             // Turn off all sprites
             TurnOffDoggoSprites();
-            // Return Doggo to nuetral standing
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            // Return Doggo to nuetral standing, which differs a bit if still invincible
+            if (Invincibility.isSuper == true)
+            {
+                gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else
+            {
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            }
 
             noJump = false;
             isColliding = false;
@@ -316,8 +329,16 @@ public class DoggoBehavior : MonoBehaviour
         // Turn off all sprites
         TurnOffDoggoSprites();
         // Turn on Business Sprite
-        gameObject.transform.Find("DoggoBusinessParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.Find("DoggoBusinessParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        if (Invincibility.isSuper == true)
+        {
+            gameObject.transform.Find("DoggoSuperParent").GetChild(6).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSuperParent").GetChild(7).GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            gameObject.transform.Find("DoggoBusinessParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoBusinessParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        }
 
         // As long as the dog is doing his biz
         while (isAnimating == true)
@@ -326,9 +347,17 @@ public class DoggoBehavior : MonoBehaviour
             yield return new WaitForSeconds(animationDelay);
             // Turn off all sprites
             TurnOffDoggoSprites();
-            // Return Doggo to nuetral standing
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            // Return Doggo to nuetral standing, which differs a bit if still invincible
+            if (Invincibility.isSuper == true)
+            {
+                gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else
+            {
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            }
             // Drop a plop behind you, no matter where in the world space you are
             Instantiate(plop, transform.position - transform.forward * 0.5f, transform.rotation);
 
@@ -345,9 +374,9 @@ public class DoggoBehavior : MonoBehaviour
         isAnimating = true;
         // Set isColliding bool to true
         isColliding = true;
-        // Turn off all sprites
         // Set isTaking Damage bool to true to prevent more than one enemy giving damage while taking a hit
         isTakingDamage = true;
+        // Turn off all sprites
         TurnOffDoggoSprites();
         // Turn on Splashing Sprite
         gameObject.transform.Find("DoggoSplashParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
@@ -374,30 +403,34 @@ public class DoggoBehavior : MonoBehaviour
     // Coroutine that swaps the dog sprite to the fetching animation
     public IEnumerator DoggoFetching()
     {
-        // Set isAnimating bool to true
-        isAnimating = true;
-        // Set isColliding bool to true
-        isColliding = true;
-        // Turn off all sprites
-        TurnOffDoggoSprites();
-        // Turn on Splashing Sprite
-        gameObject.transform.Find("DoggoFetchParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.Find("DoggoFetchParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-
-        // As long as the dog is animating
-        while (isAnimating == true)
+        // Turn on Fetching Sprite depending on whether super or not
+        if (Invincibility.isSuper == false)
         {
-            // Wait for a given amount of time
-            yield return new WaitForSeconds(animationDelay);
+            // Set isAnimating bool to true
+            isAnimating = true;
+            // Set isColliding bool to true
+            isColliding = true;
             // Turn off all sprites
             TurnOffDoggoSprites();
-            // Return Doggo to nuetral standing
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            // Swap sprites for the fetching doggo animation
+            gameObject.transform.Find("DoggoFetchParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoFetchParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        
+            // As long as the dog is animating
+            while (isAnimating == true)
+            {
+                // Wait for a given amount of time
+                yield return new WaitForSeconds(animationDelay);
+                // Turn off all sprites
+                TurnOffDoggoSprites();
+                // Return Doggo to nuetral standing
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
 
-            noJump = false;
-            isColliding = false;
-            isAnimating = false;
+                noJump = false;
+                isColliding = false;
+                isAnimating = false;
+            }
         }
     }
 
@@ -421,5 +454,15 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.Find("DoggoFetchParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(4).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(5).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(6).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(7).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(8).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(9).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(10).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSuperParent").GetChild(11).GetComponent<SpriteRenderer>().enabled = false;
     }
 }
