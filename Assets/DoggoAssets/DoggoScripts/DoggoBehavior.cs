@@ -97,6 +97,7 @@ public class DoggoBehavior : MonoBehaviour
             // Triggers the "bad boi" text bubble upon collision with bad objects and then hides it after a set number of seconds
             GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("CheckPointText").GetComponent<SpriteRenderer>().enabled = false;
             Invoke("WalkerTextOff", 3f);
         }
 
@@ -148,6 +149,7 @@ public class DoggoBehavior : MonoBehaviour
             // Triggers the "good boi" text bubble upon collision with good objects and then hides it after a set number of seconds
             GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("CheckPointText").GetComponent<SpriteRenderer>().enabled = false;
             Invoke("WalkerTextOff", 3f);
         }
     }
@@ -175,6 +177,7 @@ public class DoggoBehavior : MonoBehaviour
             // Triggers the "bad boi" text bubble upon collision with bad objects and then hides it after a set number of seconds
             GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("CheckPointText").GetComponent<SpriteRenderer>().enabled = false;
             Invoke("WalkerTextOff", 3f);
         }
         // Otherwise, ignores collisions with other enemies, water, or good objects (like trees or hydrants) while fighting
@@ -226,6 +229,12 @@ public class DoggoBehavior : MonoBehaviour
 
             // Destroys the checkpoint so you can't accidentally trigger more than once
             Destroy(other.gameObject);
+
+            // Triggers the "CheckPoint" text bubble
+            GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("CheckPointText").GetComponent<SpriteRenderer>().enabled = true;
+            Invoke("WalkerTextOff", 3f);
         }
     }
 
@@ -234,8 +243,10 @@ public class DoggoBehavior : MonoBehaviour
     {
         GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
         GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.Find("CheckPointText").GetComponent<SpriteRenderer>().enabled = false;
+
     }
-    
+
     // Coroutine that swaps the dog sprite to the fighting animation
     IEnumerator DoggoFighting()
     {

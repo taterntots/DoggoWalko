@@ -3825,9 +3825,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjects:
+  - {fileID: 1792744126246823048, guid: 451d4a849dd42c84985fa1767b4395e7, type: 3}
   - {fileID: 4799097146505592670, guid: b8095ce505b2b5943b593ef0e2c3a48a, type: 3}
+  - {fileID: 8464266680491217945, guid: 5f322c452367a9a47ba669db1df4c210, type: 3}
+  - {fileID: 7834867875468595765, guid: 6dfb652131c22ac4d940b51ea5aa362a, type: 3}
   maxTime: 4
   minTime: 2
+  isSpawning: 1
   spawnerSpeed: 1
 --- !u!95 &7827710355323880675
 Animator:
@@ -4832,9 +4836,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjects:
+  - {fileID: 5061484649990034970, guid: 185b740dbc7aa1e43869da139b4f331f, type: 3}
   - {fileID: 1578933406898294351, guid: 72b95ab61237c9e4ebd1ae26e4dbc40f, type: 3}
+  - {fileID: 704733138944745669, guid: 05ea3d968318f9444bc99156b3ae9ef5, type: 3}
+  - {fileID: 494116258428686067, guid: afd459fc562e4724a87e8637e79bb570, type: 3}
   maxTime: 4
   minTime: 2
+  isSpawning: 1
   spawnerSpeed: 1
 --- !u!95 &2414695037000441025
 Animator:
