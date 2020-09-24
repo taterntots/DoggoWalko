@@ -4496,9 +4496,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548ca3f728d509b488f4072ed1380620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  transitionSpeed: 0.4
   startColor: {r: 0.49019608, g: 0.74509805, b: 0.90588236, a: 0}
   endColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0}
+  dayShift: 0
+  startGameColor: 1
+  duskToDawn: 0
+  dawnToDusk: 0
 --- !u!1 &1001717140
 GameObject:
   m_ObjectHideFlags: 0

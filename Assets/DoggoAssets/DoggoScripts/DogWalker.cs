@@ -5,13 +5,10 @@ using UnityEngine.UI;
 
 public class DogWalker : MonoBehaviour
 {
-
-    private ColorLerper colorLerperRef;
-
     // Start is called before the first frame update
     void Start()
     {
-        colorLerperRef = GameObject.FindWithTag("MainCamera").GetComponent<ColorLerper>();
+
     }
 
     // Update is called once per frame
@@ -29,8 +26,6 @@ public class DogWalker : MonoBehaviour
             gameObject.transform.GetChild(0).GetComponent<Image>().enabled = false;
             gameObject.transform.GetChild(1).GetComponent<Image>().enabled = false;
             gameObject.transform.GetChild(2).GetComponent<Image>().enabled = true;
-
-            colorLerperRef.DayToNight();
         }
     }
 
