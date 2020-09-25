@@ -81,7 +81,6 @@ public class LevelSpawner : MonoBehaviour
             StopCoroutine("LevelSpawn");
             Instantiate(home, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
             zScenePos += 6;
-            print("no place like home");
             homeSpawnCount = 0;
             spawnHome = true;
         }
@@ -99,7 +98,6 @@ public class LevelSpawner : MonoBehaviour
             Instantiate(crossWalk, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
 
             zScenePos += 18;
-            print("watch out for cars!");
             crossWalkCount = 0;
             spawnCrossWalk = true;
         }

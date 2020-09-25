@@ -613,6 +613,123 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 900
   isSpriteFlipped: 0
+--- !u!1 &128888954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128888955}
+  - component: {fileID: 128888959}
+  - component: {fileID: 128888958}
+  - component: {fileID: 128888957}
+  - component: {fileID: 128888956}
+  m_Layer: 5
+  m_Name: MoonTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &128888955
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128888954}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 898246329}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 366.59, y: 192.4}
+  m_SizeDelta: {x: 53.74, y: 53.74}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &128888956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128888954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e4ed4a1cc75804aa96adb1557786c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 128888958}
+--- !u!114 &128888957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128888954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 492295970, guid: ab85ac808950aa04ea8320fc273cd8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_States: []
+  m_File: {fileID: 11400000, guid: 7ebedee4a7c94444a8a1315017d0f5fc, type: 2}
+  speed: 1
+  m_Settings:
+    randomizeOnStart: 1
+    playOnStart: 1
+    overrideFileSettings: 0
+    customPlaybackMode: 1
+    customFramesPerSecond: 8
+    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customPixelsPerUnit: 100
+    customFilterMode: 2
+    wrapMode: 1
+    startFrame: 0
+    useUnscaledTime: 0
+--- !u!114 &128888958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128888954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 1525613573312146901, guid: 7ebedee4a7c94444a8a1315017d0f5fc,
+    type: 2}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &128888959
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128888954}
+  m_CullTransparentMesh: 0
 --- !u!1001 &145155855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4196,6 +4313,7 @@ RectTransform:
   m_Children:
   - {fileID: 258018792}
   - {fileID: 2131421452}
+  - {fileID: 128888955}
   - {fileID: 909770392}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -4235,11 +4353,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 898246329}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -101, y: -33}
+  m_AnchoredPosition: {x: -92.1, y: -33}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909770393
@@ -4496,13 +4614,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548ca3f728d509b488f4072ed1380620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 0.4
-  startColor: {r: 0.49019608, g: 0.74509805, b: 0.90588236, a: 0}
-  endColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0}
-  dayShift: 0
-  startGameColor: 1
-  duskToDawn: 0
-  dawnToDusk: 0
+  transitionSpeed: 0.2
+  dayColor: {r: 0.4901961, g: 0.74509805, b: 0.9058824, a: 0}
+  dawnAndDuskColor: {r: 0.9811321, g: 0.71850437, b: 0.35635456, a: 0}
+  nightColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0}
+  timeOfDay: 0
+  startGameDayTime: 1
+  dawn: 0
+  dusk: 1
+  night: 0
+  day: 0
 --- !u!1 &1001717140
 GameObject:
   m_ObjectHideFlags: 0
@@ -5841,7 +5962,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343471129}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6207,6 +6328,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8653306912154448618, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8598833722572724923, guid: 122b32859e2b3bb4ab57006319bc9c85,
+        type: 2}
     - target: {fileID: 6654203861536383411, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
         type: 3}
       propertyPath: m_Sprite
@@ -6218,12 +6345,6 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8653306912154448618, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -8598833722572724923, guid: 122b32859e2b3bb4ab57006319bc9c85,
-        type: 2}
     - target: {fileID: 4997727097443342526, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
         type: 3}
       propertyPath: m_Sprite
@@ -8802,6 +8923,7 @@ GameObject:
   - component: {fileID: 2131421455}
   - component: {fileID: 2131421454}
   - component: {fileID: 2131421453}
+  - component: {fileID: 2131421456}
   m_Layer: 5
   m_Name: SunTimer
   m_TagString: Untagged
@@ -8825,8 +8947,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 374, y: 197}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 364.2, y: 199.7}
+  m_SizeDelta: {x: 113.01, y: 113.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131421453
 MonoBehaviour:
@@ -8875,7 +8997,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -5567175452551181498, guid: 52db458c580b94944ad016c48a5fb8f9,
+  m_Sprite: {fileID: -1685565745715590082, guid: 52db458c580b94944ad016c48a5fb8f9,
     type: 2}
   m_Type: 0
   m_PreserveAspect: 0
@@ -8893,6 +9015,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131421451}
   m_CullTransparentMesh: 0
+--- !u!114 &2131421456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131421451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e4ed4a1cc75804aa96adb1557786c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 2131421454}
 --- !u!136 &425355595545570044
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11035,7 +11170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b02cdbd0cf854e48b2b46474e265763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerSuper: 1
+  triggerSuper: 2
   superTime: 100
 --- !u!54 &7780683733581544440
 Rigidbody:

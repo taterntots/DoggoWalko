@@ -23,10 +23,15 @@ public class DayNightCycle : MonoBehaviour
     public bool night = false;
     public bool day = false;
 
+    private MoonFade sunFadeRef;
+    private MoonFade moonFadeRef;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        sunFadeRef = GameObject.Find("SunTimer").GetComponent<MoonFade>();
+        moonFadeRef = GameObject.Find("MoonTimer").GetComponent<MoonFade>();
+
     }
 
     void Update()
@@ -44,6 +49,8 @@ public class DayNightCycle : MonoBehaviour
         {
             dusk = false;
             night = true;
+            StartCoroutine(moonFadeRef.FadeImage(false));
+            StartCoroutine(sunFadeRef.FadeImage(true));
         }
         else if (timeOfDay >= 120 && timeOfDay < 140)
         {
@@ -55,6 +62,8 @@ public class DayNightCycle : MonoBehaviour
             dawn = false;
             day = true;
             timeOfDay = 0;
+            StartCoroutine(moonFadeRef.FadeImage(true));
+            StartCoroutine(sunFadeRef.FadeImage(false));
         }
 
         // Handles the actual transitions of daytime color via lerping
