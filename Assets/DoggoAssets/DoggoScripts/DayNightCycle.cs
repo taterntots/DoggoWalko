@@ -17,21 +17,20 @@ public class DayNightCycle : MonoBehaviour
     public Color dawnAndDuskColor;
     public Color nightColor;
     public float timeOfDay;
-    public bool startGameDayTime = true;
+    public static bool startGameDayTime = true;
     public bool dawn = false;
     public bool dusk = true;
-    public bool night = false;
+    public static bool night = false;
     public bool day = false;
 
-    private MoonFade sunFadeRef;
-    private MoonFade moonFadeRef;
+    private FadeObject sunFadeRef;
+    private FadeObject moonFadeRef;
 
     // Start is called before the first frame update
     void Start()
     {
-        sunFadeRef = GameObject.Find("SunTimer").GetComponent<MoonFade>();
-        moonFadeRef = GameObject.Find("MoonTimer").GetComponent<MoonFade>();
-
+        sunFadeRef = GameObject.Find("SunTimer").GetComponent<FadeObject>();
+        moonFadeRef = GameObject.Find("MoonTimer").GetComponent<FadeObject>();
     }
 
     void Update()
@@ -40,24 +39,24 @@ public class DayNightCycle : MonoBehaviour
         timeOfDay += Time.deltaTime;
 
         // Determines whent to trigger shifts in sky color depending on time of day
-        if (timeOfDay >= 50 && timeOfDay < 70)
+        if (timeOfDay >= 10 && timeOfDay < 20)
         {
             startGameDayTime = false;
             dusk = true;
         }
-        else if (timeOfDay >= 70 && timeOfDay < 120)
+        else if (timeOfDay >= 20 && timeOfDay < 30)
         {
             dusk = false;
             night = true;
             StartCoroutine(moonFadeRef.FadeImage(false));
             StartCoroutine(sunFadeRef.FadeImage(true));
         }
-        else if (timeOfDay >= 120 && timeOfDay < 140)
+        else if (timeOfDay >= 30 && timeOfDay < 40)
         {
             night = false;
             dawn = true;
         }
-        else if (timeOfDay >= 140)
+        else if (timeOfDay >= 40)
         {
             dawn = false;
             day = true;
