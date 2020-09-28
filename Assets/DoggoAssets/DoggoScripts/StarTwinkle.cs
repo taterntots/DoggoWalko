@@ -25,11 +25,11 @@ public class StarTwinkle : MonoBehaviour
         // Makes the stars fade in only at night
         if (DayNightCycle.night == true)
         {
-            StartCoroutine(starFadeRef.FadeSprite(false));
+            StartCoroutine(starFadeRef.FadeImage(false));
         }
-        else
+        else if (DayNightCycle.startGameDayTime == false && DayNightCycle.dusk == false)
         {
-            StartCoroutine(starFadeRef.FadeSprite(true));
+            StartCoroutine(starFadeRef.FadeImage(true));
         }
     }
 }

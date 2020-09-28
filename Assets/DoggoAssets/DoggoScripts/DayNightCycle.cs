@@ -19,7 +19,7 @@ public class DayNightCycle : MonoBehaviour
     public float timeOfDay;
     public static bool startGameDayTime = true;
     public bool dawn = false;
-    public bool dusk = true;
+    public static bool dusk = true;
     public static bool night = false;
     public bool day = false;
 
