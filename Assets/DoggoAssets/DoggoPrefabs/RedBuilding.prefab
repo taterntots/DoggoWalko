@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 494466205227215147}
   m_Layer: 0
   m_Name: RedBuildingFrontSprite
-  m_TagString: Untagged
+  m_TagString: StreetCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 7991477288593630413}
   m_Layer: 0
   m_Name: StreetCollider
-  m_TagString: Untagged
+  m_TagString: StreetCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
     public bool twirling;
     public bool moveLeft;
     public bool moveRight;
+    public bool leftAndRight;
+    public bool isCar;
 
     private float minFreq = 1.0f;
     private float maxFreq = 2.0f;
@@ -85,11 +87,25 @@ public class EnemyMovement : MonoBehaviour
         {
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
         }
-        if (collision.gameObject.tag == "StreetCollider")
+        // Ignores street colliders if gameobject is a car
+        if (isCar && collision.gameObject.tag == "StreetCollider")
         {
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
+        }
+
+        // Allows enemies to move from left to right on collision with walls within the confines of the gameplay area (stay on sidewalk)
+        if (leftAndRight && moveLeft && collision.gameObject.tag == "StreetCollider")
+        {
+            moveLeft = false;
+            moveRight = true;
+        }
+        else if (leftAndRight && moveRight && collision.gameObject.tag == "StreetCollider")
+        {
+            moveRight = false;
+            moveLeft = true;
         }
     }
 

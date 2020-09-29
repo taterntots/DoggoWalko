@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4323697310558540088}
   - component: {fileID: 6326257248634986381}
   m_Layer: 0
-  m_Name: CarRight
+  m_Name: CarRight(Green)
   m_TagString: Bad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,6 +163,8 @@ MonoBehaviour:
   twirling: 0
   moveLeft: 0
   moveRight: 1
+  leftAndRight: 0
+  isCar: 1
 --- !u!136 &6326257248634986381
 CapsuleCollider:
   m_ObjectHideFlags: 0

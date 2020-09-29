@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 1222239183915014497}
   m_Layer: 0
   m_Name: BlueBuildingFrontSprite
-  m_TagString: Untagged
+  m_TagString: StreetCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,7 +633,7 @@ SpriteRenderer:
   m_SortingLayerID: 1066084181
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5141844433314534569, guid: 65541874b228bc6498f1edfbce8864b0,
+  m_Sprite: {fileID: 4340774384828000428, guid: 65541874b228bc6498f1edfbce8864b0,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 1298616766957491908}
   m_Layer: 0
   m_Name: StreetCollider
-  m_TagString: Untagged
+  m_TagString: StreetCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

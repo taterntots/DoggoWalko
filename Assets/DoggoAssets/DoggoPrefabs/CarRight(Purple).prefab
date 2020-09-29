@@ -162,6 +162,8 @@ MonoBehaviour:
   twirling: 0
   moveLeft: 0
   moveRight: 1
+  leftAndRight: 0
+  isCar: 1
 --- !u!136 &5468964154338717959
 CapsuleCollider:
   m_ObjectHideFlags: 0

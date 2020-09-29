@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2941906366444591587}
   - component: {fileID: 393278683164095291}
   - component: {fileID: 6896667788770232794}
+  - component: {fileID: 6787242472417145818}
   m_Layer: 0
   m_Name: FireHydrant
   m_TagString: Good
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1882291440332542599, guid: 31499d5fa7e234876b779d8e201c7adb,
+  m_Sprite: {fileID: -7205558386387895212, guid: 31499d5fa7e234876b779d8e201c7adb,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,3 +140,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &6787242472417145818
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4949967301587087645}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 2
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
