@@ -73,7 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 453267777945961625, guid: 3f63ebe468bc05c4eac6a1abf2e11ea8, type: 2}
+  m_Sprite: {fileID: -6244942140299076512, guid: 3f63ebe468bc05c4eac6a1abf2e11ea8,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -156,6 +157,15 @@ MonoBehaviour:
   frequency: 0
   magnitude: 0
   speed: 1.5
+  twirlSpeed: 8
+  floating: 0
+  zigzag: 0
+  jumping: 0
+  twirling: 0
+  moveLeft: 0
+  moveRight: 0
+  leftAndRight: 0
+  isCar: 0
 --- !u!65 &2714300781679117034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -167,5 +177,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.7846763, y: 3.327, z: 0.20000002}
-  m_Center: {x: 0.028393865, y: 0.33650085, z: 0}
+  m_Size: {x: 1.5360582, y: 3.7826586, z: 0.20000002}
+  m_Center: {x: -0.16447663, y: 0.10867357, z: 0}

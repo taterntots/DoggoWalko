@@ -14,6 +14,9 @@ public class DoggoBehavior : MonoBehaviour
     private PlayerMovement playerMovementRef;
     private ObstacleSpawner obstacleSpawnerEnemyRef;
     private ObstacleSpawner obstacleSpawnerTennisBallRef;
+    public GameObject[] deadEnemies;
+
+    private string enemyName;
 
     public static bool walkingDog = true;
     public static bool isAnimating = false;
@@ -77,8 +80,8 @@ public class DoggoBehavior : MonoBehaviour
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
             other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
 
-            // Destroy the bad object with a delay
-            //Destroy(other.gameObject, animationDelay);
+            // Save reference to the gameObject for post fight animations
+            enemyName = other.gameObject.name;
 
             // Destroy the bad object immediately
             Destroy(other.gameObject);
@@ -108,8 +111,13 @@ public class DoggoBehavior : MonoBehaviour
             Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
+        if (other.gameObject.tag == "Dead")
+        {
+            Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<BoxCollider>());
+        }
+
         // If the object being collided with is considered "good" behavior
-        if (other.gameObject.tag == "Good")
+            if (other.gameObject.tag == "Good")
         {
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
@@ -273,6 +281,23 @@ public class DoggoBehavior : MonoBehaviour
             // Return Doggo to nuetral standing
             gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            // Spawn the sprite of the dead enemy running away after the fight cloud dissipates
+            if (enemyName == "RatBoi(Clone)")
+            {
+                Instantiate(deadEnemies[0], transform.position, transform.rotation);
+            }
+            if (enemyName == "Kitty(Clone)")
+            {
+                Instantiate(deadEnemies[1], transform.position, transform.rotation);
+            }
+            if (enemyName == "ChocoBoi(Clone)")
+            {
+                Instantiate(deadEnemies[2], transform.position - transform.up * -0.27f, transform.rotation);
+            }
+            if (enemyName == "MailMan(Clone)")
+            {
+                Instantiate(deadEnemies[3], transform.position, transform.rotation);
+            }
 
             noJump = false;
             isColliding = false;

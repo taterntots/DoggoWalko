@@ -5411,7 +5411,7 @@ GameObject:
   - component: {fileID: 4140016663398724149}
   m_Layer: 0
   m_Name: StreetColliderLeft
-  m_TagString: StreetCollider
+  m_TagString: BuildingCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

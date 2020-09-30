@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 4547896486021694787}
   m_Layer: 0
   m_Name: OrangeBuildingSprite
-  m_TagString: StreetCollider
+  m_TagString: BuildingCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,7 +432,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7670371526027368466, guid: 62f8939fc096ae740aa6fa8da43f3b2c,
+  m_Sprite: {fileID: -2649313985953547033, guid: 62f8939fc096ae740aa6fa8da43f3b2c,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

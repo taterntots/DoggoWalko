@@ -11,6 +11,8 @@ public class RotateSprite2 : MonoBehaviour
     private float currentLerpTime;
     private int angle;
 
+    public bool isPlayer;
+
     void Start()
     {
 
@@ -41,7 +43,7 @@ public class RotateSprite2 : MonoBehaviour
     void FixedUpdate()
     {
         // Determines the degrees of rotation based on key pressed (triggers weven when animating with an object)
-        if (DoggoBehavior.isAnimating == false || DoggoBehavior.isAnimating == true)
+        if (isPlayer && (DoggoBehavior.isAnimating == false || DoggoBehavior.isAnimating == true))
         {
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
@@ -55,7 +57,7 @@ public class RotateSprite2 : MonoBehaviour
     }
 
     // Function to determine the degrees rotated and activate lerping
-    void PlayerRotator(int a)
+    public void PlayerRotator(int a)
     {
         if (!isFlippingSprite || currentLerpTime > (lerpTime / 2))
         {

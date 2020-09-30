@@ -19,6 +19,8 @@ TagManager:
   - ObstacleSpawnerTennisBall
   - TennisBall
   - Stars
+  - BuildingCollider
+  - Dead
   layers:
   - Default
   - TransparentFX

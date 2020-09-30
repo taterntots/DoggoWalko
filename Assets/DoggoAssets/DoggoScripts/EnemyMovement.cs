@@ -90,22 +90,21 @@ public class EnemyMovement : MonoBehaviour
             Physics.IgnoreCollision(collision.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
         }
         // Ignores street colliders if gameobject is a car
-        if (isCar && collision.gameObject.tag == "StreetCollider")
+        if (isCar && (collision.gameObject.tag == "StreetCollider" || collision.gameObject.tag == "BuildingCollider"))
         {
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
         // Allows enemies to move from left to right on collision with walls within the confines of the gameplay area (stay on sidewalk)
-        if (leftAndRight && moveLeft && collision.gameObject.tag == "StreetCollider")
+        if (leftAndRight && collision.gameObject.tag == "BuildingCollider")
         {
-            moveLeft = false;
-            moveRight = true;
+            gameObject.GetComponent<RotateSprite2>().PlayerRotator(-180);
+
         }
-        else if (leftAndRight && moveRight && collision.gameObject.tag == "StreetCollider")
+        else if (leftAndRight && collision.gameObject.tag == "StreetCollider")
         {
-            moveRight = false;
-            moveLeft = true;
+            gameObject.GetComponent<RotateSprite2>().PlayerRotator(0);
         }
     }
 
