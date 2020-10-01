@@ -16,8 +16,6 @@ public class DoggoBehavior : MonoBehaviour
     private ObstacleSpawner obstacleSpawnerTennisBallRef;
     public GameObject[] deadEnemies;
 
-    private string enemyName;
-
     public static bool walkingDog = true;
     public static bool isAnimating = false;
     public static bool noJump = false;
@@ -58,33 +56,58 @@ public class DoggoBehavior : MonoBehaviour
         // If the object the dog is colliding with is considered "bad" behavior
         if (other.gameObject.tag == "Bad" && isTakingDamage == false && Invincibility.isSuper == false)
         {
-            // If it's specifically a plops (currently commented out code that causes damage to player)
-            if (other.gameObject.name == "DoggoPlops(Clone)")
+            // If the doggo collides with a Ratboi
+            if (other.gameObject.name == "RatBoi(Clone)")
             {
-                // Trigger the DoggFighting Animation
-                //StartCoroutine("DoggoFighting");
-                // Destroy the plops object after set period of time and make it kinetic so it doesn't fall through the floor
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                Destroy(other.gameObject, animationDelay);
+                // Triggers doggo fighting animation coroutine
+                StartCoroutine("DoggoFighting");
             }
+            // If the doggo collides with a Kitty
+            if (other.gameObject.name == "Kitty(Clone)")
+            {
+                // Triggers doggo fighting animation coroutine
+                StartCoroutine("DoggoFighting");
+            }
+            // If the doggo collides with a ChocoBoi
+            if (other.gameObject.name == "ChocoBoi(Clone)")
+            {
+                // Triggers doggo fighting animation coroutine
+                StartCoroutine("DoggoFighting");
+            }
+            // If the doggo collides with a MailMan
+            if (other.gameObject.name == "MailMan(Clone)")
+            {
+                // Triggers doggo fighting animation coroutine
+                StartCoroutine("DoggoFighting");
+            }
+            // If the doggo collides with a Car
+            if (
+                other.gameObject.name == "CarLeft(Blue)(Clone)" ||
+                other.gameObject.name == "CarLeft(Green)(Clone)" ||
+                other.gameObject.name == "CarLeft(Purple)(Clone)" ||
+                other.gameObject.name == "CarLeft(Red)(Clone)" ||
+                other.gameObject.name == "CarRight(Blue)(Clone)" ||
+                other.gameObject.name == "CarRight(Green)(Clone)" ||
+                other.gameObject.name == "CarRight(Purple)(Clone)" ||
+                other.gameObject.name == "CarRight(Red)(Clone)")
+            {
+                // Triggers doggo fighting animation coroutine
+                StartCoroutine("DoggoFighting");
+            }
+
+            // Swap sprites for enemy to the appropriate animation
+            other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            other.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
+            // Declare the object dead by changing tags to prevent multiple collisions
+            other.gameObject.tag = "Dead";
+
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
+
             // Turns off jump sprites (if collided while jumping)
             gameObject.transform.Find("DoggoJumpParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.Find("DoggoJumpParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-
-            // Triggers doggo fighting animation coroutine
-            StartCoroutine("DoggoFighting");
-
-            // Turns the box collider off to prevent multiple collisions
-            other.gameObject.GetComponent<BoxCollider>().enabled = false;
-            other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-
-            // Save reference to the gameObject for post fight animations
-            enemyName = other.gameObject.name;
-
-            // Destroy the bad object immediately
-            Destroy(other.gameObject);
 
             // Plays the a little soundclip
             audioSource.PlayOneShot(badSound, badSoundVolume);
@@ -111,13 +134,16 @@ public class DoggoBehavior : MonoBehaviour
             Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
+        // After colliding with an enemy, ignore future collisions
         if (other.gameObject.tag == "Dead")
         {
             Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<BoxCollider>());
+            Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
+            Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
         // If the object being collided with is considered "good" behavior
-            if (other.gameObject.tag == "Good")
+        if (other.gameObject.tag == "Good")
         {
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
@@ -131,15 +157,14 @@ public class DoggoBehavior : MonoBehaviour
 
             if (other.gameObject.name == "Tree(Clone)")
             {
-                // Triggers doggo peeing animation coroutine
+                // Triggers doggo plopping animation coroutine
                 StartCoroutine("DoggoBusiness");
-                // Drop a plop at the tree (drops from too high atm)
-                //Instantiate(plop, other.gameObject.transform.position - transform.forward * 1, transform.rotation);
             }
 
             // Turns the box collider off to prevent multiple collisions
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
             // Destroy object after a delay (when offscreen)
             Destroy(other.gameObject, 8);
 
@@ -281,23 +306,6 @@ public class DoggoBehavior : MonoBehaviour
             // Return Doggo to nuetral standing
             gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-            // Spawn the sprite of the dead enemy running away after the fight cloud dissipates
-            if (enemyName == "RatBoi(Clone)")
-            {
-                Instantiate(deadEnemies[0], transform.position, transform.rotation);
-            }
-            if (enemyName == "Kitty(Clone)")
-            {
-                Instantiate(deadEnemies[1], transform.position, transform.rotation);
-            }
-            if (enemyName == "ChocoBoi(Clone)")
-            {
-                Instantiate(deadEnemies[2], transform.position - transform.up * -0.27f, transform.rotation);
-            }
-            if (enemyName == "MailMan(Clone)")
-            {
-                Instantiate(deadEnemies[3], transform.position, transform.rotation);
-            }
 
             noJump = false;
             isColliding = false;

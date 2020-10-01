@@ -41,14 +41,14 @@ public class Jump : MonoBehaviour
         if (isObstacle && isGrounded)
         {
             isGrounded = false; // Important to be considered grounded when touching walls
-            GetComponent<Rigidbody>().velocity = Vector3.up * jumpForce;
+            Rb.velocity = Vector3.up * jumpForce;
         }
         // Applies force to player jumps when pressing the spacebar or J Key
-        if (isPlayer && (Input.GetKey(KeyCode.J) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
+        if (isPlayer && (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
         {
             isGrounded = false; // Important to be considered grounded when touching walls
             StartCoroutine("DoggoJumping"); // Starts animation for jumping
-            GetComponent<Rigidbody>().velocity = Vector3.up * jumpForce;
+            Rb.AddForce(transform.up * jumpForce * 100);
         }
 
         // Controls fall speed, making jumps more fluid feeling

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2937464891185836106}
   m_Layer: 0
   m_Name: KittyFlipSprite
-  m_TagString: Bad
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3627885905866383212, guid: 8d0def968724325418388c96fb7b5c5f,
+  m_Sprite: {fileID: -9183768903023802053, guid: 493f1b111c110b14caebe685e3d68f51,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: 8d0def968724325418388c96fb7b5c5f, type: 2}
+  m_File: {fileID: 11400000, guid: 493f1b111c110b14caebe685e3d68f51, type: 2}
   speed: 0.7
   m_Settings:
     randomizeOnStart: 1
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5110534950829228184}
   m_Layer: 0
   m_Name: KittyChaosSprite
-  m_TagString: Bad
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: f5a20a6efeab60c46a66844c45c93a4e, type: 2}
+  m_File: {fileID: 11400000, guid: 32e6839f5253584458940e23beb5be15, type: 2}
   speed: 0.7
   m_Settings:
     randomizeOnStart: 1
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 4761256807378831909}
   m_Layer: 0
   m_Name: KittySpriteParent
-  m_TagString: Bad
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 2491610353603172051}
   m_Layer: 0
   m_Name: KittySprite
-  m_TagString: Bad
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,7 +316,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2598962380257635451, guid: c26e2613783da9042a19c4f6b26f3a38,
+  m_Sprite: {fileID: 1902009104559369673, guid: c26e2613783da9042a19c4f6b26f3a38,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 2270739624240679493}
   m_Layer: 0
   m_Name: KittyChaosFlipSprite
-  m_TagString: Bad
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: a89488bd9aa341b4d8929dba871473ac, type: 2}
+  m_File: {fileID: 11400000, guid: 26f8d066b2ef90145a88cd4b27859319, type: 2}
   speed: 0.7
   m_Settings:
     randomizeOnStart: 1
@@ -456,7 +456,7 @@ MonoBehaviour:
     overrideFileSettings: 0
     customPlaybackMode: 1
     customFramesPerSecond: 8
-    customBorder: {x: 0, y: 0, z: 0, w: 0}
+    customBorder: {x: 400, y: 0, z: 400, w: 0}
     customPixelsPerUnit: 100
     customFilterMode: 2
     wrapMode: 1
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 3632072805319896282}
   m_Layer: 0
   m_Name: KittyChaosSpriteParent
-  m_TagString: Bad
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -522,7 +522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7640953683099090730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.887, y: 1.105, z: -7.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4761256807378831909}
@@ -593,7 +593,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.96611845
-  m_Height: 2.119267
+  m_Radius: 1.2920626
+  m_Height: 2.5841253
   m_Direction: 0
-  m_Center: {x: 0.057082176, y: -0.48693964, z: 0}
+  m_Center: {x: -0.017418165, y: -0.2489982, z: 0}
