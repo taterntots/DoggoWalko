@@ -132,13 +132,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5963818871853027699}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5963818873153360639}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &5963818871853027702
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 0}
+  m_File: {fileID: 11400000, guid: d1586f835fa2e734082a514c3bc093a3, type: 2}
   speed: 0.7
   m_Settings:
     randomizeOnStart: 1
@@ -315,7 +315,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1663506648682791128, guid: ec9117c2c5cbf5e47b0eaa3137c1dcfe,
+  m_Sprite: {fileID: -6596826949592710975, guid: 979f0daca175b8549b8c1eb64d6d871e,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: ec9117c2c5cbf5e47b0eaa3137c1dcfe, type: 2}
+  m_File: {fileID: 11400000, guid: 979f0daca175b8549b8c1eb64d6d871e, type: 2}
   speed: 0.7
   m_Settings:
     randomizeOnStart: 1
@@ -455,7 +455,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6914851268438715648, guid: 1fc9406eb043e584ea4250948a175c1b,
+  m_Sprite: {fileID: -7286019550433347820, guid: 1fc9406eb043e584ea4250948a175c1b,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 8071973209710225359}
   - component: {fileID: 6479778845602068668}
   - component: {fileID: 3613987241320527369}
+  - component: {fileID: -6011584355308372316}
   m_Layer: 0
   m_Name: MailMan
   m_TagString: Bad
@@ -597,3 +598,17 @@ CapsuleCollider:
   m_Height: 2.2208118
   m_Direction: 0
   m_Center: {x: -0.13110518, y: -0.5935395, z: 0.10285258}
+--- !u!114 &-6011584355308372316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071973209710225355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpTime: 1
+  isPlayer: 0

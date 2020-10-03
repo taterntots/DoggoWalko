@@ -14,7 +14,7 @@ public class DoggoBehavior : MonoBehaviour
     private PlayerMovement playerMovementRef;
     private ObstacleSpawner obstacleSpawnerEnemyRef;
     private ObstacleSpawner obstacleSpawnerTennisBallRef;
-    public GameObject[] deadEnemies;
+    public GameObject ratBoiBeat;
 
     public static bool walkingDog = true;
     public static bool isAnimating = false;
@@ -27,6 +27,10 @@ public class DoggoBehavior : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip goodSound;
     public AudioClip badSound;
+
+    private float groundedX;
+    private float groundedY;
+    private float groundedZ;
 
     [Range(0.0f, 1.0f)] public float goodSoundVolume;
     [Range(0.0f, 1.0f)] public float badSoundVolume;
@@ -61,6 +65,7 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo fighting animation coroutine
                 StartCoroutine("DoggoFighting");
+                Destroy(other.gameObject);
             }
             // If the doggo collides with a Kitty
             if (other.gameObject.name == "Kitty(Clone)")
@@ -306,6 +311,14 @@ public class DoggoBehavior : MonoBehaviour
             // Return Doggo to nuetral standing
             gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+            // Spawn a beat up ratBoi grounded and slightly behind the doggo
+            groundedX = transform.position.x;
+            groundedY = 0.8434051f;
+            groundedZ = transform.position.z - 0.5f;
+
+            Instantiate(ratBoiBeat, new Vector3(groundedX, groundedY, groundedZ), transform.rotation);
+            //Instantiate(ratBoiBeat, transform.position - transform.forward * 0.5f, transform.rotation);
 
             noJump = false;
             isColliding = false;

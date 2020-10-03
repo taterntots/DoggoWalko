@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
 
     Vector3 axis;
     Vector3 pos;
+    Vector3 pos2;
 
     // Start is called before the first frame update
     void Start()
@@ -53,20 +54,40 @@ public class EnemyMovement : MonoBehaviour
             // Moves the object at a constant speed (different than other objects because gravity gets wonky otherwise)
             transform.Translate(Vector3.back * speed * Time.fixedDeltaTime, Space.Self);
         }
+        // If the enemy object has moveLeft toggled on
         else if (moveLeft)
         {
             // Moves the car at a constant speed left (different than other objects because gravity gets wonky otherwise)
             transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.Self);
         }
+        // If the enemy object has moveRight toggled on
         else if (moveRight)
         {
             // Moves the car at a constant speed right (different than other objects because gravity gets wonky otherwise)
             transform.Translate(Vector3.right * speed * Time.fixedDeltaTime, Space.Self);
         }
-        else
+        // If the enemy object has zigzag toggled on
+        else if (zigzag)
         {
             // Moves the enemy towards the player. Allows for zigzagging using the frequency and magnitute variables
             GetComponent<Rigidbody>().velocity = pos + axis * Mathf.Sin(Time.time * frequency) * magnitude; // y = A sin(B(x)) , here A is Amplitude, and axis * magnitude is acting as amplitude. Amplitude means the depth of the sin curve
+
+            // Allows their sprites to rotate when at the apex of their zigzag
+            pos2 = pos + axis * Mathf.Sin(Time.time * frequency) * magnitude; // Grabs the everchanging x value of the vector
+
+            if (pos2.x > 0)
+            {
+                gameObject.GetComponent<RotateSprite2>().PlayerRotator(180);
+            }
+            else if (pos2.x < 0)
+            {
+                gameObject.GetComponent<RotateSprite2>().PlayerRotator(0);
+            }
+        }
+        else
+        {
+            // Otherwise, simply move the enemy in a staright line towards the player at a given speed
+            transform.Translate(Vector3.back * speed * Time.fixedDeltaTime, Space.Self);
 
             // Should make enemies look at the camera, but just turns them upside down and immobile
             //transform.LookAt(Camera.main.transform.position, -Vector3.up);
