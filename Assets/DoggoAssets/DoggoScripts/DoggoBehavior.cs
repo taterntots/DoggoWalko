@@ -71,19 +71,19 @@ public class DoggoBehavior : MonoBehaviour
             if (other.gameObject.name == "Kitty(Clone)")
             {
                 // Triggers doggo fighting animation coroutine
-                StartCoroutine("DoggoFighting");
+                StartCoroutine("DoggoBarking");
             }
             // If the doggo collides with a ChocoBoi
             if (other.gameObject.name == "ChocoBoi(Clone)")
             {
                 // Triggers doggo fighting animation coroutine
-                StartCoroutine("DoggoFighting");
+                StartCoroutine("DoggoEating");
             }
             // If the doggo collides with a MailMan
             if (other.gameObject.name == "MailMan(Clone)")
             {
                 // Triggers doggo fighting animation coroutine
-                StartCoroutine("DoggoFighting");
+                StartCoroutine("DoggoBarking");
             }
             // If the doggo collides with a Car
             if (
@@ -97,7 +97,7 @@ public class DoggoBehavior : MonoBehaviour
                 other.gameObject.name == "CarRight(Red)(Clone)")
             {
                 // Triggers doggo fighting animation coroutine
-                StartCoroutine("DoggoFighting");
+                StartCoroutine("DoggoBarking");
             }
 
             // Swap sprites for enemy to the appropriate animation
@@ -327,10 +327,72 @@ public class DoggoBehavior : MonoBehaviour
         }
     }
 
+    // Coroutine that swaps the dog sprite to the barking animation
+    IEnumerator DoggoBarking()
+    {
+        // Set isAnimating bool to true
+        isAnimating = true;
+        // Set isColliding bool to true
+        isColliding = true;
+        // Turn off all sprites
+        TurnOffDoggoSprites();
+        // Turn on Barking Sprite
+        gameObject.transform.Find("DoggoBarkParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoBarkParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is barking
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time before changing doggo sprite
+            yield return new WaitForSeconds(animationDelay);
+            // Turn off all sprites
+            TurnOffDoggoSprites();
+            // Return Doggo to nuetral standing
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+            noJump = false;
+            isColliding = false;
+            isTakingDamage = false;
+            isAnimating = false;
+        }
+    }
+
+    // Coroutine that swaps the dog sprite to the eating animation
+    IEnumerator DoggoEating()
+    {
+        // Set isAnimating bool to true
+        isAnimating = true;
+        // Set isColliding bool to true
+        isColliding = true;
+        // Turn off all sprites
+        TurnOffDoggoSprites();
+        // Turn on Eating Sprite
+        gameObject.transform.Find("DoggoEatParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoEatParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is eating
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time before changing doggo sprite
+            yield return new WaitForSeconds(animationDelay);
+            // Turn off all sprites
+            TurnOffDoggoSprites();
+            // Return Doggo to nuetral standing
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+            noJump = false;
+            isColliding = false;
+            isTakingDamage = false;
+            isAnimating = false;
+        }
+    }
+
     // Coroutine that swaps the dog sprite to the peeing animation
     IEnumerator DoggoPeeing()
     {
-        // Set isPeeing bool to true
+        // Set isAnimating bool to true
         isAnimating = true;
         // Set isColliding bool to true
         isColliding = true;
@@ -506,6 +568,10 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.Find("DoggoSplashParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoFetchParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoFetchParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoBarkParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoBarkParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoEatParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoEatParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;

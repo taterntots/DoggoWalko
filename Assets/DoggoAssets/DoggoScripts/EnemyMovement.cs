@@ -104,7 +104,7 @@ public class EnemyMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Ignores collisions with other enemies or good objects (like trees and hydrants)
-        if (collision.gameObject.tag == "Good" || collision.gameObject.tag == "Bad")
+        if (collision.gameObject.tag == "Good" || collision.gameObject.tag == "Bad" || collision.gameObject.tag == "Dead")
         {
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
             Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
