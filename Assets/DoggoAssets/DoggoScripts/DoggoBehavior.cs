@@ -53,6 +53,10 @@ public class DoggoBehavior : MonoBehaviour
 
         // Keeps the "good" and "bad boi" animations from triggering at game start (essentially hides them)
         WalkerTextOff();
+        // Keeps dog from wigging out if restarted after crossing finish line and doggo was mid animation
+        noJump = false;
+        isColliding = false;
+        isAnimating = false;
     }
 
     void OnCollisionEnter(Collision other)
@@ -70,19 +74,19 @@ public class DoggoBehavior : MonoBehaviour
             // If the doggo collides with a Kitty
             if (other.gameObject.name == "Kitty(Clone)")
             {
-                // Triggers doggo fighting animation coroutine
+                // Triggers doggo barking animation coroutine
                 StartCoroutine("DoggoBarking");
             }
             // If the doggo collides with a ChocoBoi
             if (other.gameObject.name == "ChocoBoi(Clone)")
             {
-                // Triggers doggo fighting animation coroutine
+                // Triggers doggo eating animation coroutine
                 StartCoroutine("DoggoEating");
             }
             // If the doggo collides with a MailMan
             if (other.gameObject.name == "MailMan(Clone)")
             {
-                // Triggers doggo fighting animation coroutine
+                // Triggers doggo barking animation coroutine
                 StartCoroutine("DoggoBarking");
             }
             // If the doggo collides with a Car
@@ -96,7 +100,7 @@ public class DoggoBehavior : MonoBehaviour
                 other.gameObject.name == "CarRight(Purple)(Clone)" ||
                 other.gameObject.name == "CarRight(Red)(Clone)")
             {
-                // Triggers doggo fighting animation coroutine
+                // Triggers doggo flattening animation coroutine
                 StartCoroutine("DoggoBarking");
             }
 

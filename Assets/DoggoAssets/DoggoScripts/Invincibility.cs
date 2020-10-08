@@ -19,6 +19,11 @@ public class Invincibility : MonoBehaviour
     {
         doggoBehaviorRef = GameObject.FindWithTag("Player").GetComponent<DoggoBehavior>();
         tennisObstacleSpawnerRef = GameObject.FindWithTag("ObstacleSpawnerTennisBall").GetComponent<ObstacleSpawner>();
+
+        // Resets ballCount on new game
+        ballCount = 0;
+        // Makes sure doggo isn't super on restart
+        isSuper = false;
     }
 
     // Update is called once per frame
@@ -68,6 +73,12 @@ public class Invincibility : MonoBehaviour
             {
                 // Turn off enemy movement script so gravity activates
                 other.gameObject.GetComponent<EnemyMovement>().enabled = false;
+                // Turn off rotator script if it exists
+                if (other.gameObject.GetComponent<EnemyMovement>().zigzag ||
+                    other.gameObject.GetComponent<EnemyMovement>().leftAndRight)
+                {
+                    other.gameObject.GetComponent<RotateSprite2>().enabled = false;
+                }
                 // Rotate game object upside down
                 other.gameObject.transform.Rotate(0, 0, 180);
                 // Turn off colliders so they can fall throug walls and floors
@@ -88,7 +99,6 @@ public class Invincibility : MonoBehaviour
                     other.gameObject.GetComponent<Rigidbody>().AddForce(transform.right * 60);
                 }
             }
-            
         }
     }
 
@@ -100,7 +110,7 @@ public class Invincibility : MonoBehaviour
         // Set isColliding bool to true
         DoggoBehavior.isColliding = true;
         // Make sure the doggo can jump (as long as they aren't animating with good objects)
-        DoggoBehavior.noJump = false;
+        DoggoBehavior.noJump = true;
         // Turn off the spawner for tennis balls
         tennisObstacleSpawnerRef.isSpawning = false;
         // Turn off all sprites
@@ -119,8 +129,10 @@ public class Invincibility : MonoBehaviour
             gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
 
+            DoggoBehavior.noJump = false;
             DoggoBehavior.isColliding = false;
             DoggoBehavior.isAnimating = false;
+
         }
         
         // As long as the doggo is supered up

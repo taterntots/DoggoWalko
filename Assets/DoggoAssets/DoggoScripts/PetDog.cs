@@ -7,27 +7,21 @@ public class PetDog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Makes sure hearts are turned off at start
         HeartsOff();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-   
     }
 
     public void PetDoggo()
     {
-        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+        // Set the heart container parent object to true (turns on heart sprites)
+        gameObject.transform.gameObject.SetActive(true);
+        // Turns off heart sprites after set amount of seconds
         Invoke("HeartsOff", 3f);
     }
 
+    // Function that turns off the heart sprites
     void HeartsOff()
     {
-        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.gameObject.SetActive(false);
     }
 }

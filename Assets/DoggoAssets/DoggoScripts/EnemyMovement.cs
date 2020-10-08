@@ -52,19 +52,19 @@ public class EnemyMovement : MonoBehaviour
         if (jumping)
         {
             // Moves the object at a constant speed (different than other objects because gravity gets wonky otherwise)
-            transform.Translate(Vector3.back * speed * Time.fixedDeltaTime, Space.Self);
+            transform.Translate(Vector3.back * speed * Time.deltaTime, Space.Self);
         }
         // If the enemy object has moveLeft toggled on
         else if (moveLeft)
         {
             // Moves the car at a constant speed left (different than other objects because gravity gets wonky otherwise)
-            transform.Translate(Vector3.left * speed * Time.fixedDeltaTime, Space.Self);
+            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.Self);
         }
         // If the enemy object has moveRight toggled on
         else if (moveRight)
         {
             // Moves the car at a constant speed right (different than other objects because gravity gets wonky otherwise)
-            transform.Translate(Vector3.right * speed * Time.fixedDeltaTime, Space.Self);
+            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.Self);
         }
         // If the enemy object has zigzag toggled on
         else if (zigzag)
@@ -86,8 +86,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            // Otherwise, simply move the enemy in a staright line towards the player at a given speed
-            transform.Translate(Vector3.back * speed * Time.fixedDeltaTime, Space.Self);
+            // Otherwise, simply move the enemy in a straight line towards the player at a given speed
+            transform.Translate(Vector3.back * speed * Time.deltaTime, Space.Self);
 
             // Should make enemies look at the camera, but just turns them upside down and immobile
             //transform.LookAt(Camera.main.transform.position, -Vector3.up);

@@ -20,8 +20,11 @@ public class GameOver : MonoBehaviour
         // Stops the camera from moving
         GameObject.Find("MainCamera").GetComponent<MoveCamera>().cameraSpeed = 0;
         // Stops the obstacle launchers from spawning anything
-        GameObject.FindWithTag("ObstacleSpawnerEnemy").SetActive(false);
-        GameObject.FindWithTag("ObstacleSpawnerTennisBall").SetActive(false);
+        //GameObject.FindWithTag("ObstacleSpawnerEnemy").SetActive(false);
+        //GameObject.FindWithTag("ObstacleSpawnerTennisBall").SetActive(false);
+        //GameObject.FindWithTag("CarSpawner").SetActive(false);
+        //GameObject.FindWithTag("CarSpawner2").SetActive(false);
+        ObstacleSpawner.stopSpawning = true;
         // Stops the Timer (simply hides it. technically it is still counting)
         Timer.timer = false;
         // Destroys all gameObjects tagged as "Bad"
@@ -34,6 +37,10 @@ public class GameOver : MonoBehaviour
         Destroy(GameObject.FindWithTag("Player"));
         // Hide the Dog Walker from the background
         GameObject.Find("DogWalkerParent").SetActive(false);
+        // Hide the Walker Text from the background
+        GameObject.Find("WalkerTextParent").SetActive(false);
+        // Stop the day/night cycle
+        DayNightCycle.stopCounting = true;
 
     }
 }

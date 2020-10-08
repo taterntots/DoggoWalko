@@ -17,6 +17,7 @@ public class DayNightCycle : MonoBehaviour
     public Color dawnAndDuskColor;
     public Color nightColor;
     public float timeOfDay;
+    public static bool stopCounting = false;
     public static bool startGameDayTime = true;
     public bool dawn = false;
     public static bool dusk = true;
@@ -31,12 +32,25 @@ public class DayNightCycle : MonoBehaviour
     {
         sunFadeRef = GameObject.Find("SunTimer").GetComponent<FadeObject>();
         moonFadeRef = GameObject.Find("MoonTimer").GetComponent<FadeObject>();
+
+        // Makes sure game always starts in the daytime on restart
+        startGameDayTime = true;
+        stopCounting = false;
+        day = true;
+        dawn = false;
+        dusk = false;
+        night = false;
+        timeOfDay = 0;
     }
 
     void Update()
     {
-        // Constantly counts up in seconds
-        timeOfDay += Time.deltaTime;
+        // Until we hit a gameover, keep the day night cycle running
+        if (stopCounting == false)
+        {
+            // Constantly counts up in seconds
+            timeOfDay += Time.deltaTime;
+        }
 
         // Determines whent to trigger shifts in sky color depending on time of day
         if (timeOfDay >= 10 && timeOfDay < 20)

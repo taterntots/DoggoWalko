@@ -15,6 +15,8 @@ public class ObstacleSpawner : MonoBehaviour
     // The time to spawn the object
     private float spawnTime;
     public bool isSpawning = true;
+    // Completely stops all spawners
+    public static bool stopSpawning = false;
 
     // Allows for adjustment to spawner speed
     Animator spawnerMovement;
@@ -22,6 +24,9 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Start()
     {
+        // Activates spawners
+        isSpawning = true;
+        stopSpawning = false;
         // Grab the Animator attached to the spawner
         spawnerMovement = gameObject.GetComponent<Animator>();
         // At the start of game, sets a random time between our max and min, and resets our timer to zero
@@ -45,7 +50,7 @@ public class ObstacleSpawner : MonoBehaviour
         timer += Time.deltaTime;
 
         // Check if it's the right time to spawn the object, only if the spawner is activated
-        if (timer >= spawnTime && isSpawning == true)
+        if (timer >= spawnTime && isSpawning == true && stopSpawning == false)
         {
             // Changes the position of the spawner randomly along the x axis of the sidewalk
             // transform.position = new Vector3(Random.Range(-0.58f, -3.76f), 1.095f);

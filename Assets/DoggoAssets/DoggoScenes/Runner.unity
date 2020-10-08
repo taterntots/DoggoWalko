@@ -4319,7 +4319,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 8831728188931177385, guid: 9d6cff63afb920343aeb4cd557bef82d,
+    type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7193,7 +7194,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -308920193891312021, guid: 87e85ebe11c207b479390f96efe3c961,
+  m_Sprite: {fileID: -1197423741990501875, guid: 87e85ebe11c207b479390f96efe3c961,
     type: 2}
   m_Type: 0
   m_PreserveAspect: 0
@@ -11845,7 +11846,8 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -9076482343475985603, guid: fc0e1f0022acd734d9235e006dfa840d,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11853,7 +11855,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5171597245496998713
@@ -11936,7 +11938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &5171597245496998719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12056,6 +12058,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4348981374684559002, guid: 94b076dd5c9579043900dd208ab45820,
         type: 3}
+    - target: {fileID: 6273586240100616862, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2697855818144889407, guid: c7db192dfcf50f446bb4eeae82e19656,
+        type: 2}
+    - target: {fileID: 6273586240300052708, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3579056526242934014, guid: 52bc3084b36ab4f468d8d74a74fc3f59,
+        type: 2}
+    - target: {fileID: 6273586240855189435, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5773123444731025845, guid: 697580aee7504a24cb653acbd4947f8b,
+        type: 2}
+    - target: {fileID: 7430574062923360002, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5494656013365561491, guid: f17df541ac19b02488eeb2b34cb35c31,
+        type: 2}
+    - target: {fileID: 8403658334842073182, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3267706657203107055, guid: 9b3351263091a224dabcc7d51ca4c337,
+        type: 2}
+    - target: {fileID: 2414225902082537727, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5494656013365561491, guid: f17df541ac19b02488eeb2b34cb35c31,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7556049f80c065049be6a174205ac50e, type: 3}
 --- !u!4 &6580157852777564160
