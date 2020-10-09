@@ -14,6 +14,8 @@ public class DoggoBehavior : MonoBehaviour
     private PlayerMovement playerMovementRef;
     private ObstacleSpawner obstacleSpawnerEnemyRef;
     private ObstacleSpawner obstacleSpawnerTennisBallRef;
+    private LevelSelector levelSelectorRef;
+
     public GameObject ratBoiBeat;
 
     public static bool walkingDog = true;
@@ -51,6 +53,8 @@ public class DoggoBehavior : MonoBehaviour
         obstacleSpawnerEnemyRef = GameObject.FindWithTag("ObstacleSpawnerEnemy").GetComponent<ObstacleSpawner>();
         // Grabs reference to the ObstacleSpawnerTennisBall script component
         obstacleSpawnerTennisBallRef = GameObject.FindWithTag("ObstacleSpawnerTennisBall").GetComponent<ObstacleSpawner>();
+        // Grabs reference to the level int in the LevelSelector script
+        levelSelectorRef = GameObject.FindWithTag("GameController").GetComponent<LevelSelector>();
 
         // Keeps the "good" and "bad boi" animations from triggering at game start (essentially hides them)
         WalkerTextOff();
@@ -243,6 +247,10 @@ public class DoggoBehavior : MonoBehaviour
         {
             // Increase the checkpoint count by one
             checkPointCount += 1;
+            // Increase the level (difficulty) by one (See LevelSelector script for details)
+            levelSelectorRef.level += 1;
+
+            /*
             // Max out camera speed at 8
             if (moveCameraRef.cameraSpeed < 8)
             {
@@ -273,6 +281,7 @@ public class DoggoBehavior : MonoBehaviour
             {
                 levelSpawnerRef.spawnTime -= 0.5f;
             }
+            */
 
             // Destroys the checkpoint so you can't accidentally trigger more than once
             Destroy(other.gameObject);
