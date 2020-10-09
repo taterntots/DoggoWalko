@@ -53,24 +53,24 @@ public class DayNightCycle : MonoBehaviour
         }
 
         // Determines whent to trigger shifts in sky color depending on time of day
-        if (timeOfDay >= 10 && timeOfDay < 20)
+        if (timeOfDay >= 45 && timeOfDay < 60)
         {
             startGameDayTime = false;
             dusk = true;
         }
-        else if (timeOfDay >= 20 && timeOfDay < 30)
+        else if (timeOfDay >= 60 && timeOfDay < 105)
         {
             dusk = false;
             night = true;
             StartCoroutine(moonFadeRef.FadeImage(false));
             StartCoroutine(sunFadeRef.FadeImage(true));
         }
-        else if (timeOfDay >= 30 && timeOfDay < 40)
+        else if (timeOfDay >= 105 && timeOfDay < 120)
         {
             night = false;
             dawn = true;
         }
-        else if (timeOfDay >= 40)
+        else if (timeOfDay >= 120)
         {
             dawn = false;
             day = true;

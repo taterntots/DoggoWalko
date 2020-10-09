@@ -17,6 +17,7 @@ public class ObstacleSpawner : MonoBehaviour
     public bool isSpawning = true;
     // Completely stops all spawners
     public static bool stopSpawning = false;
+    public bool isEnemySpawner = false;
 
     // Allows for adjustment to spawner speed
     Animator spawnerMovement;
@@ -52,8 +53,6 @@ public class ObstacleSpawner : MonoBehaviour
         // Check if it's the right time to spawn the object, only if the spawner is activated
         if (timer >= spawnTime && isSpawning == true && stopSpawning == false)
         {
-            // Changes the position of the spawner randomly along the x axis of the sidewalk
-            // transform.position = new Vector3(Random.Range(-0.58f, -3.76f), 1.095f);
             // Spawn an object and reset the timer to something random between our defined range
             SpawnObject();
             SetRandomTime();
@@ -64,7 +63,7 @@ public class ObstacleSpawner : MonoBehaviour
     void SpawnObject()
     {
         // Picks a random obstacle/enemy to spawn
-        Instantiate(randomObjects(), transform.position, randomObjects().transform.rotation);
+        Instantiate(RandomObject(), transform.position, RandomObject().transform.rotation);
         // Reset our timer back to zero
         timer = 0;
     }
@@ -76,8 +75,27 @@ public class ObstacleSpawner : MonoBehaviour
     }
 
     // Randomizes the enemy chosen between all prefabs in the array
-    private GameObject randomObjects()
+    private GameObject RandomObject()
     {
-        return spawnObjects[Random.Range(0, spawnObjects.GetLength(0))];
+        // Only spawns rat enemy until first checkpoint
+        if (DoggoBehavior.checkPointCount == 0 && isEnemySpawner)
+        {
+            return spawnObjects[0];
+        }
+        // Randomizes between rat and kitty enemies after second checkpoint
+        else if (DoggoBehavior.checkPointCount == 1 && isEnemySpawner)
+        {
+            return spawnObjects[Random.Range(0, 2)];
+        }
+        // Randomizes between rat, kitty, and mailman enemies after third checkpoint
+        else if (DoggoBehavior.checkPointCount == 2 && isEnemySpawner)
+        {
+            return spawnObjects[Random.Range(0, 3)];
+        }
+        // Randomizes between all enemies after fourth checkpoint
+        else
+        {
+            return spawnObjects[Random.Range(0, spawnObjects.GetLength(0))];
+        }
     }
 }

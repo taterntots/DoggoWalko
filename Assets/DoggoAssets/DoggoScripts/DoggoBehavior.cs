@@ -23,6 +23,7 @@ public class DoggoBehavior : MonoBehaviour
     public static bool isTakingDamage = false;
 
     public static float animationDelay = 1.0f;
+    public static int checkPointCount = 0;
 
     public AudioSource audioSource;
     public AudioClip goodSound;
@@ -57,7 +58,9 @@ public class DoggoBehavior : MonoBehaviour
         noJump = false;
         isColliding = false;
         isAnimating = false;
-    }
+        // Reset the checkpoint count so certain enemies don't spawn on new game
+        checkPointCount = 0;
+}
 
     void OnCollisionEnter(Collision other)
     {
@@ -238,6 +241,8 @@ public class DoggoBehavior : MonoBehaviour
         // Continues the game when reaching home as a good boi, increasing difficulty
         else if (other.gameObject.tag == "Checkpoint" && walkerAttitude >= 0)
         {
+            // Increase the checkpoint count by one
+            checkPointCount += 1;
             // Max out camera speed at 8
             if (moveCameraRef.cameraSpeed < 8)
             {
@@ -286,7 +291,6 @@ public class DoggoBehavior : MonoBehaviour
         GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
         GameObject.Find("BadBoiText").GetComponent<SpriteRenderer>().enabled = false;
         GameObject.Find("CheckPointText").GetComponent<SpriteRenderer>().enabled = false;
-
     }
 
     // Coroutine that swaps the dog sprite to the fighting animation
@@ -338,6 +342,8 @@ public class DoggoBehavior : MonoBehaviour
         isAnimating = true;
         // Set isColliding bool to true
         isColliding = true;
+        // Set isTakingDamage bool to true to prevent more than one enemy giving damage while taking a hit
+        isTakingDamage = true;
         // Turn off all sprites
         TurnOffDoggoSprites();
         // Turn on Barking Sprite
@@ -369,6 +375,8 @@ public class DoggoBehavior : MonoBehaviour
         isAnimating = true;
         // Set isColliding bool to true
         isColliding = true;
+        // Set isTakingDamage bool to true to prevent more than one enemy giving damage while taking a hit
+        isTakingDamage = true;
         // Turn off all sprites
         TurnOffDoggoSprites();
         // Turn on Eating Sprite

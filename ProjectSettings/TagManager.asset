@@ -22,6 +22,7 @@ TagManager:
   - BuildingCollider
   - Dead
   - CarSpawner
+  - CarSpawner2
   layers:
   - Default
   - TransparentFX

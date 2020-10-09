@@ -510,7 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frequency: 0
   magnitude: 0
-  speed: 1.5
+  speed: 1.7
   twirlSpeed: 8
   floating: 0
   zigzag: 0
