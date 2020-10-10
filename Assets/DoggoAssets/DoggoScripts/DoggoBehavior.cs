@@ -25,7 +25,6 @@ public class DoggoBehavior : MonoBehaviour
     public static bool isTakingDamage = false;
 
     public static float animationDelay = 1.0f;
-    public static int checkPointCount = 0;
 
     public AudioSource audioSource;
     public AudioClip goodSound;
@@ -62,8 +61,6 @@ public class DoggoBehavior : MonoBehaviour
         noJump = false;
         isColliding = false;
         isAnimating = false;
-        // Reset the checkpoint count so certain enemies don't spawn on new game
-        checkPointCount = 0;
 }
 
     void OnCollisionEnter(Collision other)
@@ -159,7 +156,7 @@ public class DoggoBehavior : MonoBehaviour
         }
 
         // If the object being collided with is considered "good" behavior
-        if (other.gameObject.tag == "Good")
+        if (other.gameObject.tag == "Good" && isTakingDamage == false)
         {
             // Stops doggo from being able to jump while animation triggers
             noJump = true;
@@ -245,43 +242,8 @@ public class DoggoBehavior : MonoBehaviour
         // Continues the game when reaching home as a good boi, increasing difficulty
         else if (other.gameObject.tag == "Checkpoint" && walkerAttitude >= 0)
         {
-            // Increase the checkpoint count by one
-            checkPointCount += 1;
             // Increase the level (difficulty) by one (See LevelSelector script for details)
             levelSelectorRef.level += 1;
-
-            /*
-            // Max out camera speed at 8
-            if (moveCameraRef.cameraSpeed < 8)
-            {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed += 0.5f;
-                // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed += 0.5f;
-            }
-
-            // Makes enemies spawn more frequently, maxing out the spawn time between 0.4 and 1 second
-            if (obstacleSpawnerEnemyRef.minTime > 0.4f)
-            {
-                obstacleSpawnerEnemyRef.minTime -= 0.2f;
-            }
-            if (obstacleSpawnerEnemyRef.maxTime > 0.4f)
-            {
-                obstacleSpawnerEnemyRef.maxTime -= 0.4f;
-            }
-
-            // Makes Obstacle Spawner move a little faster
-            if (obstacleSpawnerEnemyRef.spawnerSpeed < 4.0f)
-            {
-                obstacleSpawnerEnemyRef.spawnerSpeed += 0.5f;
-            }
-
-            // Makes buildings spawn a bit faster
-            if (levelSpawnerRef.spawnTime > 1.0f)
-            {
-                levelSpawnerRef.spawnTime -= 0.5f;
-            }
-            */
 
             // Destroys the checkpoint so you can't accidentally trigger more than once
             Destroy(other.gameObject);

@@ -27,145 +27,149 @@ public class LevelSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (level == 1)
+        // As long as the game is running
+        if (GameOver.gameIsOver == false)
         {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 1.0f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 1.0f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 4.0f;
-            obstacleSpawnerEnemyRef.maxTime = 2.0f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 1.0f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 5.0f;
-        }
-        else if (level == 2)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 1.5f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 1.5f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 3.8f;
-            obstacleSpawnerEnemyRef.maxTime = 1.6f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 1.5f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 4.5f;
-        }
-        else if (level == 3)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 2.0f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 2.0f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 3.6f;
-            obstacleSpawnerEnemyRef.maxTime = 1.2f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 2.0f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 4.0f;
-        }
-        else if (level == 4)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 2.5f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 2.5f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 3.4f;
-            obstacleSpawnerEnemyRef.maxTime = 0.8f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 2.5f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 3.5f;
-        }
-        else if (level == 5)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 3.0f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 3.0f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 3.2f;
-            obstacleSpawnerEnemyRef.maxTime = 0.4f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 3.0f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 3.0f;
-        }
-        else if (level == 6)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 3.5f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 3.5f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 3.0f;
-            obstacleSpawnerEnemyRef.maxTime = 0.4f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 3.5f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 2.5f;
-        }
-        else if (level == 7)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 4.0f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 4.0f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 2.8f;
-            obstacleSpawnerEnemyRef.maxTime = 0.4f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 4.0f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 2.0f;
-        }
-        else if (level == 8)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 4.5f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 4.5f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 2.6f;
-            obstacleSpawnerEnemyRef.maxTime = 0.4f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 4.0f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 1.5f;
-        }
-        else if (level == 9)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 5.0f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 5.0f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 2.4f;
-            obstacleSpawnerEnemyRef.maxTime = 0.4f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 4.0f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 1.0f;
-        }
-        else if (level >= 10)
-        {
-            // Makes the walker (aka the game) move faster
-            moveCameraRef.cameraSpeed = 5.5f;
-            // Makes the dog walk faster to match the cameraspeed
-            playerMovementRef.doggoAutoSpeed = 5.5f;
-            // Makes enemies spawn more frequently
-            obstacleSpawnerEnemyRef.minTime = 2.2f;
-            obstacleSpawnerEnemyRef.maxTime = 0.4f;
-            // Makes Obstacle Spawner move a little faster
-            obstacleSpawnerEnemyRef.spawnerSpeed = 4.0f;
-            // Makes buildings spawn a bit faster
-            levelSpawnerRef.spawnTime = 1.0f;
+            if (level == 1)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 1.0f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 1.0f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 2.5f;
+                obstacleSpawnerEnemyRef.minTime = 1.5f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 1.0f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 12;
+            }
+            else if (level == 2)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 1.5f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 1.5f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 2.0f;
+                obstacleSpawnerEnemyRef.minTime = 1.0f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 1.5f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 14;
+            }
+            else if (level == 3)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 2.0f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 2.0f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 1.5f;
+                obstacleSpawnerEnemyRef.minTime = 1.0f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 2.0f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 16;
+            }
+            else if (level == 4)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 2.5f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 2.5f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 1.5f;
+                obstacleSpawnerEnemyRef.minTime = 1.0f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 2.5f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 18;
+            }
+            else if (level == 5)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 3.0f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 3.0f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 0.8f;
+                obstacleSpawnerEnemyRef.minTime = 1.2f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 3.0f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 20;
+            }
+            else if (level == 6)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 3.5f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 3.5f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 0.7f;
+                obstacleSpawnerEnemyRef.minTime = 1.1f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 3.5f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 22;
+            }
+            else if (level == 7)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 4.0f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 4.0f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 0.6f;
+                obstacleSpawnerEnemyRef.minTime = 1.0f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 4.0f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 24;
+            }
+            else if (level == 8)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 4.5f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 4.5f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 0.5f;
+                obstacleSpawnerEnemyRef.minTime = 0.8f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 4.0f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 26;
+            }
+            else if (level == 9)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 5.0f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 5.0f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 0.5f;
+                obstacleSpawnerEnemyRef.minTime = 0.8f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 4.0f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 28;
+            }
+            else if (level >= 10)
+            {
+                // Makes the walker (aka the game) move faster
+                moveCameraRef.cameraSpeed = 5.5f;
+                // Makes the dog walk faster to match the cameraspeed
+                playerMovementRef.doggoAutoSpeed = 5.5f;
+                // Makes enemies spawn more frequently
+                obstacleSpawnerEnemyRef.maxTime = 0.5f;
+                obstacleSpawnerEnemyRef.minTime = 0.8f;
+                // Makes Obstacle Spawner move a little faster
+                obstacleSpawnerEnemyRef.spawnerSpeed = 4.0f;
+                // Increase homespawn to make levels longer
+                levelSpawnerRef.homeSpawn = 30;
+            }
         }
     }
 }

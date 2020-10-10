@@ -17,7 +17,7 @@ public class Jump : MonoBehaviour
     Rigidbody Rb;
     private DoggoBehavior doggoBehaviorRef;
 
-    void Awake()
+    void Start()
     {
         // Assigns some components and references to variables
         Rb = GetComponent<Rigidbody>();
@@ -44,7 +44,7 @@ public class Jump : MonoBehaviour
             Rb.velocity = Vector3.up * jumpForce;
         }
         // Applies force to player jumps when pressing the spacebar or J Key
-        if (isPlayer && (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
+        if (isPlayer && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
         {
             isGrounded = false; // Important to be considered grounded when touching walls
             StartCoroutine("DoggoJumping"); // Starts animation for jumping

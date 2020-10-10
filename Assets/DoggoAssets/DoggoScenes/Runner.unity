@@ -1558,8 +1558,8 @@ MonoBehaviour:
   spawnObjects:
   - {fileID: 5176665907939917766, guid: ac5844cb1c288d8418e2b4dfcc23a1e1, type: 3}
   - {fileID: 7640953683099090730, guid: 772534e368c5dd84b9572e846f4d0dff, type: 3}
-  - {fileID: 777364494999719433, guid: 20f0bb7b32d66fe4baea73eebad26957, type: 3}
   - {fileID: 8071973209710225355, guid: d793187802e54c7419dbcf0cc26e3e64, type: 3}
+  - {fileID: 777364494999719433, guid: 20f0bb7b32d66fe4baea73eebad26957, type: 3}
   maxTime: 4
   minTime: 2
   isSpawning: 1
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38f7223e45588d469ab5dc08c3bac29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 5
 --- !u!1 &518531626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5870,7 +5870,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a6c043e238a38b64093d5e288b35b2d2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.321
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12215,6 +12215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273586240712239799, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: jumpForce
+      value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7556049f80c065049be6a174205ac50e, type: 3}

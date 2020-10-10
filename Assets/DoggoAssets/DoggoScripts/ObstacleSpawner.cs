@@ -6,6 +6,7 @@ public class ObstacleSpawner : MonoBehaviour
 {
     // Create an array of objects we want to have spawnable
     public GameObject[] spawnObjects;
+    private LevelSelector levelSelectorRef;
 
     public float maxTime;
     public float minTime;
@@ -30,6 +31,8 @@ public class ObstacleSpawner : MonoBehaviour
         stopSpawning = false;
         // Grab the Animator attached to the spawner
         spawnerMovement = gameObject.GetComponent<Animator>();
+        // Grabs reference to the LevelSelector script component
+        levelSelectorRef = GameObject.FindWithTag("GameController").GetComponent<LevelSelector>();
         // At the start of game, sets a random time between our max and min, and resets our timer to zero
         SetRandomTime();
         timer = 0;
@@ -78,17 +81,17 @@ public class ObstacleSpawner : MonoBehaviour
     private GameObject RandomObject()
     {
         // Only spawns rat enemy until first checkpoint
-        if (DoggoBehavior.checkPointCount == 0 && isEnemySpawner)
+        if (levelSelectorRef.level == 1 && isEnemySpawner)
         {
             return spawnObjects[0];
         }
         // Randomizes between rat and kitty enemies after second checkpoint
-        else if (DoggoBehavior.checkPointCount == 1 && isEnemySpawner)
+        else if (levelSelectorRef.level == 2 && isEnemySpawner)
         {
             return spawnObjects[Random.Range(0, 2)];
         }
         // Randomizes between rat, kitty, and mailman enemies after third checkpoint
-        else if (DoggoBehavior.checkPointCount == 2 && isEnemySpawner)
+        else if (levelSelectorRef.level == 3 && isEnemySpawner)
         {
             return spawnObjects[Random.Range(0, 3)];
         }

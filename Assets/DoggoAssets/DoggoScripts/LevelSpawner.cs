@@ -18,10 +18,10 @@ public class LevelSpawner : MonoBehaviour
     private int crossWalkCount = 6;
     public int homeSpawn;
     public int crossWalkSpawn;
+    public static int currBuildingCount = 10;
 
-    public float spawnTime;
     private float zBuildingObject;
-    private int startingBuildingCount;
+    public static int startingBuildingCount;
     private float zScenePos = -1.378f;
 
     // Start is called before the first frame update
@@ -38,8 +38,8 @@ public class LevelSpawner : MonoBehaviour
 
     IEnumerator LevelSpawn()
     {
-        // Quickly spawns the first six buildings on game bootup
-        while (startingBuildingCount <= 5)
+        // Quickly spawns the first ten buildings on game bootup
+        while (startingBuildingCount <= 9)
         {
             // Queue up the next random building to be spawned, as well as random side buildings for crosswalks
             currentSpawn = randomBuilding();
@@ -49,7 +49,7 @@ public class LevelSpawner : MonoBehaviour
             DropObject();
             // Repositions six units on the z for the next building spawn
             zScenePos += 6;
-            // Increase our counter to ensure only six buildings spawn at startup in total
+            // Increase our counter to ensure only ten buildings spawn at startup in total
             startingBuildingCount++;
         }
 
@@ -57,19 +57,26 @@ public class LevelSpawner : MonoBehaviour
         while (DoggoBehavior.walkingDog == true)
         {
             // The interval of time between building spawns
-            yield return new WaitForSeconds(spawnTime);
-            // Queue up the next random building to be spawned, as well as side buildings
-            currentSpawn = randomBuilding();
-            // Chooses a random building from the building array, as well as side buildings
-            Instantiate(currentSpawn, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
-            // Runs a function that decides what object to drop depending on building color
-            DropObject();
-            // Increase the count of buildings spawned so we can keep track of when to drop the doggo home later
-            homeSpawnCount++;
-            // Increase the count of buildings spawned so we can keep track of when to drop the crosswalk later
-            crossWalkCount++;
-            // Repositions six units on the z for the next building spawn
-            zScenePos += 6;
+            yield return new WaitForSeconds(0.1f);
+
+            // Makes sure there are always ten buildings at play when one is destroyed (check environment destroyer script)
+            if (currBuildingCount < 10)
+            {
+                // Queue up the next random building to be spawned, as well as side buildings
+                currentSpawn = randomBuilding();
+                // Chooses a random building from the building array, as well as side buildings
+                Instantiate(currentSpawn, new Vector3(-3.6497f, 3.5141f, zScenePos), transform.rotation);
+                // Runs a function that decides what object to drop depending on building color
+                DropObject();
+                // Increase the count of buildings spawned so we can keep track of when to drop the doggo home later
+                homeSpawnCount++;
+                // Increase the count of buildings spawned so we can keep track of when to drop the crosswalk later
+                crossWalkCount++;
+                // Repositions six units on the z for the next building spawn
+                zScenePos += 6;
+                // Increase our counter to ensure only eight buildings spawn at startup in total
+                currBuildingCount++;
+            }
         }
     }
 

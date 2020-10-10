@@ -7,23 +7,24 @@ public class GameOver : MonoBehaviour
 {
     public GameObject gameOverCanvas;
 
+    public static bool gameIsOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
         gameOverCanvas.SetActive(false);
+        gameIsOver = false;
     }
 
     public void EndGame()
     {
+        // Sets game over bool to true (important to stop camera in the LevelSelector script)
+        gameIsOver = true;
         // Stops the level from spawning further
         DoggoBehavior.walkingDog = false;
         // Stops the camera from moving
         GameObject.Find("MainCamera").GetComponent<MoveCamera>().cameraSpeed = 0;
         // Stops the obstacle launchers from spawning anything
-        //GameObject.FindWithTag("ObstacleSpawnerEnemy").SetActive(false);
-        //GameObject.FindWithTag("ObstacleSpawnerTennisBall").SetActive(false);
-        //GameObject.FindWithTag("CarSpawner").SetActive(false);
-        //GameObject.FindWithTag("CarSpawner2").SetActive(false);
         ObstacleSpawner.stopSpawning = true;
         // Stops the Timer (simply hides it. technically it is still counting)
         Timer.timer = false;
