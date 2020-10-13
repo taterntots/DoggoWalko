@@ -555,6 +555,8 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.Find("DoggoBarkParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoEatParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoEatParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoPetParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoPetParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
@@ -567,5 +569,8 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.Find("DoggoSuperParent").GetChild(9).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(10).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(11).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("HeartParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("HeartParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("HeartParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
     }
 }
