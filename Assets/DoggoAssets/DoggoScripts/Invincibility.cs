@@ -11,6 +11,11 @@ public class Invincibility : MonoBehaviour
 
     public static bool isSuper = false;
 
+    public AudioSource audioSource;
+    public AudioClip bonkSound;
+
+    [Range(0.0f, 1.0f)] public float bonkVolume;
+
     private DoggoBehavior doggoBehaviorRef;
     private ObstacleSpawner tennisObstacleSpawnerRef;
 
@@ -71,6 +76,8 @@ public class Invincibility : MonoBehaviour
             // If the collision is with a bad object
             if (other.gameObject.tag == "Bad")
             {
+                // Plays a little death soundclip
+                audioSource.PlayOneShot(bonkSound, bonkVolume);
                 // Turn off enemy movement script so gravity activates
                 other.gameObject.GetComponent<EnemyMovement>().enabled = false;
                 // Turn off rotator script if it exists
@@ -118,7 +125,11 @@ public class Invincibility : MonoBehaviour
         // Turn on Fetch Invincibility Sprites briefly
         gameObject.transform.Find("DoggoSuperParent").GetChild(10).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.Find("DoggoSuperParent").GetChild(11).GetComponent<SpriteRenderer>().enabled = true;
-        
+        // Pauses main game music and replaced with invulnerability music
+        GameObject.Find("MainCamera").GetComponent<AudioSource>().Pause();
+        // Plays the invulnerability music
+        audioSource.Play();
+
         while (DoggoBehavior.isAnimating == true)
         {
             // Wait for a given amount of time before swapping sprites away from fetching
@@ -138,8 +149,15 @@ public class Invincibility : MonoBehaviour
         // As long as the doggo is supered up
         while (isSuper == true)
         {
-            // Wait for a given amount of time before losing super power
+            // Wait for a given amount of time before reverting music back
             yield return new WaitForSeconds(superTime);
+            // Unpauses main game music and stops invulnerability music
+            GameObject.Find("MainCamera").GetComponent<AudioSource>().UnPause();
+            // Plays the invulnerability music
+            audioSource.Stop();
+
+            // Wait for an extra second or two before losing super power for grace period
+            yield return new WaitForSeconds(1);
             // Turn off all sprites
             doggoBehaviorRef.TurnOffDoggoSprites();
             // Return Doggo to nuetral standing
@@ -147,6 +165,8 @@ public class Invincibility : MonoBehaviour
             gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
             // Reset the ball count
             ballCount = 0;
+            // Reset timer for spawning balls
+            tennisObstacleSpawnerRef.timer = 0;
             // Reset a bunch of bools to turn doggo back to normal
             isSuper = false;
             tennisObstacleSpawnerRef.isSpawning = true;

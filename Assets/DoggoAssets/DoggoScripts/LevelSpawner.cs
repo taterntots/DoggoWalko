@@ -21,7 +21,7 @@ public class LevelSpawner : MonoBehaviour
     public static int currBuildingCount = 10;
 
     private float zBuildingObject;
-    public static int startingBuildingCount;
+    public static int startingBuildingCount = 0;
     private float zScenePos = -1.378f;
 
     // Start is called before the first frame update
@@ -32,6 +32,9 @@ public class LevelSpawner : MonoBehaviour
         DoggoBehavior.walkingDog = true;
         // Destroys any objects tagged as buildings (to get the randomizer working for the starting buildings)
         DestroyTheThing.DestroyAll("Building");
+        // Reset startingBuilding and currBuilding counts (for restarting game)
+        startingBuildingCount = 0;
+        currBuildingCount = 10;
         // Calls the function to procedurally generate houses
         StartCoroutine("LevelSpawn");
     }

@@ -12,7 +12,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float minTime;
 
     // Current time
-    private float timer;
+    public float timer;
     // The time to spawn the object
     private float spawnTime;
     public bool isSpawning = true;

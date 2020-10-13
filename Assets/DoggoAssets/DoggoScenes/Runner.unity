@@ -737,7 +737,7 @@ PrefabInstance:
     - target: {fileID: 5738452927546014054, guid: a84bf2f13c23eba41b09252d9f51e068,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5738452927546014054, guid: a84bf2f13c23eba41b09252d9f51e068,
         type: 3}
@@ -1562,6 +1562,7 @@ MonoBehaviour:
   - {fileID: 777364494999719433, guid: 20f0bb7b32d66fe4baea73eebad26957, type: 3}
   maxTime: 4
   minTime: 2
+  timer: 0
   isSpawning: 1
   isEnemySpawner: 1
   spawnerSpeed: 1
@@ -2018,7 +2019,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &373532118
 AudioSource:
@@ -2762,7 +2763,6 @@ MonoBehaviour:
   tree: {fileID: 6821410220614595013, guid: 62b7f7ce5a2cdc443bab5b67d95f6455, type: 3}
   homeSpawn: 10
   crossWalkSpawn: 15
-  spawnTime: 5
 --- !u!4 &462426907
 Transform:
   m_ObjectHideFlags: 0
@@ -2775,7 +2775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &462426908
 MonoBehaviour:
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38f7223e45588d469ab5dc08c3bac29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 5
+  level: 10
 --- !u!1 &518531626
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,7 +3023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566863920
 GameObject:
@@ -3340,7 +3340,7 @@ PrefabInstance:
     - target: {fileID: 6451937408010127660, guid: 3f4ad197a33b5664a9e13e215ae3f325,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6451937408010127660, guid: 3f4ad197a33b5664a9e13e215ae3f325,
         type: 3}
@@ -3660,8 +3660,9 @@ MonoBehaviour:
   spawnObjects:
   - {fileID: 6654339529668388466, guid: f91726f39818f6543bdcaddf48eca0fb, type: 3}
   - {fileID: 5171597244430270300, guid: c3cc0da20af2547479659485ce1cb1cb, type: 3}
-  maxTime: 10
-  minTime: 5
+  maxTime: 20
+  minTime: 22
+  timer: 0
   isSpawning: 1
   isEnemySpawner: 0
   spawnerSpeed: 1
@@ -3715,7 +3716,7 @@ PrefabInstance:
     - target: {fileID: 219879988581089719, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 219879988581089719, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
         type: 3}
@@ -4140,7 +4141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &730218007
 GameObject:
@@ -4735,7 +4736,7 @@ PrefabInstance:
     - target: {fileID: 6451937408010127660, guid: 3f4ad197a33b5664a9e13e215ae3f325,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6451937408010127660, guid: 3f4ad197a33b5664a9e13e215ae3f325,
         type: 3}
@@ -5424,7 +5425,7 @@ RectTransform:
   - {fileID: 128888955}
   - {fileID: 909770392}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5808,7 +5809,7 @@ Transform:
   - {fileID: 1411648019}
   - {fileID: 7780683733581544443}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 13.801001, y: -31.836002, z: -2.3960001}
 --- !u!54 &963194229
 Rigidbody:
@@ -5870,7 +5871,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a6c043e238a38b64093d5e288b35b2d2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8310,7 +8311,7 @@ PrefabInstance:
     - target: {fileID: 219879988581089719, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 219879988581089719, guid: 7e1dea7a5fe2bfa4d8131a5365b84701,
         type: 3}
@@ -9293,7 +9294,7 @@ RectTransform:
   - {fileID: 1130135286}
   - {fileID: 765970623}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9398,7 +9399,7 @@ RectTransform:
   - {fileID: 1673077641}
   - {fileID: 2069105402}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9736,7 +9737,7 @@ RectTransform:
   - {fileID: 689155617}
   - {fileID: 1120945800}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11192,7 +11193,7 @@ Transform:
   - {fileID: 2311643494212386299}
   - {fileID: 6580157852777564160}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4140016661375844758
 PrefabInstance:
@@ -11244,7 +11245,7 @@ PrefabInstance:
     - target: {fileID: 2522724186346718804, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2522724186346718804, guid: 7ca7e4fd5b70c1a44af269a47897ccd5,
         type: 3}
@@ -11790,7 +11791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &5171597244963485428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11855,7 +11856,8 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -9076482343475985603, guid: fc0e1f0022acd734d9235e006dfa840d,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11863,7 +11865,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &5171597244963485430
@@ -12164,12 +12166,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5
       objectReference: {fileID: 0}
-    - target: {fileID: 4389544897176292909, guid: 7556049f80c065049be6a174205ac50e,
-        type: 3}
-      propertyPath: ratBoiBeat
-      value: 
-      objectReference: {fileID: 4348981374684559002, guid: 94b076dd5c9579043900dd208ab45820,
-        type: 3}
     - target: {fileID: 6273586240100616862, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
       propertyPath: m_Sprite
@@ -12208,18 +12204,18 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 4389544897176292902, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
-      propertyPath: triggerSuper
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6273586240712239796, guid: 7556049f80c065049be6a174205ac50e,
-        type: 3}
-      propertyPath: m_audioClip
+      propertyPath: invulnerableMusic
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6273586240712239799, guid: 7556049f80c065049be6a174205ac50e,
+    - target: {fileID: 4389544897176292902, guid: 7556049f80c065049be6a174205ac50e,
         type: 3}
-      propertyPath: jumpForce
-      value: 1.4
+      propertyPath: invulnerableMusicVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389544897176292903, guid: 7556049f80c065049be6a174205ac50e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7556049f80c065049be6a174205ac50e, type: 3}

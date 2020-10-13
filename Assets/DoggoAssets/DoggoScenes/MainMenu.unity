@@ -584,7 +584,6 @@ MonoBehaviour:
   tree: {fileID: 6821410220614595013, guid: 62b7f7ce5a2cdc443bab5b67d95f6455, type: 3}
   homeSpawn: 20
   crossWalkSpawn: 10000
-  spawnTime: 6
 --- !u!4 &462426907
 Transform:
   m_ObjectHideFlags: 0
@@ -1032,11 +1031,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dec586ccc9ce0ab4ebb0e40e016578ae, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 73ad07419c1c2bf428e5d18f97c23dc6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

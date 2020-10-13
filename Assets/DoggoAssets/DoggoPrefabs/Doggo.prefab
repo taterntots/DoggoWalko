@@ -261,7 +261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plop: {fileID: 6575143832267648338, guid: 4c81874e2be9852479adde8d154ff8fd, type: 3}
-  ratBoiBeat: {fileID: 0}
+  ratBoiBeat: {fileID: 4348981374684559002, guid: 94b076dd5c9579043900dd208ab45820,
+    type: 3}
   audioSource: {fileID: 6273586240712239796}
   goodSound: {fileID: 8300000, guid: 3f33676c236271a4d8aad3781ac1c4a3, type: 3}
   badSound: {fileID: 8300000, guid: 5ecc48d54c2d61948b4c0aa4c1b8ce67, type: 3}
@@ -293,8 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b02cdbd0cf854e48b2b46474e265763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerSuper: 2
-  superTime: 100
+  triggerSuper: 1
+  superTime: 12
+  audioSource: {fileID: 6273586240712239796}
+  bonkSound: {fileID: 8300000, guid: bae93bd4c7cf4e043b846461bcb57e01, type: 3}
+  bonkVolume: 1
 --- !u!114 &6273586240712239799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1327bb03b7c4f49a58736db0df47a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 2.7
+  jumpForce: 1.4
   isGrounded: 1
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
@@ -324,8 +328,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a6c043e238a38b64093d5e288b35b2d2, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b2f62996ff781194d86715acdb682e51, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
