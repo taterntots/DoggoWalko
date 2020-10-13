@@ -126,7 +126,7 @@ public class Invincibility : MonoBehaviour
         gameObject.transform.Find("DoggoSuperParent").GetChild(10).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.Find("DoggoSuperParent").GetChild(11).GetComponent<SpriteRenderer>().enabled = true;
         // Pauses main game music and replaced with invulnerability music
-        GameObject.Find("MainCamera").GetComponent<AudioSource>().Pause();
+        GameObject.Find("GameMusic").GetComponent<AudioSource>().Pause();
         // Plays the invulnerability music
         audioSource.Play();
 
@@ -152,7 +152,7 @@ public class Invincibility : MonoBehaviour
             // Wait for a given amount of time before reverting music back
             yield return new WaitForSeconds(superTime);
             // Unpauses main game music and stops invulnerability music
-            GameObject.Find("MainCamera").GetComponent<AudioSource>().UnPause();
+            GameObject.Find("GameMusic").GetComponent<AudioSource>().UnPause();
             // Plays the invulnerability music
             audioSource.Stop();
 
