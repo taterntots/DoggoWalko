@@ -24,7 +24,7 @@ public class DoggoBehavior : MonoBehaviour
     public static bool isColliding = false;
     public static bool isTakingDamage = false;
 
-    public static float animationDelay = 1.0f;
+    public static float animationDelay = 1.2f;
 
     public AudioSource audioSource;
     public AudioClip goodSound;
@@ -104,8 +104,8 @@ public class DoggoBehavior : MonoBehaviour
                 other.gameObject.name == "CarRight(Purple)(Clone)" ||
                 other.gameObject.name == "CarRight(Red)(Clone)")
             {
-                // Triggers doggo flattening animation coroutine
-                StartCoroutine("DoggoBarking");
+                // Triggers doggo dying animation coroutine
+                StartCoroutine("DoggoDead");
             }
 
             // Swap sprites for enemy to the appropriate animation
@@ -147,12 +147,13 @@ public class DoggoBehavior : MonoBehaviour
             Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
-        // After colliding with an enemy, ignore future collisions
+        // After colliding with an enemy, ignore future collisions of Doggo with that object
         if (other.gameObject.tag == "Dead")
         {
             Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<BoxCollider>());
             Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
             Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
+            Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
         }
 
         // If the object being collided with is considered "good" behavior
@@ -372,6 +373,47 @@ public class DoggoBehavior : MonoBehaviour
         }
     }
 
+    // Coroutine that swaps the dog sprite to the dead animation
+    IEnumerator DoggoDead()
+    {
+        // Set isAnimating bool to true
+        isAnimating = true;
+        // Set isColliding bool to true
+        isColliding = true;
+        // Set isTakingDamage bool to true to prevent more than one enemy giving damage while taking a hit
+        isTakingDamage = true;
+        // Stop Doggo from being able to move
+        playerMovementRef.doggoSpeed = 0;
+        gameObject.transform.Find("DoggoDeadParent").transform.GetComponent<RotateSprite2>().enabled = false;
+        // Turn off all sprites
+        TurnOffDoggoSprites();
+        // Turn on Dying Sprite
+        gameObject.transform.Find("DoggoDeadParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoDeadParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoDeadParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoDeadParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
+
+        // As long as the dog is eating
+        while (isAnimating == true)
+        {
+            // Wait for a given amount of time before changing doggo sprite
+            yield return new WaitForSeconds(2.5f);
+            // Get Doggo moving again
+            playerMovementRef.doggoSpeed = 2.5f;
+            gameObject.transform.Find("DoggoDeadParent").transform.GetComponent<RotateSprite2>().enabled = true;
+            // Turn off all sprites
+            TurnOffDoggoSprites();
+            // Return Doggo to nuetral standing
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
+            noJump = false;
+            isColliding = false;
+            isTakingDamage = false;
+            isAnimating = false;
+        }
+    }
+
     // Coroutine that swaps the dog sprite to the peeing animation
     IEnumerator DoggoPeeing()
     {
@@ -557,6 +599,10 @@ public class DoggoBehavior : MonoBehaviour
         gameObject.transform.Find("DoggoEatParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoPetParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoPetParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoDeadParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoDeadParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoDeadParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoDeadParent").GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("DoggoSuperParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
