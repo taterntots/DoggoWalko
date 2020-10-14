@@ -8,6 +8,8 @@ public class Pause : MonoBehaviour
     private GameObject[] pauseObjects;
     public GameObject pauseCanvas;
 
+    private bool isPaused = false;
+
     void Start()
     {
         // Needed for the Pause Menu to work
@@ -20,11 +22,24 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Uses the P button to pause and unpause the game
-        if (Input.GetKeyDown(KeyCode.P))
+        // Uses the P Key to pause and unpause the game
+        if (isPaused == false && Input.GetKeyDown(KeyCode.P))
         {
             Time.timeScale = 0;
             showPaused();
+            isPaused = true;
+        }
+        else if (isPaused && Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale = 1;
+            hidePaused();
+            isPaused = false;
+        }
+
+        // Restarts the game if paused and pressing the R Key
+        if (isPaused && Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame("Runner");
         }
     }
 
