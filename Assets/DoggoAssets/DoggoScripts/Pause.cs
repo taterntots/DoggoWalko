@@ -41,6 +41,12 @@ public class Pause : MonoBehaviour
         {
             RestartGame("Runner");
         }
+
+        // Restarts the game on gameover if certain keys are pushed
+        if (GameOver.gameIsOver && (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return)))
+        {
+            RestartGame("Runner");
+        }
     }
 
     // Reloads the level upon hitting the restart button and resets good/badboi points, walker attitude, and Timer back to zero

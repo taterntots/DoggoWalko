@@ -736,13 +736,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1327bb03b7c4f49a58736db0df47a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1.4
+  jumpForce: 2.6
   isGrounded: 1
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   isObstacle: 0
   isPlayer: 1
   animationDelay: 0.5
+  audioSource: {fileID: 6273586240712239796}
+  jumpSound: {fileID: 8300000, guid: 3f33676c236271a4d8aad3781ac1c4a3, type: 3}
+  jumpSoundVolume: 1
 --- !u!82 &6273586240712239796
 AudioSource:
   m_ObjectHideFlags: 0

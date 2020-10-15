@@ -42,6 +42,5 @@ public class GameOver : MonoBehaviour
         GameObject.Find("WalkerTextParent").SetActive(false);
         // Stop the day/night cycle
         DayNightCycle.stopCounting = true;
-
     }
 }

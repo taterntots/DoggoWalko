@@ -14,6 +14,10 @@ public class Jump : MonoBehaviour
     public bool isPlayer;
     public float animationDelay = 0.5f;
 
+    public AudioSource audioSource;
+    public AudioClip jumpSound;
+    [Range(0.0f, 1.0f)] public float jumpSoundVolume;
+
     Rigidbody Rb;
     private DoggoBehavior doggoBehaviorRef;
 
@@ -32,30 +36,31 @@ public class Jump : MonoBehaviour
             isGrounded = true;
         }
     }
-
-  
+    
     // Update is called once per frame
     void Update()
     {
         // If it's an obstacle (like the ball) or enemy, auto jump the moment the object touches the ground
         if (isObstacle && isGrounded)
         {
-            isGrounded = false; // Important to be considered grounded when touching walls
+            //isGrounded = false; // Important to be considered grounded when touching walls
             Rb.velocity = Vector3.up * jumpForce;
         }
+
         // Applies force to player jumps when pressing the spacebar or J Key
-        if (isPlayer && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
+        if (isPlayer && (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
         {
-            isGrounded = false; // Important to be considered grounded when touching walls
             StartCoroutine("DoggoJumping"); // Starts animation for jumping
             Rb.AddForce(transform.up * jumpForce * 100);
+            // Plays a little soundclip
+            audioSource.PlayOneShot(jumpSound, jumpSoundVolume);
         }
 
         // Controls fall speed, making jumps more fluid feeling
         if (Rb.velocity.y < 0)
         {
             Rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-            isGrounded = false;
+            //isGrounded = false;
         }
         else if (Rb.velocity.y > 0 && !Input.GetKeyDown(KeyCode.Space))
         {

@@ -143,8 +143,10 @@ public class DoggoBehavior : MonoBehaviour
         // Otherwise, ignores collisions with other enemies, water, or good objects (like trees or hydrants) while fighting
         else if (isTakingDamage == true && Invincibility.isSuper == false && (other.gameObject.tag == "Good" || other.gameObject.tag == "Bad" || other.gameObject.tag == "Water"))
         {
+            Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<BoxCollider>());
             Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
             Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
+            Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<BoxCollider>());
         }
 
         // After colliding with an enemy, ignore future collisions of Doggo with that object
@@ -182,7 +184,7 @@ public class DoggoBehavior : MonoBehaviour
             // Destroy object after a delay (when offscreen)
             Destroy(other.gameObject, 8);
 
-            // Plays the a little soundclip
+            // Plays a little soundclip
             audioSource.PlayOneShot(goodSound, goodSoundVolume);
 
             // Increase Good Boi Points by one
@@ -226,12 +228,6 @@ public class DoggoBehavior : MonoBehaviour
             GameObject.Find("GoodBoiText").GetComponent<SpriteRenderer>().enabled = false;
             GameObject.Find("CheckPointText").GetComponent<SpriteRenderer>().enabled = false;
             Invoke("WalkerTextOff", 3f);
-        }
-        // Otherwise, ignores collisions with other enemies, water, or good objects (like trees or hydrants) while fighting
-        else if (isTakingDamage == true && (other.gameObject.tag == "Good" || other.gameObject.tag == "Bad" || other.gameObject.tag == "Water"))
-        {
-            Physics.IgnoreCollision(other.gameObject.GetComponent<CapsuleCollider>(), GetComponent<CapsuleCollider>());
-            Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), GetComponent<CapsuleCollider>());
         }
 
         // Ends the game if you reach your home and have more badboi points than good
