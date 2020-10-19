@@ -610,5 +610,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpTime: 1
+  timeTakenDuringLerp: 0.1
   isPlayer: 0

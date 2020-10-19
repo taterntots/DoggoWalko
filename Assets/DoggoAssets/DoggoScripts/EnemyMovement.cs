@@ -77,20 +77,21 @@ public class EnemyMovement : MonoBehaviour
 
             if (pos2.x > 0)
             {
+                // Set the angles for rotation and begin the lerp
                 gameObject.GetComponent<RotateSprite2>().PlayerRotator(180);
+                gameObject.GetComponent<RotateSprite2>().StartLerping();
             }
             else if (pos2.x < 0)
             {
+                // Set the angles for rotation and begin the lerp
                 gameObject.GetComponent<RotateSprite2>().PlayerRotator(0);
+                gameObject.GetComponent<RotateSprite2>().StartLerping();
             }
         }
         else
         {
             // Otherwise, simply move the enemy in a straight line towards the player at a given speed
             transform.Translate(Vector3.back * speed * Time.deltaTime, Space.Self);
-
-            // Should make enemies look at the camera, but just turns them upside down and immobile
-            //transform.LookAt(Camera.main.transform.position, -Vector3.up);
         }
 
         // If the enemy/obstacle has twirling toggled on
@@ -120,12 +121,15 @@ public class EnemyMovement : MonoBehaviour
         // Allows enemies to move from left to right on collision with walls within the confines of the gameplay area (stay on sidewalk)
         if (leftAndRight && collision.gameObject.tag == "BuildingCollider")
         {
+            // Set the angles for rotation and begin the lerp
             gameObject.GetComponent<RotateSprite2>().PlayerRotator(-180);
-
+            gameObject.GetComponent<RotateSprite2>().StartLerping();
         }
         else if (leftAndRight && collision.gameObject.tag == "StreetCollider")
         {
+            // Set the angles for rotation and begin the lerp
             gameObject.GetComponent<RotateSprite2>().PlayerRotator(0);
+            gameObject.GetComponent<RotateSprite2>().StartLerping();
         }
     }
 

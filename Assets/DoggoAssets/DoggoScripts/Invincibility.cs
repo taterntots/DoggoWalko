@@ -5,8 +5,8 @@ using UnityEngine;
 public class Invincibility : MonoBehaviour
 {
     private int ballCount = 0;
-    public int triggerSuper = 10;
-    public int superTime = 10;
+    public int triggerSuper;
+    public int superTime;
     private int leftOrRight = 1;
 
     public static bool isSuper = false;
@@ -16,13 +16,12 @@ public class Invincibility : MonoBehaviour
 
     [Range(0.0f, 1.0f)] public float bonkVolume;
 
-    private DoggoBehavior doggoBehaviorRef;
+    public DoggoBehavior doggoBehaviorRef;
     private ObstacleSpawner tennisObstacleSpawnerRef;
 
     // Start is called before the first frame update
     void Start()
     {
-        doggoBehaviorRef = GameObject.FindWithTag("Player").GetComponent<DoggoBehavior>();
         tennisObstacleSpawnerRef = GameObject.FindWithTag("ObstacleSpawnerTennisBall").GetComponent<ObstacleSpawner>();
 
         // Resets ballCount on new game
@@ -34,7 +33,7 @@ public class Invincibility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     void OnCollisionEnter(Collision other)
@@ -46,6 +45,8 @@ public class Invincibility : MonoBehaviour
             ballCount += 1;
             // Destroy the ball
             Destroy(other.gameObject);
+            // Plays a little soundclip
+            audioSource.PlayOneShot(doggoBehaviorRef.fetchSound, doggoBehaviorRef.goodSoundVolume);
 
             // If the number of balls caught reachers our trigger number, active the super bool and reset ball count
             if (ballCount == triggerSuper)
@@ -145,7 +146,7 @@ public class Invincibility : MonoBehaviour
             DoggoBehavior.isAnimating = false;
 
         }
-        
+
         // As long as the doggo is supered up
         while (isSuper == true)
         {

@@ -4,66 +4,71 @@ using UnityEngine;
 
 public class RotateSprite2 : MonoBehaviour
 {
-    // Time taken to complete a full rotation
-    [SerializeField] private float lerpTime = 0.5f;
-
-    private bool isFlippingSprite;
-    private float currentLerpTime;
+    // Time taken to complete a full rotation during lerp
+    [SerializeField] private float timeTakenDuringLerp = 0.3f;
+    // The angle at which we want to reposition our sprite on rotate
     private int angle;
-
+    // Bool to determine if we have completed a full sprite flip
+    private bool isFlippingSprite;
+    // The start and finish positions for our rotation
+    private Quaternion currentRotation;
+    private Quaternion targetRotation;
+    // The Time.deltaTime value when we started the interpolation
+    private float timeStartedLerping;
+    // Determines whether the lerp should apply to the player or other objects
     public bool isPlayer;
-
-    void Start()
-    {
-
-    }
-
+    
     private void Update()
     {
-        // Keeps doggo rotating on key press without interruption via lerping
-        if (isFlippingSprite)
+        // Determines the degrees of rotation based on key pressed (triggers even when animating with an object)
+        if (isPlayer && (DoggoBehavior.isAnimating == false || DoggoBehavior.isAnimating == true))
         {
-            // Increment timer once per frame
-            currentLerpTime += Time.deltaTime;
-            if (currentLerpTime > lerpTime)
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                currentLerpTime = lerpTime;
+                PlayerRotator(-180);
+                StartLerping();
             }
-
-            // It's lerping time!
-            float perc = currentLerpTime / lerpTime;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, angle, transform.rotation.z), perc);
-
-            // Lerp complete
-            if (perc >= 1)
-                isFlippingSprite = false;
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                PlayerRotator(0);
+                StartLerping();
+            }
         }
     }
 
     void FixedUpdate()
     {
-        // Determines the degrees of rotation based on key pressed (triggers weven when animating with an object)
-        if (isPlayer && (DoggoBehavior.isAnimating == false || DoggoBehavior.isAnimating == true))
+        // Keeps doggo rotating on key press without interruption via lerping
+        if (isFlippingSprite)
         {
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            // Helps us determine the percentage of timeTakenDuringLerp
+            float timeSinceStarted = Time.time - timeStartedLerping;
+            float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
+
+            // Our actual lerp!
+            transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, percentageComplete);
+
+            // Lerp complete if percentage gets to 100
+            if (percentageComplete >= 1.0f)
             {
-                PlayerRotator(-180);
-            }
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                PlayerRotator(0);
+                isFlippingSprite = false;
             }
         }
+    }
+
+    // Function to begin a lerp and set some variables important to the lerp
+    public void StartLerping()
+    {
+        isFlippingSprite = true;
+        timeStartedLerping = Time.time;
+
+        currentRotation = transform.rotation;
+        targetRotation = Quaternion.Euler(transform.rotation.x, angle, transform.rotation.z);
     }
 
     // Function to determine the degrees rotated and activate lerping
     public void PlayerRotator(int a)
     {
-        if (!isFlippingSprite || currentLerpTime > (lerpTime / 2))
-        {
-            angle = a;
-            isFlippingSprite = true;
-            currentLerpTime = 0;
-        }
+        angle = a;
     }
 }

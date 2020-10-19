@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class RotateSprite : MonoBehaviour
 {
+    /*
     public float rotationSpeed = 0.5f;
     public bool isSpriteFlipped = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
 
     // Possible solution that doesn't work great
     IEnumerator RotateMe(Vector3 byAngles, float inTime)
@@ -62,7 +57,52 @@ public class RotateSprite : MonoBehaviour
         else if (Input.GetKey(KeyCode.A))
         {
             // transform.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * rotationSpeed);           
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * rotationSpeed);
+        }
+    }
+    */
+
+    private float timeToRotate = 0.5f;
+    private bool isFacingLeft = false;
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.A) && isFacingLeft == false)
+        {
+            //transform.localRotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z);
+            StartCoroutine("RotatorLeft");
+        }
+        else if (Input.GetKey(KeyCode.D) && isFacingLeft)
+        {
+            StartCoroutine("RotatorRight");
+        }
+    }
+
+    IEnumerator RotatorLeft()
+    {
+        Vector3 movementDirection = -Vector3.right;
+        //Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
+        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, -transform.right);
+        Quaternion currentRotation = transform.localRotation;
+        for (float i = 0; i < 1.0f; i += Time.deltaTime / timeToRotate)
+        {
+            transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, i);
+            isFacingLeft = true;
+            yield return null;
+        }
+    }
+
+    IEnumerator RotatorRight()
+    {
+        Vector3 movementDirection = -Vector3.right;
+        //Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
+        Quaternion targetRotation = Quaternion.FromToRotation(-Vector3.right, transform.right);
+        Quaternion currentRotation = transform.localRotation;
+        for (float i = 0; i < 1.0f; i += Time.deltaTime / timeToRotate)
+        {
+            transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, i);
+            isFacingLeft = false;
+            yield return null;
         }
     }
 }

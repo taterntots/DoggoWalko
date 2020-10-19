@@ -13,8 +13,6 @@ public class PetDog : MonoBehaviour
         doggoBehaviorRef = GameObject.FindWithTag("Player").GetComponent<DoggoBehavior>();
         // Makes sure hearts are turned off at start
         HeartsOff();
-        // Turn off all sprites for dog animations
-        doggoBehaviorRef.TurnOffDoggoSprites();
         // Turn on regular Dog Sprite
         gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
@@ -28,37 +26,41 @@ public class PetDog : MonoBehaviour
     // Coroutine that swaps the dog sprite to the fetching animation
     public IEnumerator PetDoggoz()
     {
-        // Turn off all sprites for dog animations
-        doggoBehaviorRef.TurnOffDoggoSprites();
         // Turn on heart sprites
         HeartsOn();
-        // Turn on Pet Dog Sprite
-        gameObject.transform.Find("DoggoPetParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.Find("DoggoPetParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
 
         // Wait for a given amount of time
         yield return new WaitForSeconds(3);
 
-        // Turn off all sprites for dog animations
-        doggoBehaviorRef.TurnOffDoggoSprites();
-        // Return Dog Sprite to normal
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        // Turn off heart sprites
+        HeartsOff();
     }
 
     // Function that turns off the heart sprites
     void HeartsOff()
     {
+        // Turn off hearts
         gameObject.transform.Find("HeartParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("HeartParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.Find("HeartParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        // Return Dog Sprite to normal
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoPetParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoPetParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Function that turns on the heart sprites
     void HeartsOn()
     {
+        // Turn on hearts
         gameObject.transform.Find("HeartParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.Find("HeartParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.Find("HeartParent").GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+        // Turn on Pet Dog Sprite
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.Find("DoggoPetParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoPetParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
     }
 }

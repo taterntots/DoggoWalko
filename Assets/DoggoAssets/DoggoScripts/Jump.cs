@@ -7,25 +7,24 @@ public class Jump : MonoBehaviour
     public float jumpForce;
     public bool isGrounded;
 
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2.0f;
+    public float fallMultiplier;
+    public float lowJumpMultiplier;
 
     public bool isObstacle;
     public bool isPlayer;
-    public float animationDelay = 0.5f;
+    public float animationDelay;
 
     public AudioSource audioSource;
     public AudioClip jumpSound;
     [Range(0.0f, 1.0f)] public float jumpSoundVolume;
 
     Rigidbody Rb;
-    private DoggoBehavior doggoBehaviorRef;
+    public DoggoBehavior doggoBehaviorRef;
 
     void Start()
     {
         // Assigns some components and references to variables
         Rb = GetComponent<Rigidbody>();
-        doggoBehaviorRef = GameObject.FindWithTag("Player").GetComponent<DoggoBehavior>();
     }
 
     // Keeps grounded true when on the ground / sidewalk (for jumping)
@@ -36,7 +35,7 @@ public class Jump : MonoBehaviour
             isGrounded = true;
         }
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -87,7 +86,7 @@ public class Jump : MonoBehaviour
             GameObject.Find("DoggoJumpSprite").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("DoggoJumpFlipSprite").GetComponent<SpriteRenderer>().enabled = true;
         }
-       
+
         // As long as the dog is animating
         while (DoggoBehavior.isAnimating == true)
         {

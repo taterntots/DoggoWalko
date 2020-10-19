@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4435620558597560004, guid: 3f63ebe468bc05c4eac6a1abf2e11ea8,
+  m_Sprite: {fileID: -738212068556046968, guid: 3f63ebe468bc05c4eac6a1abf2e11ea8,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -391,7 +391,7 @@ SpriteRenderer:
   m_SortingLayerID: -1460790369
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4390230612056575741, guid: 6786c4e28df6c914680136edd1792c0f,
+  m_Sprite: {fileID: 1649331642141098275, guid: 6786c4e28df6c914680136edd1792c0f,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 5808541893045780786}
   - component: {fileID: 7466562922212824296}
   m_Layer: 0
-  m_Name: RatBoi
+  m_Name: Ratboi
   m_TagString: Bad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

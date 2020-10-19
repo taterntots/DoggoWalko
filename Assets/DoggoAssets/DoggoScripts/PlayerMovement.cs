@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private DoggoBehavior doggoBehaviorRef;
 
 
-    public float doggoSpeed;
-    public float doggoAutoSpeed = 1.0f;
+    public static float doggoSpeed = 2.5f;
+    public static float doggoAutoSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +17,6 @@ public class PlayerMovement : MonoBehaviour
         // Define some components / grab references
         doggoRb = GetComponent<Rigidbody>();
         doggoBehaviorRef = GameObject.FindWithTag("Player").GetComponent<DoggoBehavior>();
-
-        // Turn off all sprites for dog animations
-        doggoBehaviorRef.TurnOffDoggoSprites();
-        // Turn on Regular Dog Sprites
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
     }
 
     // Update is called once per frame
@@ -34,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ControlDoggo()
     {
-        // Moves the doggo at a constant pace alongside the camera (currently breaks leash physics)
+        // Moves the doggo at a constant pace alongside the camera
         transform.Translate(Vector3.forward * doggoAutoSpeed * Time.fixedDeltaTime, Space.Self);
 
         // Controls for moving the dog
@@ -94,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-      
+
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += transform.right * doggoSpeed * Time.deltaTime;

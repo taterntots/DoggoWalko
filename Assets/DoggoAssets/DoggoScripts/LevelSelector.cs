@@ -5,7 +5,6 @@ using UnityEngine;
 public class LevelSelector : MonoBehaviour
 {
     private MoveCamera moveCameraRef;
-    private PlayerMovement playerMovementRef;
     private LevelSpawner levelSpawnerRef;
     private ObstacleSpawner obstacleSpawnerEnemyRef;
 
@@ -16,8 +15,6 @@ public class LevelSelector : MonoBehaviour
     {
         // Grabs reference to the MoveCamera script
         moveCameraRef = GameObject.FindWithTag("MainCamera").GetComponent<MoveCamera>();
-        // Grabs reference to the PlayerMovement script
-        playerMovementRef = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         // Grabs reference to the LevelSpawner script
         levelSpawnerRef = GameObject.FindWithTag("GameController").GetComponent<LevelSpawner>();
         // Grabs reference to the ObstacleSpawnerEnemy script component
@@ -35,7 +32,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 1.0f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 1.0f;
+                PlayerMovement.doggoAutoSpeed = 1.0f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 2.5f;
                 obstacleSpawnerEnemyRef.minTime = 1.5f;
@@ -49,7 +46,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 1.5f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 1.5f;
+                PlayerMovement.doggoAutoSpeed = 1.5f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 2.0f;
                 obstacleSpawnerEnemyRef.minTime = 1.0f;
@@ -63,7 +60,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 2.0f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 2.0f;
+                PlayerMovement.doggoAutoSpeed = 2.0f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 1.5f;
                 obstacleSpawnerEnemyRef.minTime = 1.0f;
@@ -77,7 +74,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 2.5f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 2.5f;
+                PlayerMovement.doggoAutoSpeed = 2.5f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 1.5f;
                 obstacleSpawnerEnemyRef.minTime = 1.0f;
@@ -91,7 +88,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 3.0f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 3.0f;
+                PlayerMovement.doggoAutoSpeed = 3.0f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.8f;
                 obstacleSpawnerEnemyRef.minTime = 1.2f;
@@ -105,7 +102,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 3.5f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 3.5f;
+                PlayerMovement.doggoAutoSpeed = 3.5f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.7f;
                 obstacleSpawnerEnemyRef.minTime = 1.1f;
@@ -119,7 +116,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 4.0f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 4.0f;
+                PlayerMovement.doggoAutoSpeed = 4.0f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.6f;
                 obstacleSpawnerEnemyRef.minTime = 1.0f;
@@ -133,7 +130,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 4.5f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 4.5f;
+                PlayerMovement.doggoAutoSpeed = 4.5f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.5f;
                 obstacleSpawnerEnemyRef.minTime = 0.8f;
@@ -147,7 +144,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 5.0f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 5.0f;
+                PlayerMovement.doggoAutoSpeed = 5.0f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.5f;
                 obstacleSpawnerEnemyRef.minTime = 0.8f;
@@ -161,7 +158,7 @@ public class LevelSelector : MonoBehaviour
                 // Makes the walker (aka the game) move faster
                 moveCameraRef.cameraSpeed = 5.5f;
                 // Makes the dog walk faster to match the cameraspeed
-                playerMovementRef.doggoAutoSpeed = 5.5f;
+                PlayerMovement.doggoAutoSpeed = 5.5f;
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.5f;
                 obstacleSpawnerEnemyRef.minTime = 0.8f;

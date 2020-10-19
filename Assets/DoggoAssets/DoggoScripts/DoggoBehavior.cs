@@ -11,7 +11,6 @@ public class DoggoBehavior : MonoBehaviour
     private GameOver gameOverRef;
     private LevelSpawner levelSpawnerRef;
     private MoveCamera moveCameraRef;
-    private PlayerMovement playerMovementRef;
     private ObstacleSpawner obstacleSpawnerEnemyRef;
     private ObstacleSpawner obstacleSpawnerTennisBallRef;
     private LevelSelector levelSelectorRef;
@@ -29,13 +28,23 @@ public class DoggoBehavior : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip goodSound;
     public AudioClip badSound;
+    public AudioClip barkSound;
+    public AudioClip eatSound;
+    public AudioClip splashSound;
+    public AudioClip fightSound;
+    public AudioClip deadSound;
+    public AudioClip businessSound;
+    public AudioClip peeingSound;
+    public AudioClip fetchSound;
+    public AudioClip walkerGrumbleSound;
+    public AudioClip walkerPraiseSound;
 
     private float groundedX;
     private float groundedY;
     private float groundedZ;
 
-    [Range(0.0f, 1.0f)] public float goodSoundVolume;
-    [Range(0.0f, 1.0f)] public float badSoundVolume;
+    [Range(0.0f, 3.0f)] public float goodSoundVolume;
+    [Range(0.0f, 3.0f)] public float badSoundVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +55,6 @@ public class DoggoBehavior : MonoBehaviour
         levelSpawnerRef = GameObject.FindWithTag("GameController").GetComponent<LevelSpawner>();
         // Grabs reference to the MoveCamera script
         moveCameraRef = GameObject.FindWithTag("MainCamera").GetComponent<MoveCamera>();
-        // Grabs reference to the PlayerMovement script
-        playerMovementRef = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         // Grabs reference to the ObstacleSpawnerEnemy script component
         obstacleSpawnerEnemyRef = GameObject.FindWithTag("ObstacleSpawnerEnemy").GetComponent<ObstacleSpawner>();
         // Grabs reference to the ObstacleSpawnerTennisBall script component
@@ -55,13 +62,19 @@ public class DoggoBehavior : MonoBehaviour
         // Grabs reference to the level int in the LevelSelector script
         levelSelectorRef = GameObject.FindWithTag("GameController").GetComponent<LevelSelector>();
 
+        // Turn off all sprites for dog animations
+        TurnOffDoggoSprites();
+        // Turn on Regular Dog Sprites
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.transform.Find("DoggoSpriteParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+
         // Keeps the "good" and "bad boi" animations from triggering at game start (essentially hides them)
         WalkerTextOff();
         // Keeps dog from wigging out if restarted after crossing finish line and doggo was mid animation
         noJump = false;
         isColliding = false;
         isAnimating = false;
-}
+    }
 
     void OnCollisionEnter(Collision other)
     {
@@ -73,6 +86,7 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo fighting animation coroutine
                 StartCoroutine("DoggoFighting");
+                audioSource.PlayOneShot(fightSound, badSoundVolume);
                 Destroy(other.gameObject);
             }
             // If the doggo collides with a Kitty
@@ -80,18 +94,21 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo barking animation coroutine
                 StartCoroutine("DoggoBarking");
+                audioSource.PlayOneShot(barkSound, badSoundVolume);
             }
             // If the doggo collides with a ChocoBoi
             if (other.gameObject.name == "ChocoBoi(Clone)")
             {
                 // Triggers doggo eating animation coroutine
                 StartCoroutine("DoggoEating");
+                audioSource.PlayOneShot(eatSound, badSoundVolume);
             }
             // If the doggo collides with a MailMan
             if (other.gameObject.name == "MailMan(Clone)")
             {
                 // Triggers doggo barking animation coroutine
                 StartCoroutine("DoggoBarking");
+                audioSource.PlayOneShot(barkSound, badSoundVolume);
             }
             // If the doggo collides with a Car
             if (
@@ -106,8 +123,8 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo dying animation coroutine
                 StartCoroutine("DoggoDead");
+                audioSource.PlayOneShot(deadSound, badSoundVolume);
             }
-
             // Swap sprites for enemy to the appropriate animation
             other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
             other.gameObject.transform.GetChild(1).gameObject.SetActive(true);
@@ -121,9 +138,6 @@ public class DoggoBehavior : MonoBehaviour
             // Turns off jump sprites (if collided while jumping)
             gameObject.transform.Find("DoggoJumpParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.Find("DoggoJumpParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
-
-            // Plays the a little soundclip
-            audioSource.PlayOneShot(badSound, badSoundVolume);
 
             // Increase Bad Boi Points by one
             ScoreHolder.badBoiPoints++;
@@ -169,12 +183,14 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo peeing animation coroutine
                 StartCoroutine("DoggoPeeing");
+                audioSource.PlayOneShot(peeingSound, goodSoundVolume);
             }
 
             if (other.gameObject.name == "Tree(Clone)")
             {
                 // Triggers doggo plopping animation coroutine
                 StartCoroutine("DoggoBusiness");
+                audioSource.PlayOneShot(businessSound, goodSoundVolume);
             }
 
             // Turns the box collider off to prevent multiple collisions
@@ -185,7 +201,7 @@ public class DoggoBehavior : MonoBehaviour
             Destroy(other.gameObject, 8);
 
             // Plays a little soundclip
-            audioSource.PlayOneShot(goodSound, goodSoundVolume);
+            //audioSource.PlayOneShot(goodSound, goodSoundVolume);
 
             // Increase Good Boi Points by one
             ScoreHolder.goodBoiPoints++;
@@ -215,7 +231,7 @@ public class DoggoBehavior : MonoBehaviour
             // Destroys the box coliders so you can't trigger more than one (used multiple for shaping)
             Destroy(other.gameObject);
             // Plays the a little soundclip
-            audioSource.PlayOneShot(badSound, badSoundVolume);
+            audioSource.PlayOneShot(splashSound, badSoundVolume);
             // Increase Bad Boi Points by one
             ScoreHolder.badBoiPoints++;
             // Lower the walker's attitude only if it's greater than -3 (health, essentially)
@@ -272,7 +288,6 @@ public class DoggoBehavior : MonoBehaviour
         isTakingDamage = true;
         // Turn off all sprites
         TurnOffDoggoSprites();
-
         // Turn on Fighting Sprite
         gameObject.transform.Find("DoggoFightingParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         gameObject.transform.Find("DoggoFightingParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
@@ -369,7 +384,7 @@ public class DoggoBehavior : MonoBehaviour
         }
     }
 
-    // Coroutine that swaps the dog sprite to the dead animation
+    // Coroutine that swaps the dog sprite to the dead animationw
     IEnumerator DoggoDead()
     {
         // Set isAnimating bool to true
@@ -379,8 +394,8 @@ public class DoggoBehavior : MonoBehaviour
         // Set isTakingDamage bool to true to prevent more than one enemy giving damage while taking a hit
         isTakingDamage = true;
         // Stop Doggo from being able to move
-        playerMovementRef.doggoSpeed = 0;
-        gameObject.transform.Find("DoggoDeadParent").transform.GetComponent<RotateSprite2>().enabled = false;
+        PlayerMovement.doggoSpeed = 0;
+        //gameObject.transform.Find("DoggoDeadParent").transform.GetComponent<RotateSprite2>().enabled = false;
         // Turn off all sprites
         TurnOffDoggoSprites();
         // Turn on Dying Sprite
@@ -395,7 +410,7 @@ public class DoggoBehavior : MonoBehaviour
             // Wait for a given amount of time before changing doggo sprite
             yield return new WaitForSeconds(2.5f);
             // Get Doggo moving again
-            playerMovementRef.doggoSpeed = 2.5f;
+            PlayerMovement.doggoSpeed = 2.5f;
             gameObject.transform.Find("DoggoDeadParent").transform.GetComponent<RotateSprite2>().enabled = true;
             // Turn off all sprites
             TurnOffDoggoSprites();
@@ -552,7 +567,7 @@ public class DoggoBehavior : MonoBehaviour
             // Swap sprites for the fetching doggo animation
             gameObject.transform.Find("DoggoFetchParent").GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             gameObject.transform.Find("DoggoFetchParent").GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-        
+
             // As long as the dog is animating
             while (isAnimating == true)
             {
