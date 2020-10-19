@@ -8,6 +8,7 @@ public class Invincibility : MonoBehaviour
     public int triggerSuper;
     public int superTime;
     private int leftOrRight = 1;
+    public static float superSpeed = 2f;
 
     public static bool isSuper = false;
 
@@ -22,18 +23,13 @@ public class Invincibility : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Grab ball spawner script for reference
         tennisObstacleSpawnerRef = GameObject.FindWithTag("ObstacleSpawnerTennisBall").GetComponent<ObstacleSpawner>();
 
         // Resets ballCount on new game
         ballCount = 0;
         // Makes sure doggo isn't super on restart
         isSuper = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void OnCollisionEnter(Collision other)

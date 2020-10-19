@@ -7,6 +7,7 @@ public class LevelSelector : MonoBehaviour
     private MoveCamera moveCameraRef;
     private LevelSpawner levelSpawnerRef;
     private ObstacleSpawner obstacleSpawnerEnemyRef;
+    private Invincibility invincibilityRef;
 
     [Range(1, 10)] public int level;
 
@@ -19,6 +20,8 @@ public class LevelSelector : MonoBehaviour
         levelSpawnerRef = GameObject.FindWithTag("GameController").GetComponent<LevelSpawner>();
         // Grabs reference to the ObstacleSpawnerEnemy script component
         obstacleSpawnerEnemyRef = GameObject.FindWithTag("ObstacleSpawnerEnemy").GetComponent<ObstacleSpawner>();
+        // Grabs reference to the Invincibility script component
+        invincibilityRef = GameObject.FindWithTag("Player").GetComponent<Invincibility>();
     }
 
     // Update is called once per frame
@@ -29,10 +32,21 @@ public class LevelSelector : MonoBehaviour
         {
             if (level == 1)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 1.0f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 1.0f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 1.0f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 1.0f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 1.0f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 1.0f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 2.5f;
                 obstacleSpawnerEnemyRef.minTime = 1.5f;
@@ -43,10 +57,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level == 2)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 1.5f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 1.5f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 1.5f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 1.5f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 1.5f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 1.5f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 2.0f;
                 obstacleSpawnerEnemyRef.minTime = 1.0f;
@@ -57,10 +82,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level == 3)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 2.0f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 2.0f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 2.0f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 2.0f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 2.0f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 2.0f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 1.5f;
                 obstacleSpawnerEnemyRef.minTime = 1.0f;
@@ -71,10 +107,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level == 4)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 2.5f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 2.5f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 2.5f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 2.5f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 2.5f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 2.5f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 1.5f;
                 obstacleSpawnerEnemyRef.minTime = 1.0f;
@@ -85,10 +132,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level == 5)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 3.0f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 3.0f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 3.0f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 3.0f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 3.0f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 3.0f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.8f;
                 obstacleSpawnerEnemyRef.minTime = 1.2f;
@@ -99,10 +157,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level == 6)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 3.5f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 3.5f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 3.5f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 3.5f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 3.5f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 3.5f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.7f;
                 obstacleSpawnerEnemyRef.minTime = 1.1f;
@@ -113,10 +182,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level == 7)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 4.0f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 4.0f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 4.0f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 4.0f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 4.0f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 4.0f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.6f;
                 obstacleSpawnerEnemyRef.minTime = 1.0f;
@@ -127,10 +207,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level == 8)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 4.5f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 4.5f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 4.5f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 4.5f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 4.5f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 4.5f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.5f;
                 obstacleSpawnerEnemyRef.minTime = 0.8f;
@@ -141,10 +232,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level == 9)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 5.0f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 5.0f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 5.0f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 5.0f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 5.0f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 5.0f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.5f;
                 obstacleSpawnerEnemyRef.minTime = 0.8f;
@@ -155,10 +257,21 @@ public class LevelSelector : MonoBehaviour
             }
             else if (level >= 10)
             {
-                // Makes the walker (aka the game) move faster
-                moveCameraRef.cameraSpeed = 5.5f;
-                // Makes the dog walk faster to match the cameraspeed
-                PlayerMovement.doggoAutoSpeed = 5.5f;
+                // Speeds up doggo if suped up
+                if (Invincibility.isSuper == true)
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 5.5f + Invincibility.superSpeed;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 5.5f + Invincibility.superSpeed;
+                }
+                else
+                {
+                    // Makes the walker (aka the game) move faster
+                    moveCameraRef.cameraSpeed = 5.5f;
+                    // Makes the dog walk faster to match the cameraspeed
+                    PlayerMovement.doggoAutoSpeed = 5.5f;
+                }
                 // Makes enemies spawn more frequently
                 obstacleSpawnerEnemyRef.maxTime = 0.5f;
                 obstacleSpawnerEnemyRef.minTime = 0.8f;

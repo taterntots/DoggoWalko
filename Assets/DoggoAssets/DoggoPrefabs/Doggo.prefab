@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &5460076260875252
 GameObject:
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &5460076543176346
 GameObject:
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &5460076556601822
 GameObject:
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &5460076829230680
 GameObject:
@@ -1500,7 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &5460077042977680
 GameObject:
@@ -2757,7 +2757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &5460077806082882
 GameObject:
@@ -3251,7 +3251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &5460078064379361
 GameObject:
@@ -3419,7 +3419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &394172188666864407
 GameObject:
@@ -3803,7 +3803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &982663334266824432
 GameObject:
@@ -4295,7 +4295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &3911007385584481755
 GameObject:
@@ -4887,6 +4887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ccaec8021e39144bc817deefb1a3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doggoSpeed: 2.5
 --- !u!114 &7776009328339683858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4901,6 +4902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerSuper: 1
   superTime: 12
+  superSpeed: 2
   audioSource: {fileID: 5460077191605888}
   bonkSound: {fileID: 8300000, guid: bae93bd4c7cf4e043b846461bcb57e01, type: 3}
   bonkVolume: 1
@@ -5109,7 +5111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &7962504205040398831
 GameObject:
@@ -5277,7 +5279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3beb8a13bf3e4eac152362a3e947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 0.3
+  timeTakenDuringLerp: 0.2
   isPlayer: 1
 --- !u!1 &8805877811334592921
 GameObject:
