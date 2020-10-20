@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody doggoRb;
     private DoggoBehavior doggoBehaviorRef;
 
-    public float doggoSpeed = 2.5f;
+    public static float doggoSpeed = 2.5f;
     public static float doggoAutoSpeed;
 
     // Start is called before the first frame update

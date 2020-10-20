@@ -42,7 +42,6 @@ public class Jump : MonoBehaviour
         // If it's an obstacle (like the ball) or enemy, auto jump the moment the object touches the ground
         if (isObstacle && isGrounded)
         {
-            //isGrounded = false; // Important to be considered grounded when touching walls
             Rb.velocity = Vector3.up * jumpForce;
         }
 

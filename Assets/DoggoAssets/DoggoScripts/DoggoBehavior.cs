@@ -14,7 +14,6 @@ public class DoggoBehavior : MonoBehaviour
     private ObstacleSpawner obstacleSpawnerEnemyRef;
     private ObstacleSpawner obstacleSpawnerTennisBallRef;
     private LevelSelector levelSelectorRef;
-    private PlayerMovement playerMovementRef;
 
     public GameObject ratBoiBeat;
 
@@ -62,8 +61,6 @@ public class DoggoBehavior : MonoBehaviour
         obstacleSpawnerTennisBallRef = GameObject.FindWithTag("ObstacleSpawnerTennisBall").GetComponent<ObstacleSpawner>();
         // Grabs reference to the level int in the LevelSelector script
         levelSelectorRef = GameObject.FindWithTag("GameController").GetComponent<LevelSelector>();
-        // Grabs reference to the level int in the PlayerMovement script
-        playerMovementRef = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
 
         // Turn off all sprites for dog animations
         TurnOffDoggoSprites();
@@ -397,7 +394,7 @@ public class DoggoBehavior : MonoBehaviour
         // Set isTakingDamage bool to true to prevent more than one enemy giving damage while taking a hit
         isTakingDamage = true;
         // Stop Doggo from being able to move
-        playerMovementRef.doggoSpeed = 0;
+        PlayerMovement.doggoSpeed = 0;
         //gameObject.transform.Find("DoggoDeadParent").transform.GetComponent<RotateSprite2>().enabled = false;
         // Turn off all sprites
         TurnOffDoggoSprites();
@@ -413,7 +410,7 @@ public class DoggoBehavior : MonoBehaviour
             // Wait for a given amount of time before changing doggo sprite
             yield return new WaitForSeconds(2.5f);
             // Get Doggo moving again
-            playerMovementRef.doggoSpeed = 2.5f;
+            PlayerMovement.doggoSpeed = 2.5f;
             gameObject.transform.Find("DoggoDeadParent").transform.GetComponent<RotateSprite2>().enabled = true;
             // Turn off all sprites
             TurnOffDoggoSprites();
