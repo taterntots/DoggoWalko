@@ -36,6 +36,8 @@ public class GameOver : MonoBehaviour
         gameOverCanvas.SetActive(true);
         // Destroy the doggo so the player can't move anymore
         Destroy(GameObject.FindWithTag("Player"));
+        // Unpauses main game music (if doggo was invulnerable, since it gets destroyed with music)
+        GameObject.Find("GameMusic").GetComponent<AudioSource>().UnPause();
         // Hide the Dog Walker from the background
         GameObject.Find("DogWalkerParent").SetActive(false);
         // Hide the Walker Text from the background

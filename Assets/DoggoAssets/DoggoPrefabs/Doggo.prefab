@@ -4861,18 +4861,16 @@ MonoBehaviour:
   ratBoiBeat: {fileID: 4348981374684559002, guid: 94b076dd5c9579043900dd208ab45820,
     type: 3}
   audioSource: {fileID: 5460077191605888}
-  goodSound: {fileID: 8300000, guid: 3f33676c236271a4d8aad3781ac1c4a3, type: 3}
-  badSound: {fileID: 8300000, guid: 5ecc48d54c2d61948b4c0aa4c1b8ce67, type: 3}
-  barkSound: {fileID: 0}
-  eatSound: {fileID: 0}
-  splashSound: {fileID: 0}
-  fightSound: {fileID: 8300000, guid: bae93bd4c7cf4e043b846461bcb57e01, type: 3}
-  deadSound: {fileID: 0}
-  businessSound: {fileID: 0}
-  peeingSound: {fileID: 0}
-  fetchSound: {fileID: 0}
-  walkerGrumbleSound: {fileID: 0}
-  walkerPraiseSound: {fileID: 0}
+  barkSounds:
+  - {fileID: 8300000, guid: 25da6dd0730023d499e3ae4741865d53, type: 3}
+  - {fileID: 8300000, guid: 535009a2c43297d4ca36fc931c22da34, type: 3}
+  - {fileID: 8300000, guid: b705fc726496f644f9f174e0410b40d7, type: 3}
+  eatSound: {fileID: 8300000, guid: 49a6dbcb76bc9eb47bb22ad3030a7ade, type: 3}
+  splashSound: {fileID: 8300000, guid: f04193e74bb13d74baba06aa1941d730, type: 3}
+  fightSound: {fileID: 8300000, guid: e6bc678ebf43a1444bfa5c4999b44ea5, type: 3}
+  deadSound: {fileID: 8300000, guid: c758f198e9725484298fb10322cdf2a9, type: 3}
+  businessSound: {fileID: 8300000, guid: c058929de08c8ac4da151477294b6ccc, type: 3}
+  peeingSound: {fileID: 8300000, guid: c058929de08c8ac4da151477294b6ccc, type: 3}
   goodSoundVolume: 0.5
   badSoundVolume: 0.5
 --- !u!114 &7776009328339683866
@@ -4887,7 +4885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ccaec8021e39144bc817deefb1a3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doggoSpeed: 2.5
 --- !u!114 &7776009328339683858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4901,8 +4898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerSuper: 1
-  superTime: 12
-  superSpeed: 2
+  superTime: 12.5
   audioSource: {fileID: 5460077191605888}
   bonkSound: {fileID: 8300000, guid: bae93bd4c7cf4e043b846461bcb57e01, type: 3}
   bonkVolume: 1
@@ -4927,7 +4923,7 @@ MonoBehaviour:
   isPlayer: 1
   animationDelay: 0.5
   audioSource: {fileID: 5460077191605888}
-  jumpSound: {fileID: 8300000, guid: 3f33676c236271a4d8aad3781ac1c4a3, type: 3}
+  jumpSound: {fileID: 8300000, guid: 61a408c887e0c7b478d99518e4bd5e23, type: 3}
   jumpSoundVolume: 1
   doggoBehaviorRef: {fileID: 7776009328339683865}
 --- !u!82 &5460077191605888

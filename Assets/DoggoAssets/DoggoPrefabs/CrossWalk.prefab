@@ -6297,7 +6297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: 7d96a6e75f5bb6c4e980a65800e4e740, type: 2}
+  m_File: {fileID: 0}
   speed: 1
   m_Settings:
     randomizeOnStart: 1
@@ -6354,10 +6354,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4900560543605758299
@@ -8224,7 +8224,9 @@ MonoBehaviour:
   - {fileID: 8789048903189218374, guid: 6dfb652131c22ac4d940b51ea5aa362a, type: 3}
   maxTime: 4
   minTime: 2
+  timer: 0
   isSpawning: 1
+  isEnemySpawner: 0
   spawnerSpeed: 1
 --- !u!95 &7827710355323880675
 Animator:
@@ -9784,7 +9786,9 @@ MonoBehaviour:
   - {fileID: 2715794917996062714, guid: afd459fc562e4724a87e8637e79bb570, type: 3}
   maxTime: 4
   minTime: 2
+  timer: 0
   isSpawning: 1
+  isEnemySpawner: 0
   spawnerSpeed: 1
 --- !u!95 &2414695037000441025
 Animator:
@@ -10659,7 +10663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_States: []
-  m_File: {fileID: 11400000, guid: 7d96a6e75f5bb6c4e980a65800e4e740, type: 2}
+  m_File: {fileID: 0}
   speed: 1
   m_Settings:
     randomizeOnStart: 1
@@ -10716,10 +10720,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &9059423432398767393

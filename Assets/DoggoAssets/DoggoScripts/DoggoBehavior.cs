@@ -26,18 +26,17 @@ public class DoggoBehavior : MonoBehaviour
     public static float animationDelay = 1.2f;
 
     public AudioSource audioSource;
-    public AudioClip goodSound;
-    public AudioClip badSound;
-    public AudioClip barkSound;
+    //public AudioClip goodSound;
+    //public AudioClip badSound;
+    public AudioClip[] barkSounds;
     public AudioClip eatSound;
     public AudioClip splashSound;
     public AudioClip fightSound;
     public AudioClip deadSound;
     public AudioClip businessSound;
     public AudioClip peeingSound;
-    public AudioClip fetchSound;
-    public AudioClip walkerGrumbleSound;
-    public AudioClip walkerPraiseSound;
+    //public AudioClip walkerGrumbleSound;
+    //public AudioClip walkerPraiseSound;
 
     private float groundedX;
     private float groundedY;
@@ -94,7 +93,8 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo barking animation coroutine
                 StartCoroutine("DoggoBarking");
-                audioSource.PlayOneShot(barkSound, badSoundVolume);
+                //audioSource.PlayOneShot(barkSound, badSoundVolume);
+                audioSource.PlayOneShot(barkSounds[Random.Range(0, barkSounds.GetLength(0))], badSoundVolume);
             }
             // If the doggo collides with a ChocoBoi
             if (other.gameObject.name == "ChocoBoi(Clone)")
@@ -108,7 +108,7 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo barking animation coroutine
                 StartCoroutine("DoggoBarking");
-                audioSource.PlayOneShot(barkSound, badSoundVolume);
+                audioSource.PlayOneShot(barkSounds[Random.Range(0, barkSounds.GetLength(0))], badSoundVolume);
             }
             // If the doggo collides with a Car
             if (

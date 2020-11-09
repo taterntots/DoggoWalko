@@ -6,7 +6,7 @@ public class Invincibility : MonoBehaviour
 {
     private int ballCount = 0;
     public int triggerSuper;
-    public int superTime;
+    public float superTime;
     private int leftOrRight = 1;
     public static float superSpeed = 2f;
 
@@ -42,7 +42,7 @@ public class Invincibility : MonoBehaviour
             // Destroy the ball
             Destroy(other.gameObject);
             // Plays a little soundclip
-            audioSource.PlayOneShot(doggoBehaviorRef.fetchSound, doggoBehaviorRef.goodSoundVolume);
+            //audioSource.PlayOneShot(doggoBehaviorRef.fetchSound, doggoBehaviorRef.goodSoundVolume);
 
             // If the number of balls caught reachers our trigger number, active the super bool and reset ball count
             if (ballCount == triggerSuper)

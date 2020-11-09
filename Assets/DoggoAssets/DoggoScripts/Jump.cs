@@ -45,8 +45,8 @@ public class Jump : MonoBehaviour
             Rb.velocity = Vector3.up * jumpForce;
         }
 
-        // Applies force to player jumps when pressing the spacebar or J Key
-        if (isPlayer && (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
+        // Applies force to player jumps when pressing the spacebar
+        if (isPlayer && (Input.GetKeyDown(KeyCode.Space)) && isGrounded && DoggoBehavior.noJump == false)
         {
             StartCoroutine("DoggoJumping"); // Starts animation for jumping
             Rb.AddForce(transform.up * jumpForce * 100);
