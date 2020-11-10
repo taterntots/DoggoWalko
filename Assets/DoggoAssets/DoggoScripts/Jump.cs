@@ -16,7 +16,7 @@ public class Jump : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip jumpSound;
-    [Range(0.0f, 1.0f)] public float jumpSoundVolume;
+    [Range(0.0f, 3.0f)] public float jumpSoundVolume;
 
     Rigidbody Rb;
     public DoggoBehavior doggoBehaviorRef;

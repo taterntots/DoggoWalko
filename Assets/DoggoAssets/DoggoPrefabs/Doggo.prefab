@@ -4863,7 +4863,6 @@ MonoBehaviour:
   audioSource: {fileID: 5460077191605888}
   barkSounds:
   - {fileID: 8300000, guid: 25da6dd0730023d499e3ae4741865d53, type: 3}
-  - {fileID: 8300000, guid: 535009a2c43297d4ca36fc931c22da34, type: 3}
   - {fileID: 8300000, guid: b705fc726496f644f9f174e0410b40d7, type: 3}
   eatSound: {fileID: 8300000, guid: 49a6dbcb76bc9eb47bb22ad3030a7ade, type: 3}
   splashSound: {fileID: 8300000, guid: f04193e74bb13d74baba06aa1941d730, type: 3}
@@ -4871,8 +4870,12 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: c758f198e9725484298fb10322cdf2a9, type: 3}
   businessSound: {fileID: 8300000, guid: c058929de08c8ac4da151477294b6ccc, type: 3}
   peeingSound: {fileID: 8300000, guid: c058929de08c8ac4da151477294b6ccc, type: 3}
-  goodSoundVolume: 0.5
-  badSoundVolume: 0.5
+  goodSoundVolume: 1.6
+  fightingVolume: 1
+  barkingVolume: 0.6
+  whimperVolume: 2
+  eatingVolume: 1
+  splashVolume: 1.8
 --- !u!114 &7776009328339683866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4901,7 +4904,7 @@ MonoBehaviour:
   superTime: 12.5
   audioSource: {fileID: 5460077191605888}
   bonkSound: {fileID: 8300000, guid: bae93bd4c7cf4e043b846461bcb57e01, type: 3}
-  bonkVolume: 1
+  bonkVolume: 2.1
   doggoBehaviorRef: {fileID: 7776009328339683865}
 --- !u!114 &5460077191605891
 MonoBehaviour:
@@ -4924,7 +4927,7 @@ MonoBehaviour:
   animationDelay: 0.5
   audioSource: {fileID: 5460077191605888}
   jumpSound: {fileID: 8300000, guid: 61a408c887e0c7b478d99518e4bd5e23, type: 3}
-  jumpSoundVolume: 1
+  jumpSoundVolume: 1.6
   doggoBehaviorRef: {fileID: 7776009328339683865}
 --- !u!82 &5460077191605888
 AudioSource:

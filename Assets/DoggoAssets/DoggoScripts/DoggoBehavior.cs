@@ -43,7 +43,11 @@ public class DoggoBehavior : MonoBehaviour
     private float groundedZ;
 
     [Range(0.0f, 3.0f)] public float goodSoundVolume;
-    [Range(0.0f, 3.0f)] public float badSoundVolume;
+    [Range(0.0f, 3.0f)] public float fightingVolume;
+    [Range(0.0f, 3.0f)] public float barkingVolume;
+    [Range(0.0f, 3.0f)] public float whimperVolume;
+    [Range(0.0f, 3.0f)] public float eatingVolume;
+    [Range(0.0f, 3.0f)] public float splashVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +89,7 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo fighting animation coroutine
                 StartCoroutine("DoggoFighting");
-                audioSource.PlayOneShot(fightSound, badSoundVolume);
+                audioSource.PlayOneShot(fightSound, fightingVolume);
                 Destroy(other.gameObject);
             }
             // If the doggo collides with a Kitty
@@ -94,21 +98,21 @@ public class DoggoBehavior : MonoBehaviour
                 // Triggers doggo barking animation coroutine
                 StartCoroutine("DoggoBarking");
                 //audioSource.PlayOneShot(barkSound, badSoundVolume);
-                audioSource.PlayOneShot(barkSounds[Random.Range(0, barkSounds.GetLength(0))], badSoundVolume);
+                audioSource.PlayOneShot(barkSounds[Random.Range(0, barkSounds.GetLength(0))], barkingVolume);
             }
             // If the doggo collides with a ChocoBoi
             if (other.gameObject.name == "ChocoBoi(Clone)")
             {
                 // Triggers doggo eating animation coroutine
                 StartCoroutine("DoggoEating");
-                audioSource.PlayOneShot(eatSound, badSoundVolume);
+                audioSource.PlayOneShot(eatSound, eatingVolume);
             }
             // If the doggo collides with a MailMan
             if (other.gameObject.name == "MailMan(Clone)")
             {
                 // Triggers doggo barking animation coroutine
                 StartCoroutine("DoggoBarking");
-                audioSource.PlayOneShot(barkSounds[Random.Range(0, barkSounds.GetLength(0))], badSoundVolume);
+                audioSource.PlayOneShot(barkSounds[Random.Range(0, barkSounds.GetLength(0))], barkingVolume);
             }
             // If the doggo collides with a Car
             if (
@@ -123,7 +127,7 @@ public class DoggoBehavior : MonoBehaviour
             {
                 // Triggers doggo dying animation coroutine
                 StartCoroutine("DoggoDead");
-                audioSource.PlayOneShot(deadSound, badSoundVolume);
+                audioSource.PlayOneShot(deadSound, whimperVolume);
             }
             // Swap sprites for enemy to the appropriate animation
             other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -231,7 +235,7 @@ public class DoggoBehavior : MonoBehaviour
             // Destroys the box coliders so you can't trigger more than one (used multiple for shaping)
             Destroy(other.gameObject);
             // Plays the a little soundclip
-            audioSource.PlayOneShot(splashSound, badSoundVolume);
+            audioSource.PlayOneShot(splashSound, splashVolume);
             // Increase Bad Boi Points by one
             ScoreHolder.badBoiPoints++;
             // Lower the walker's attitude only if it's greater than -3 (health, essentially)

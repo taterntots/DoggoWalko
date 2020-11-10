@@ -15,7 +15,7 @@ public class Invincibility : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip bonkSound;
 
-    [Range(0.0f, 1.0f)] public float bonkVolume;
+    [Range(0.0f, 3.0f)] public float bonkVolume;
 
     public DoggoBehavior doggoBehaviorRef;
     private ObstacleSpawner tennisObstacleSpawnerRef;
