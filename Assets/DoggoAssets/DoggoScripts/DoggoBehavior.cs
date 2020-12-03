@@ -77,6 +77,7 @@ public class DoggoBehavior : MonoBehaviour
         noJump = false;
         isColliding = false;
         isAnimating = false;
+        isTakingDamage = false;
     }
 
     void OnCollisionEnter(Collision other)
