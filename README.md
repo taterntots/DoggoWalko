@@ -1,4 +1,4 @@
 # DoggoWalko
 My first game!
 
-Check out the game in action here: https://www.twitch.tv/videos/465963752
+Play it here: https://tater-n-tots.itch.io/doggowalko
